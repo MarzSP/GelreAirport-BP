@@ -1,20 +1,48 @@
+/* Navigatie balk bovenaan scherm */
+nav {
+    background-color: #000;
+    color: #FFDC00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #FFDC00;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    font-weight: bold; /* Makes the text bold */
+  }
+
+  .shift-right {
+    margin-left: 25px;
+  }
 
 
 
 /* Main CSS styles */
 main {   background-image: url("../Images/achtergrond.png");
     background-size: cover;
-    
-   
-
 }
+
 body {
  
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFDC00;
 }
 
-/* Welkomsttext en logo */
+/* Container 1: Pagina header met welkomsttext en logo */
 .container1 {
     display: flex;
     align-items: center;
@@ -44,6 +72,8 @@ body {
 .logo {
     margin-right: 2px;
 }
+
+/* sub containers in de body van de pagina */
 
 .container2,
 .container3 {
