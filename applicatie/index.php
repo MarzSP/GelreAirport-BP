@@ -1,7 +1,7 @@
-<?php 
+<?php
 require_once 'db_connectie.php';
 $db = maakVerbinding();
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@ $db = maakVerbinding();
     <title>GelreAirport</title>
 </head>
 
-// Navigatie balk
+<!-- Navigatie balk -->
   <nav>
     <ul>
       <li><a href="index.php">Home</a></li>
@@ -26,7 +26,7 @@ $db = maakVerbinding();
   </nav>
 <main>
 <body>
-  // Container: Pagina header(column1), en welkomst text(column2)  -->
+  <!-- Container: Pagina header(column1), en welkomst text(column2) -->
   
     <div class="container1">
       <div class="box">
@@ -45,7 +45,7 @@ $db = maakVerbinding();
       </div>
     </div>
 
-    //Container2 linker box met vluchtinformatie-->
+    <!--Container2 linker box met vluchtinformatie-->
     <div class="container2">
       <div class="left-box">
         <div class="Vlucht-info">
@@ -63,7 +63,7 @@ $db = maakVerbinding();
         </div>
       </div>
     </div>
-// Container3 rechter box met overige informatie -->
+<!-- Container3 rechter box met overige informatie -->
     <div class="container3">
       <div class="right-box">
         <div class="Algemeneinfo">
@@ -87,7 +87,7 @@ $db = maakVerbinding();
 
   
 </body>
-  //Footer -->
+  <!-- Footer -->
   <footer>
     <p> 2024 Marianne Peterson S2136361</p>
   </footer></main>

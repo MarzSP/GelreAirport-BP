@@ -57,7 +57,14 @@ body {
     align-items: left;
     width: 100%;
 }
+.column1 {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Spacing between logo and text */
+}
 
+
+/*
 .column1 {
     display: flex;
 }
@@ -71,7 +78,9 @@ body {
 
 .logo {
     margin-right: 2px;
-}
+} 
+*/
+
 
 /* sub containers in de body van de pagina */
 
