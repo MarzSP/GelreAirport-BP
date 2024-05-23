@@ -38,7 +38,8 @@ $db = maakVerbinding();
       <div class="column2">
         <div class="text">
           <h1>Welkom bij GelreAirport!</h1>
-          <h2>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, zoek aankomende en vertrekkende vluchten, boek nieuwe reizen en nog veel meer. Uw avontuur begint hier - klaar voor vertrek?<h2>
+          <p>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, check online in, zoek aankomende en vertrekkende vluchten en nog veel meer! 
+            <p>Uw avontuur begint hier - klaar voor vertrek?
         </div>
       </div>
     </div>
