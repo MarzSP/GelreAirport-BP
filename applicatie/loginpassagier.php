@@ -36,7 +36,7 @@
 
   <section class="inlog-sectie">
   <div class="inlog-formulier">
-    <h2>Passagier: Login</h2>
+    <h2>Login</h2>
     <form action="login.php" method="post">
       <label for="gebruikersnaam">Gebruikersnaam:</label>
       <input type="text" id="gebruikersnaam" name="gebruikersnaam" required>
