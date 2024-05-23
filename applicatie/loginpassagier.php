@@ -34,6 +34,20 @@
     </div>
   </section>
 
+  <section class="inlog-sectie">
+  <div class="inlog-formulier">
+    <h2>Inloggen Passagier</h2>
+    <form action="login.php" method="post">
+      <label for="gebruikersnaam">Gebruikersnaam:</label>
+      <input type="text" id="gebruikersnaam" name="gebruikersnaam" required>
+
+      <label for="wachtwoord">Wachtwoord:</label>
+      <input type="password" id="wachtwoord" name="wachtwoord" required>
+
+      <button type="submit">Inloggen</button>
+    </form>
+  </div>
+</section>
 
 </main>
 </body>
