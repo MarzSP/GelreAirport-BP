@@ -22,23 +22,19 @@
 
 
   <!-- Pagina vulling -->
-  
-    <div class="container1">
-      <div class="box">
-        <div class="column1">
-          <div class="logo">
-            <img src="Images/logomain.png" alt="GelreAirport Logo" width="200">
-          </div>
-        </div>
-      </div>
-      
-      <div class="column2">
-        <div class="text">
-          <h3>Welkom nij GelreAirport!</h3>
-          <p> Wil je contact met ons opnemen?</p>
-        </div>
-      </div>
+  <section class="pagina-header">
+    <div class="column1">
+            <div class="logo">
+                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
+            </div> 
     </div>
+    <div class="column2">
+     <h1>Welkom bij GelreAirport!</h1>
+        <p> Wilt u contact met ons opnemen?</p>
+    </div>
+  </section>
+
+
 
     <div class="container2">
       <div class="left-box">

@@ -28,21 +28,26 @@ $db = maakVerbinding();
 <body>
   <!-- Container: Pagina header(column1), en welkomst text(column2) -->
   
-    <div class="container1">
-        <div class="column1">
-          <div class="logo">
-            <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
-        </div>
-      </div>
-      
-      <div class="column2">
-        <div class="text">
-          <h1>Welkom bij GelreAirport!</h1>
-          <p>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, check online in, zoek aankomende en vertrekkende vluchten en nog veel meer! 
-            <p>Uw avontuur begint hier - klaar voor vertrek?
-        </div>
-      </div>
+  <section class="pagina-header">
+    <div class="column1">
+            <div class="logo">
+                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
+            </div> 
     </div>
+    <div class="column2">
+     <h1>Welkom bij GelreAirport!</h1>
+        <p>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, check online in, zoek aankomende en vertrekkende vluchten en nog veel meer! 
+        <p>Uw avontuur begint hier - klaar voor vertrek?</p>
+    </div>
+  </section>
+
+  <!-- <section class="welkomst-tekst">
+    <div class="column2">
+     <h1>Welkom bij GelreAirport!</h1>
+        <p>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, check online in, zoek aankomende en vertrekkende vluchten en nog veel meer! 
+        <p>Uw avontuur begint hier - klaar voor vertrek?</p>
+    </div>
+  </section> -->
 
     <!--Container2 linker box met vluchtinformatie-->
     <div class="container2">

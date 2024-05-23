@@ -21,25 +21,22 @@
   </nav>
 
 
-  <!-- Pagina vulling -->
+  <!-- Pagina header -->
   <main>
-    <div class="container1">
-      <div class="box">
-        <div class="column1">
-          <div class="logo">
-            <img src="Images/logomain.png" alt="GelreAirport Logo" width="200">
-          </div>
-        </div>
-      </div>
-      
-      <div class="column2">
-        <div class="text">
-          <h1>Welkom bij check-in van GelreAirport!</h1>
-          <p> Check hier in!</p>
-        </div>
-      </div>
+  <section class="pagina-header">
+    <div class="column1">
+            <div class="logo">
+                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
+            </div> 
     </div>
+    <div class="column2">
+     <h1>Welkom bij GelreAirport!</h1>
+        <p> Hier kunt u inchecken voor uw vlucht! </p>
+    </div>
+  </section>
 
+  <!--Check in onderdelen -->
+  
     </main>
     </body>
     <footer>

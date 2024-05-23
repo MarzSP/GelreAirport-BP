@@ -22,22 +22,18 @@
 
   <!-- Main: pagina informatie voor pagina Nieuwe Vlucht -->
   <main>
-    <div class="container1">
-      <div class="box">
-        <div class="column1">
-          <div class="logo">
-            <img src="../Images/logomain.png" alt="GelreAirport Logo" width="200">
-          </div>
-        </div>
-      </div>
-      
-      <div class="column2">
-        <div class="text">
-          <h1>Welkom bij GelreAirport!</h1>
-          <p> Voer hier een nieuwe vlucht in.</p>
-        </div>
-      </div>
+  <section class="pagina-header">
+    <div class="column1">
+            <div class="logo">
+                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
+            </div> 
     </div>
+    <div class="column2">
+     <h1>Welkom bij GelreAirport!</h1>
+        <p> Voeg een nieuwe vlucht toe </p>
+    </div>
+  </section>
+
 
     <div class="containerNieuweVlucht">
       <div class="left-box">

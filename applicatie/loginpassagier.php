@@ -22,6 +22,19 @@
     </ul>
   </nav>
 
+  <section class="pagina-header">
+    <div class="column1">
+            <div class="logo">
+                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
+            </div> 
+    </div>
+    <div class="column2">
+     <h1>Welkom bij GelreAirport!</h1>
+        <p> Login voor Passagiers </p>
+    </div>
+  </section>
+
+
 </main>
 </body>
 <footer>
