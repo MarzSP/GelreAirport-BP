@@ -36,7 +36,7 @@
 
   <section class="inlog-sectie">
   <div class="inlog-formulier">
-    <h2>Inloggen Passagier</h2>
+    <h2>Passagier: Login</h2>
     <form action="login.php" method="post">
       <label for="gebruikersnaam">Gebruikersnaam:</label>
       <input type="text" id="gebruikersnaam" name="gebruikersnaam" required>
@@ -49,9 +49,11 @@
   </div>
 </section>
 
-</main>
-</body>
+
 <footer>
   <p> 2024 Marianne Peterson S2136361</p>
 </footer>
+
+</main>
+</body>
 </html>
