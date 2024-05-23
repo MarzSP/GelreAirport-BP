@@ -15,7 +15,7 @@
     <ul>
       <li><a href="index.php">Home</a></li>
       <li><a href="passagier.php">Checkin</a></li>
-      <li><a href="nieuwevlucht.php">Nieuwe Vlucht</a></li>
+      <li><a href="nieuwvlucht.php">Nieuwe Vlucht</a></li>
       <li><a href="contact.php">Contact</a></li>
       <li><a href="loginpassagier.php"><button type="button" class="shift-right">Log in</button></a></li>
     </ul>

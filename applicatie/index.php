@@ -21,6 +21,7 @@ $db = maakVerbinding();
       <li><a href="passagier.php">Checkin</a></li>
       <li><a href="contact.php">Contact</a></li>
       <li><a href="loginpassagier.php"><button type="button" class="shift-right">Log in</button></a></li>
+      <li><a href="nieuwvlucht.php">Nieuwe Vlucht</a></li>
     </ul>
   </nav>
 <main>
@@ -28,18 +29,16 @@ $db = maakVerbinding();
   <!-- Container: Pagina header(column1), en welkomst text(column2) -->
   
     <div class="container1">
-      <div class="box">
         <div class="column1">
           <div class="logo">
-            <img src="../Images/logomain.png" alt="GelreAirport Logo" width="200">
-          </div>
+            <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
         </div>
       </div>
       
       <div class="column2">
         <div class="text">
           <h1>Welkom bij GelreAirport!</h1>
-          <span>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, zoek aankomende en vertrekkende vluchten, boek nieuwe reizen en nog veel meer. Uw avontuur begint hier - klaar voor vertrek?</span>
+          <h2>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, zoek aankomende en vertrekkende vluchten, boek nieuwe reizen en nog veel meer. Uw avontuur begint hier - klaar voor vertrek?<h2>
         </div>
       </div>
     </div>

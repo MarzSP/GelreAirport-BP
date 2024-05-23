@@ -53,22 +53,22 @@
         <select id="luchthavencode" name="luchthavencode" required>
             <option value="">Selecteer luchthaven</option>
             <?php
-                // Verbind met DB
-                $db = new mysqli('localhost', 'sa', 'abc123!@#', 'GelreAirport');
+                // Connect to the database
+                //$db = new mysqli('localhost', 'sa', 'abc123!@#', 'GelreAirport');
 
-                // Alle vliegvelden uit het DB
-                $sql = "SELECT luchthavencode, naam FROM Luchthaven";
-                $result = $db->query($sql);
+                // Get all airports from the database
+                //$sql = "SELECT luchthavencode, naam FROM Luchthaven";
+                //$result = $db->query($sql);
 
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<option value="' . $row['luchthavencode'] . '">' . $row['naam'] . '</option>';
-                    }
-                } else {
-                    echo '<option value="">Geen luchthavens gevonden</option>';
-                }
+                //if ($result->num_rows > 0) {
+                  //  while ($row = $result->fetch_assoc()) {
+                   //     echo '<option value="' . $row['luchthavencode'] . '">' . $row['naam'] . '</option>';
+                   // }
+               //} else {
+                   // echo '<option value="">Geen luchthavens gevonden</option>';
+               // }
 
-                $db->close();
+                //$db->close();
             ?>
         </select><br>
 
@@ -88,24 +88,24 @@
         <select id="maatschappijcode" name="maatschappijcode" required>
             <option value="">Selecteer maatschappij</option>
             <?php
-                   // verbind met DB
-                   $db = new mysqli('localhost', 'sa', 'abc123!@#', 'GelreAirport');
+                   //verbind met DB
+                   //$db = new mysqli('localhost', 'sa', 'abc123!@#', 'GelreAirport');
 
                 // Alle maatschappijcodes uit de DB
-                $sql = "SELECT maatschappijcode, naam FROM Maatschappij";
-                $result = $db->query($sql);
+               // $sql = "SELECT maatschappijcode, naam FROM Maatschappij";
+                //$result = $db->query($sql);
 
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<option value="' . $row['maatschappijcode'] . '">' . $row['naam'] . '</option>';
-                    }
-                } else {
-                    echo '<option value="">Geen maatschappijen gevonden</option>';
-                }
+               // if ($result->num_rows > 0) {
+                //    while ($row = $result->fetch_assoc()) {
+                //       echo '<option value="' . $row['maatschappijcode'] . '">' . $row['naam'] . '</option>';
+               //     }
+               // } else {
+               //     echo '<option value="">Geen maatschappijen gevonden</option>';
+               // }
 
-                $db->close();
+              //$db->close();
             ?>
-        </select><br>
+        </select> <br>
 
         <button type="submit">Vlucht toevoegen</button>
     </form>
