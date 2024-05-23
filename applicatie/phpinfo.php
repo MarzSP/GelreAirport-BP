@@ -1,6 +1,10 @@
 <?php
 phpinfo();
-<?php
+$username='localhost';
+$password='abc123!@#';
+$connection = mysql_connect
+('localhost:1434', $username, 
+$password);
     // Connect to the database
     $db = new mysqli('localhost', 'sa', 'abc123!@#', 'GelreAirport);
 
@@ -16,4 +20,5 @@ phpinfo();
     // Insert new flight into the database
     $sql = "INSERT INTO Vlucht (vluchtnummer, luchthavencode, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, maatschappijcode) VALUES ('$vluchtnummer', '$luchthavencode', '$max_aantal
 
+    
 ?>

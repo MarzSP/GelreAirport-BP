@@ -52,7 +52,7 @@
         <select id="luchthavencode" name="luchthavencode" required>
             <option value="">Selecteer luchthaven</option>
             <?php
-                // Connect to the database
+                // Verbind met
                 //$db = new mysqli('localhost', 'sa', 'abc123!@#', 'GelreAirport');
 
                 // Get all airports from the database
