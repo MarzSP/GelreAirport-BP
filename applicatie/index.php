@@ -13,7 +13,7 @@ $db = maakVerbinding();
   <link rel="nav" href="../CSS/nav.css">
     <title>GelreAirport</title>
 </head>
-
+<main>
 <!-- Navigatie balk -->
   <nav>
     <ul>
@@ -24,7 +24,7 @@ $db = maakVerbinding();
       <li><a href="nieuwvlucht.php">Nieuwe Vlucht</a></li>
     </ul>
   </nav>
-<main>
+
 <body>
   <!-- Container: Pagina header(column1), en welkomst text(column2) -->
   
