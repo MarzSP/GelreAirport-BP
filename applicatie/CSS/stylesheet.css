@@ -87,8 +87,10 @@ body {
     color:#000;
     display: flex;
     float: left;
-    border: 2px solid #02ff8d;
-
+    padding: 10px;
+    margin: 5px;
+    line-height: 2;
+    border: 3px solid #02ff8d;
 }
 
 footer {
@@ -99,4 +101,5 @@ footer {
     color: #ffffff;
     height: 25px;
     margin-top: 550px;
+
 }
