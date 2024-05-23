@@ -39,11 +39,10 @@
       </div>
     </div>
 
-    <div class="container2">
+    <div class="containerNieuweVlucht">
       <div class="left-box">
-        <div class="Vlucht-info">
 
-          <!-- Vluchtinfo hier -->
+          <!-- Nieuwe Vlucht toevoegen-->
           <h1>Nieuwe Vlucht Toevoegen</h1>
     <form action="add_flight.php" method="post">
         <label for="vluchtnummer">Vluchtnummer:</label>
@@ -106,7 +105,8 @@
               //$db->close();
             ?>
         </select> <br>
-
+                  <p>
+                    
         <button type="submit">Vlucht toevoegen</button>
     </form>
         </div>
