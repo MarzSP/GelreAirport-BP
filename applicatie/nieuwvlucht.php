@@ -15,12 +15,12 @@
     <ul>
       <li><a href="index.php">Home</a></li>
       <li><a href="passagier.php">Checkin</a></li>
-      <li><a href="nieuwevlucht.php">Nieuwe Vlucht</a></li>
+      <li><a href="nieuwvlucht.php">Nieuwe Vlucht</a></li>
       <li><a href="contact.php">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Pagina vulling -->
+  <!-- Main: pagina informatie voor pagina Nieuwe Vlucht -->
   <main>
     <div class="container1">
       <div class="box">
@@ -42,7 +42,7 @@
     <div class="containerNieuweVlucht">
       <div class="left-box">
 
-          <!-- Nieuwe Vlucht toevoegen-->
+          <!-- Formulier: Nieuwe Vlucht toevoegen-->
           <h1>Nieuwe Vlucht Toevoegen</h1>
     <form action="add_flight.php" method="post">
         <label for="vluchtnummer">Vluchtnummer:</label>
@@ -52,22 +52,23 @@
         <select id="luchthavencode" name="luchthavencode" required>
             <option value="">Selecteer luchthaven</option>
             <?php
-                // Verbind met
-                //$db = new mysqli('localhost', 'sa', 'abc123!@#', 'GelreAirport');
+                // Eenmalige aanroep naar de DB
+                 //require_once '../dbconnectie.php'
 
-                // Get all airports from the database
-                //$sql = "SELECT luchthavencode, naam FROM Luchthaven";
-                //$result = $db->query($sql);
+                 // Maak connectie met DB
+                //$db = maakVerbinding();
+
+                // SQL Query voor selecteer Luchthaven
+                //$query 'select luchthavencode, naam FROM Luchthaven';
+                //$data = $db-> query($query)
 
                 //if ($result->num_rows > 0) {
-                  //  while ($row = $result->fetch_assoc()) {
-                   //     echo '<option value="' . $row['luchthavencode'] . '">' . $row['naam'] . '</option>';
+                  //while ($row = $result->fetch_assoc()) {
+                 //     echo '<option value="' . $row['luchthavencode'] . '">' . $row['naam'] . '</option>';
                    // }
-               //} else {
-                   // echo '<option value="">Geen luchthavens gevonden</option>';
-               // }
-
-                //$db->close();
+              //} else {
+               //     echo '<option value="">Geen luchthavens gevonden</option>';
+                //}
             ?>
         </select><br>
 
@@ -87,22 +88,24 @@
         <select id="maatschappijcode" name="maatschappijcode" required>
             <option value="">Selecteer maatschappij</option>
             <?php
-                   //verbind met DB
-                   //$db = new mysqli('localhost', 'sa', 'abc123!@#', 'GelreAirport');
+                   // Eenmalige aanroep naar de DB
+                  // require_once '../dbconnectie.php'
 
-                // Alle maatschappijcodes uit de DB
-               // $sql = "SELECT maatschappijcode, naam FROM Maatschappij";
-                //$result = $db->query($sql);
-
-               // if ($result->num_rows > 0) {
-                //    while ($row = $result->fetch_assoc()) {
-                //       echo '<option value="' . $row['maatschappijcode'] . '">' . $row['naam'] . '</option>';
-               //     }
-               // } else {
-               //     echo '<option value="">Geen maatschappijen gevonden</option>';
-               // }
-
-              //$db->close();
+                   // Maak connectie met DB
+                  //$db = maakVerbinding();
+  
+                  // SQL Query voor selecteer Luchthaven
+                  //$query 'select maatschappijcode, naam FROM Maatschappij;';
+                  //$data = $db-> query($query)
+  
+                  //if ($result->num_rows > 0) {
+                    //while ($row = $result->fetch_assoc()) {
+                      //  echo '<option value="' . $row['maatschappijcode'] . '">' . $row['naam'] . '</option>';
+                      //}
+                //} else {
+                  //    echo '<option value="">Geen maatschappijen gevonden</option>';
+                  //}
+               
             ?>
         </select> <br>
                   <p>
