@@ -3,7 +3,7 @@ nav {
     background-color: #000;
     color: #FFDC00;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 nav ul {
@@ -35,7 +35,7 @@ nav ul li a:hover {
 .pagina-header {
     display: flex;
     background-color: #000;
-    padding: 1.5rem;
+    padding: 1.2rem;
     box-shadow: 0px 0px 0.5rem  #02ff8d;
     margin-bottom: 0.5rem;
     
