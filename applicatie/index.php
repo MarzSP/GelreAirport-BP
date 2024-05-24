@@ -1,7 +1,3 @@
-<?php
-require_once 'db_connectie.php';
-$db = maakVerbinding();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +14,11 @@ $db = maakVerbinding();
   <nav>
     <ul>
       <li><a href="index.php">Home</a></li>
-      <li><a href="passagier.php">Checkin</a></li>
-      <li><a href="contact.php">Contact</a></li>
-      <li><a href="loginpassagier.php"><button type="button" class="shift-right">Log in</button></a></li>
-      <li><a href="nieuwvlucht.php">Nieuwe Vlucht</a></li>
+      <li><a href="../Pages/passagier.php">Checkin</a></li>
+      <li><a href="../Pages/contact.php">Contact</a></li>
+      <li><a href="../Pages/loginpassagier.php"><button type="button" class="shift-right">Log in</button></a></li>
+      <li><a href="../Pages/nieuwvlucht.php">Nieuwe Vlucht</a></li>
+      <li><a href="../Pages/loginmedewerker.php"><button type="button" class="shift-right">Medewerker login</button></a></li>
     </ul>
   </nav>
 
@@ -47,7 +44,6 @@ $db = maakVerbinding();
 
     <!--Container2 linker box met vluchtinformatie-->
     <div class="container2">
-      <div class="left-box">
         <div class="Vlucht-info">
           <!-- Vluchtinfo hier -->
           <h3>Vlucht info </h3>
@@ -61,11 +57,9 @@ $db = maakVerbinding();
           <p> wss veel want aankomend en vertrekkend</p>
           <p> save some space for that</p>
         </div>
-      </div>
     </div>
 <!-- Container3 rechter box met overige informatie -->
     <div class="container3">
-      <div class="right-box">
         <div class="Algemeneinfo">
           <!-- Algemene info hier -->
           <h3>Algemene info </h3>
@@ -76,7 +70,6 @@ $db = maakVerbinding();
           <p> en ook hier</p>
           <p> wat plaatjes van plekken waar je toch niet heen gaat </p> 
         </div>
-      </div>
     </div>
 
     <div class="container4">

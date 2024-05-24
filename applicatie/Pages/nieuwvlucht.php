@@ -13,10 +13,11 @@
   <!-- Navigatie balk -->
   <nav>
     <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="passagier.php">Checkin</a></li>
-      <li><a href="nieuwvlucht.php">Nieuwe Vlucht</a></li>
-      <li><a href="contact.php">Contact</a></li>
+      <li><a href="../index.php">Home</a></li>
+      <li><a href="../Pages/passagier.php">Checkin</a></li>
+      <li><a href="../Pages/contact.php">Contact</a></li>
+      <li><a href="../Pages/loginpassagier.php"><button type="button" class="shift-right">Log in</button></a></li>
+      <li><a href="../Pages/nieuwvlucht.php">Nieuwe Vlucht</a></li>
     </ul>
   </nav>
 
@@ -40,32 +41,25 @@
 
           <!-- Formulier: Nieuwe Vlucht toevoegen-->
           <h1>Nieuwe Vlucht Toevoegen</h1>
-    <form action="add_flight.php" method="post">
+    <form action="phpinfo.php" method="post">
+
         <label for="vluchtnummer">Vluchtnummer:</label>
         <input type="text" id="vluchtnummer" name="vluchtnummer" required><br>
 
         <label for="luchthavencode">Luchthavencode:</label>
         <select id="luchthavencode" name="luchthavencode" required>
             <option value="">Selecteer luchthaven</option>
-            <?php
-                // Eenmalige aanroep naar de DB
-                 //require_once '../dbconnectie.php'
-
-                 // Maak connectie met DB
-                //$db = maakVerbinding();
-
-                // SQL Query voor selecteer Luchthaven
-                //$query 'select luchthavencode, naam FROM Luchthaven';
-                //$data = $db-> query($query)
-
-                //if ($result->num_rows > 0) {
-                  //while ($row = $result->fetch_assoc()) {
-                 //     echo '<option value="' . $row['luchthavencode'] . '">' . $row['naam'] . '</option>';
-                   // }
-              //} else {
-               //     echo '<option value="">Geen luchthavens gevonden</option>';
-                //}
+            <?php 
+            // Include db_connectie.php
+require_once '../includes/db_connectie.php';
+            // Get the connection
+            $verbinding = maakVerbinding();
+            
+            // Get the options
+            $luchthavenOptions = getLuchthavenCodes($verbinding);
+            echo $getLuchthavenOptions; // Insert retrieved options
             ?>
+
         </select><br>
 
         <label for="max_aantal">Maximaal aantal passagiers:</label>
@@ -83,26 +77,8 @@
         <label for="maatschappijcode">Maatschappijcode:</label>
         <select id="maatschappijcode" name="maatschappijcode" required>
             <option value="">Selecteer maatschappij</option>
-            <?php
-                   // Eenmalige aanroep naar de DB
-                  // require_once '../dbconnectie.php'
-
-                   // Maak connectie met DB
-                  //$db = maakVerbinding();
-  
-                  // SQL Query voor selecteer Luchthaven
-                  //$query 'select maatschappijcode, naam FROM Maatschappij;';
-                  //$data = $db-> query($query)
-  
-                  //if ($result->num_rows > 0) {
-                    //while ($row = $result->fetch_assoc()) {
-                      //  echo '<option value="' . $row['maatschappijcode'] . '">' . $row['naam'] . '</option>';
-                      //}
-                //} else {
-                  //    echo '<option value="">Geen maatschappijen gevonden</option>';
-                  //}
-               
-            ?>
+            <?php echo $maatschappijOptions; // Insert retrieved options ?>
+        
         </select> <br>
                   <p>
                     
