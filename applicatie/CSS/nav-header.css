@@ -1,28 +1,28 @@
 /* Navigatie balk bovenaan scherm */
-#main-nav {
+.main-nav {
     background-color: #000;
     color: #FFDC00;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 2rem;
 }
 
-#main-nav ul {
+.main-nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-#main-nav ul li {
+.main-nav ul li {
     display: inline;
     margin-right: 1.25rem;
 }
 
-#main-nav ul li a {
+.main-nav ul li a {
     color: #FFDC00;
     text-decoration: none;
 }
 /* Wanneer de muis op een knop hovvert wordt de tekst bold en underlined. */
-#main-nav ul li a:hover {
+.main-nav ul li a:hover {
     font-weight: bold;
     text-decoration: underline; 
   }

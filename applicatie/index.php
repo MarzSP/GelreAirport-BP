@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="normalize.css" href="../CSS/normalize.css">
-  <link rel="nav-header" href="../CSS/nav-header.css">  
+  <link rel="stylesheet" href="../CSS/normalize.css">
+  <link rel="stylesheet" href="../CSS/nav-header.css">  
   <link rel="stylesheet" href="../CSS/stylesheet.css">
     <title>GelreAirport</title>
 </head>
 
 <!-- Navigatie balk -->
-<nav id="main-nav">  <ul>
+<nav class="main-nav">  <ul>
       <li><a href="index.php">Home</a></li>
       <li><a href="../Pages/passagier.php">Checkin</a></li>
       <li><a href="../Pages/contact.php">Contact</a></li>
@@ -23,6 +23,7 @@
   </nav>
 <main>
 <body>
+
   <!-- Container: Pagina header(column1), en welkomst text(column2) -->
   
   <section class="pagina-header">
