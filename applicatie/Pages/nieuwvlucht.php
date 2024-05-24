@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GelreAirport: Voeg Vlucht Toe</title>
 </head>
+
 
 <body>
   <!-- Navigatie balk -->
@@ -41,7 +43,7 @@
 
           <!-- Formulier: Nieuwe Vlucht toevoegen-->
           <h1>Nieuwe Vlucht Toevoegen</h1>
-    <form action="phpinfo.php" method="post">
+    <form action="includes/vluchtoevoegen.php" method="post">
 
         <label for="vluchtnummer">Vluchtnummer:</label>
         <input type="text" id="vluchtnummer" name="vluchtnummer" required><br>
@@ -49,17 +51,8 @@
         <label for="luchthavencode">Luchthavencode:</label>
         <select id="luchthavencode" name="luchthavencode" required>
             <option value="">Selecteer luchthaven</option>
-            <?php 
-            // Include db_connectie.php
-require_once '../includes/db_connectie.php';
-            // Get the connection
-            $verbinding = maakVerbinding();
-            
-            // Get the options
-            $luchthavenOptions = getLuchthavenCodes($verbinding);
-            echo $getLuchthavenOptions; // Insert retrieved options
+            <?php echo $luchthavenOptions; 
             ?>
-
         </select><br>
 
         <label for="max_aantal">Maximaal aantal passagiers:</label>
@@ -78,7 +71,6 @@ require_once '../includes/db_connectie.php';
         <select id="maatschappijcode" name="maatschappijcode" required>
             <option value="">Selecteer maatschappij</option>
             <?php echo $maatschappijOptions; // Insert retrieved options ?>
-        
         </select> <br>
                   <p>
                     

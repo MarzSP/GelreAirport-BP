@@ -29,19 +29,6 @@ nav ul li a:hover {
     margin-left: 1.25rem;
   }
 
-
-
-/* Main CSS styles */
-main {   background-image: url("../Images/achtergrond.png");
-    background-size: cover;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #FFDC00
- 
-}
-
 /* Pagina header met welkomsttext en logo */
 .pagina-header {
     display: flex;
@@ -65,26 +52,29 @@ body {
 }
 
 
-/* sub containers in de body van de pagina */
+/* Main CSS styles */
+main {   background-image: url("../Images/achtergrond.png");
+  background-size: cover;
+}
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #FFDC00
+}
+
+/* Container wrapper is voor het grid waar container 2 en 3 in zitten. */
+.container-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Twee kolommen */
+  grid-column-gap: 3px; /* Ruimte tussen kolommen */
+}
+
+/* Sub-containers 2 en 3 styles */
 .container2,
 .container3 {
-    background-color: #000;
-    border: 2px solid #02ff8d;
-    padding: 1rem;
-    margin: 1.5rem;
-    display: flex;
-    flex-direction: row;
-    width: 50%
-}
-.container3 {
   background-color: #000;
-  border: 2px solid #02ff8d;
+  box-shadow: 0px 0px 0.5rem #02ff8d;
   padding: 1rem;
-  margin: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  width: 50%
 }
 
 .container4 {

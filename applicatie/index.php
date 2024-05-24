@@ -43,6 +43,7 @@
 
 
     <!--Container2 linker box met vluchtinformatie-->
+  <section class="container-wrapper">
     <div class="container2">
         <div class="Vlucht-info">
           <!-- Vluchtinfo hier -->
@@ -71,12 +72,7 @@
           <p> wat plaatjes van plekken waar je toch niet heen gaat </p> 
         </div>
     </div>
-
-    <div class="container4">
-      <div class="center-box">
-            <img src="../Images/logonobk.png" alt="GelreAirport Logo" width="100">
-      </div>
-    </div>
+</section>
 
   
 </body>
