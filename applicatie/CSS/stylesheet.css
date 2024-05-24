@@ -20,6 +20,8 @@ body {
   margin-bottom: 1rem;
 }
 
+
+/* index.php bevat vluchtinfo met een toggle-switch voor aankomend en vertrekkende vluchten */
 .toggle-switch input[type="radio"] {
   margin-right: 0.6rem;
 }
@@ -29,14 +31,16 @@ body {
 }
 
 .vlucht-tabel-container {
-  overflow-y: auto; /* Enable scrolling if there are more than 10 results */
-  max-height: 19rem; /* Adjust as needed */
+  overflow-y: auto; /* Scrollen mogelijk */
+  max-height: 19rem; /* !aanpassen */
 }
 
 th, td {
-  border: 0.1rem solid #ccc; /* Add border for each cell */
+  border: 0.1rem solid #ccc; /* Rand om iedere cell heen */
 }
-/* Sub-containers 2 en 3 styles */
+
+
+/* Sub-containers 2 en 3 stijlen. Container2 is links en container3 is rechts */
 .container2,
 .container3 {
   background-color: #000;
@@ -48,7 +52,7 @@ th, td {
     display: flex;
     margin-top: 28rem;
 }
-
+/* voet balk onderaan pagina */
 footer {
     background-color: #000000;
     width: 100%;
