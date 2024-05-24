@@ -2,7 +2,8 @@
 <html lang="nl">
 
 <head>
-  <link rel="navigation" href="../CSS/navigation.css">
+<link rel="normalize.css" href="../CSS/normalize.css">
+  <link rel="nav-header" href="../CSS/nav-header.css">  
   <link rel="stylesheet" href="../CSS/stylesheet.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
