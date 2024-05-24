@@ -39,15 +39,11 @@ $db = maakVerbinding();
         <p>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, check online in, zoek aankomende en vertrekkende vluchten en nog veel meer! 
         <p>Uw avontuur begint hier - klaar voor vertrek?</p>
     </div>
+    <div class="vliegtuigje">
+        <img src="../Images/airplane.png" alt="animatie van een vliegtuigje" width="50">
+</div>
   </section>
 
-  <!-- <section class="welkomst-tekst">
-    <div class="column2">
-     <h1>Welkom bij GelreAirport!</h1>
-        <p>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, check online in, zoek aankomende en vertrekkende vluchten en nog veel meer! 
-        <p>Uw avontuur begint hier - klaar voor vertrek?</p>
-    </div>
-  </section> -->
 
     <!--Container2 linker box met vluchtinformatie-->
     <div class="container2">
