@@ -69,6 +69,27 @@ body {
   grid-column-gap: 3px; /* Ruimte tussen kolommen */
 }
 
+.toggle-switch {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.toggle-switch input[type="radio"] {
+  margin-right: 10px;
+}
+
+.toggle-switch label {
+  cursor: pointer;
+}
+
+.vlucht-tabel-container {
+  overflow-y: auto; /* Enable scrolling if there are more than 10 results */
+  max-height: 300px; /* Adjust as needed */
+}
+
+th, td {
+  border: 1px solid #ccc; /* Add border for each cell */
+}
 /* Sub-containers 2 en 3 styles */
 .container2,
 .container3 {

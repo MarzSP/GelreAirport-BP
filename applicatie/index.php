@@ -45,20 +45,30 @@
     <!--Container2 linker box met vluchtinformatie-->
   <section class="container-wrapper">
     <div class="container2">
-        <div class="Vlucht-info">
           <!-- Vluchtinfo hier -->
-          <h3>Vlucht info </h3>
-          <p>Hier komt vluchtinfo >> >> >> >> >> </p>
-          <p> dat zal wat ruimte innemen >> >> >> >> >></p>
-          <p> zoals hier, maar dan in een tabel</p>
-          <p> met info uit een db </p> 
-          <p> die iets van 10 vluchten weergeeft</p>
-          <p> dus ook hier >> >> >> >> >> >> >> >> >> >> >></p> 
-          <p> hoeveel vluchten wil je op een display?</p>
-          <p> wss veel want aankomend en vertrekkend</p>
-          <p> save some space for that</p>
-        </div>
-    </div>
+          <div class="toggle-switch">
+          <input type="radio" id="aankomst" name="vlucht-type" value="aankomst" checked>
+          <label for="aankomst">Aankomst</label>
+          <input type="radio" id="vertrek" name="vlucht-type" value="vertrek">
+          <label for="vertrek">Vertrek</label>
+         </div>
+
+  <div class="vlucht-tabel-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Tijd</th>
+          <th>Vluchtnummer</th>
+          <th>Land van afkomst/Bestemming</th>
+          <th>Maatschappijnaam</th>
+        </tr>
+      </thead>
+      <tbody>
+        </tbody>
+    </table>
+</div>
+</div>
+
 <!-- Container3 rechter box met overige informatie -->
     <div class="container3">
         <div class="Algemeneinfo">
