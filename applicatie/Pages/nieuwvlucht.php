@@ -38,8 +38,7 @@
   </section>
 
 
-    <div class="containerNieuweVlucht">
-      <div class="left-box">
+    <section class="container2">
 
           <!-- Formulier: Nieuwe Vlucht toevoegen-->
           <h1>Nieuwe Vlucht Toevoegen</h1>
@@ -76,9 +75,8 @@
                     
         <button type="submit">Vlucht toevoegen</button>
     </form>
-        </div>
-      </div>
-    </div>
+</section>
+    
   </main>
   </body>
   <!-- Footer -->

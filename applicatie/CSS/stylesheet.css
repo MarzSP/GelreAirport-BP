@@ -83,17 +83,6 @@ body {
     margin-top: 450px;
 }
 
-.containerNieuweVlucht {
-    background:#ffffff;
-    color:#000;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;;
-    margin: 0.5rem;
-    line-height: 2;
-    border: 3px solid #02ff8d;
-}
-
 footer {
     background-color: #000000;
     width: 100%;
