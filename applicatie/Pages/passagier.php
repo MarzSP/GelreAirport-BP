@@ -12,7 +12,7 @@
 <!-- Navigatie balk -->
   <nav>
     <ul>
-      <li><a href="index.php">Home</a></li>
+      <li><a href="../index.php">Home</a></li>
       <li><a href="../Pages/passagier.php">Checkin</a></li>
       <li><a href="../Pages/contact.php">Contact</a></li>
       <li><a href="../Pages/loginpassagier.php"><button type="button" class="shift-right">Log in</button></a></li>
@@ -46,18 +46,27 @@
 
   <form id="inchecken-form" action="inchecken.php" method="post">
     <label for="vluchtnummer">Vluchtnummer:</label>
-    <input type="text" id="vluchtnummer" name="vluchtnummer" required>
+    <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="15" required>
+    <span class="message">Voer de cijfers van het vluchtnummer in.</span>
+    <br>
 
     <label for="achternaam">Achternaam:</label>
-    <input type="text" id="achternaam" name="achternaam" required>
+    <input type="text" id="achternaam" name="achternaam" pattern="[a-zA-Z]" maxlength="50" required>
+    <span class="message">Voer uw naam in met letters.</span>
+    
 
     <label for="aantal-stukken">Aantal stuks bagage (max 2):</label>
     <input type="number" id="aantal-stukken" name="aantal-stukken" min="0" max="2" required>
+    <span class="message">Voer in cijfers het aantal stuks baggage in.</span>
+      <br>
 
     <label for="gewicht">Gewicht bagage (max 30 kg):</label>
-    <input type="number" id="gewicht" name="gewicht" step="0.1" min="0.1" max="30" required> 
+    <input type="number" id="gewicht" name="gewicht" step="0.1" min="0" max="30" required> 
+    <br>
 
     <button type="submit">Inchecken</button>
+    <br>
+
   </form>
 
   <div id="inchecken-resultaat">

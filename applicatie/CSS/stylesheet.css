@@ -146,10 +146,10 @@ footer {
   input[type="text"],
   input[type="password"] {
     width: 25%;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #02ff8d;
-    border-radius: 3px;
-    margin-bottom: 15px;
+    border-radius: 2px;
+    margin-bottom: 5px;
   }
   
   button[type="submit"] {
@@ -163,5 +163,10 @@ footer {
   
   button[type="submit"]:hover {
     background-color: #45a049;
+  }
+
+  .message {
+    font-style: italic;
+    font-size: 0.8em;
   }
   

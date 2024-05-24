@@ -45,7 +45,7 @@
     <form action="includes/vluchtoevoegen.php" method="post">
 
         <label for="vluchtnummer">Vluchtnummer:</label>
-        <input type="text" id="vluchtnummer" name="vluchtnummer" required><br>
+        <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="15" required><br>
 
         <label for="luchthavencode">Luchthavencode:</label>
         <select id="luchthavencode" name="luchthavencode" required>
@@ -55,7 +55,7 @@
         </select><br>
 
         <label for="max_aantal">Maximaal aantal passagiers:</label>
-        <input type="number" id="max_aantal" name="max_aantal" required><br>
+        <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="5000" required><br>
 
         <label for="max_gewicht_pp">Maximaal gewicht per persoon (kg):</label>
         <input type="number" id="max_gewicht_pp" name="max_gewicht_pp" required><br>
