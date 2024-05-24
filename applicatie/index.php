@@ -32,7 +32,8 @@
             </div> 
     </div>
     <div class="column2">
-     <h1>Welkom bij GelreAirport!</h1>
+      <div class="welkomst-animatie">
+     <h1>Welkom bij GelreAirport!</h1> </div>
         <p>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, check online in, zoek aankomende en vertrekkende vluchten en nog veel meer! 
         <p>Uw avontuur begint hier - klaar voor vertrek?</p>
     </div>

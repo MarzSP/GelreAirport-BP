@@ -21,8 +21,10 @@ nav ul li a {
     color: #FFDC00;
     text-decoration: none;
 }
+/* Wanneer de muis op een knop hovvert wordt de tekst bold en underlined. */
 nav ul li a:hover {
-    font-weight: bold; /* Makes the text bold */
+    font-weight: bold;
+    text-decoration: underline; 
   }
 
   .shift-right {
@@ -38,6 +40,16 @@ nav ul li a:hover {
     margin-bottom: 0.5rem;
     
 }
+
+.welkomst-animatie{
+  animation: vliegIn ease-in 2s forwards;
+}
+
+@keyframes vliegIn {
+  from { transform: translateX(50%); } /* Start from 100% offscreen (right) */
+  to { transform: translateX(0); } /* End at original position (left) */
+}
+
 
 /* Animatie van vliegtuigje in pagina header  */
 .vliegtuigje {
@@ -133,11 +145,6 @@ footer {
     width: 35rem;
   }
   
-  h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
   label {
     display: block;
     margin-bottom: 5px;
@@ -163,6 +170,10 @@ footer {
   
   button[type="submit"]:hover {
     background-color: #45a049;
+  }
+
+  button[type="submit"]:hover::after {
+    opacity: 1;
   }
 
   .message {
