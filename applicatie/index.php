@@ -73,13 +73,38 @@
     <div class="container3">
         <div class="Algemeneinfo">
           <!-- Algemene info hier -->
-          <h3>Algemene info </h3>
-          <p>Hier komt algemene info</p>
-          <p> dat zal wat ruimte innemen</p>
-          <p> zoals hier</p>
-          <p> en hier </p> 
-          <p> en ook hier</p>
-          <p> wat plaatjes van plekken waar je toch niet heen gaat </p> 
+          <h1>Algemene Informatie</h1>
+
+<section class="inchecken">
+  <h3>Inchecken</h3>
+  <ul>
+    <li>Online inchecken kan 24 uur - 2 uur voor vertrek </li>
+    <li>Inchecken bij de luchthaven kan 2 uur voor vertrek</li>
+  </ul>
+</section>
+
+<section class="vluchtinformatie">
+  <h3>Vluchtinformatie</h3>
+  <ul>
+    <li>Bekijk op deze website: Aankomende & vertrekkende vluchten</li>
+  </ul>
+</section>
+
+<section class="bagage">
+  <h3>Bagage</h3>
+  <p>Check online of bij de balie uw bagage in. Gewicht en aantal toegestane stuks bagage kan per maatschappij verschillen. Raadpleeg de website van de luchtvaartmaatschappij voor de exacte regels en voorschriften.</p>
+</section>
+
+
+<section class="tips">
+  <h3>Tips</h3>
+  <ul>
+    <li>Kom op tijd naar luchthaven!</li>
+    <li>Neem uw reisdocumenten mee</li>
+  </ul>
+</section>
+
+<p class="afsluiting">Fijne reis!</p>
         </div>
     </div>
 </section>
