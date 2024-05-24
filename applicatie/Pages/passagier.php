@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../CSS/normalize.css">
   <link rel="stylesheet" href="../CSS/nav-header.css">  
   <link rel="stylesheet" href="../CSS/stylesheet.css">
+  <link rel="stylesheet" href="../CSS/forms.css">
   <title>GelreAirport</title>
 </head>
 <main>

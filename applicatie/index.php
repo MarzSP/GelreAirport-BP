@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="../CSS/normalize.css">
   <link rel="stylesheet" href="../CSS/nav-header.css">  
   <link rel="stylesheet" href="../CSS/stylesheet.css">
+  <link rel="stylesheet" href="../CSS.forms.css">
     <title>GelreAirport</title>
 </head>
 
 <!-- Navigatie balk -->
-<nav class="main-nav">  <ul>
+<nav> <ul>
       <li><a href="index.php">Home</a></li>
       <li><a href="../Pages/passagier.php">Checkin</a></li>
       <li><a href="../Pages/contact.php">Contact</a></li>
@@ -21,11 +22,10 @@
       <li><a href="../Pages/loginmedewerker.php"><button type="button" class="shift-right">Medewerker login</button></a></li>
     </ul>
   </nav>
+
 <main>
 <body>
-
-  <!-- Container: Pagina header(column1), en welkomst text(column2) -->
-  
+<!-- Pagina header(column1), en welkomst text(column2) -->
   <section class="pagina-header">
     <div class="column1">
             <div class="logo">
@@ -38,9 +38,10 @@
         <p>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, check online in, zoek aankomende en vertrekkende vluchten en nog veel meer! 
         <p>Uw avontuur begint hier - klaar voor vertrek?</p>
     </div>
+    <!-- Vliegtuig afbeelding die geanimeerd wordt -->
     <div class="vliegtuigje">
         <img src="../Images/airplane.png" alt="animatie van een vliegtuigje" width="50">
-</div>
+  </div>
   </section>
 
 
