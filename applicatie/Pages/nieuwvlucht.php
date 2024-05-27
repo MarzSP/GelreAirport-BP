@@ -40,7 +40,7 @@
   </section>
 
 
-    <section class="container2">
+    <section class="leftcontainer">
 
           <!-- Formulier: Nieuwe Vlucht toevoegen-->
           <h1>Nieuwe Vlucht Toevoegen</h1>
@@ -79,10 +79,10 @@
     </form>
 </section>
     
-  </main>
   </body>
   <!-- Footer -->
   <footer>
     <p> 2024 Marianne Peterson S2136361</p>
   </footer>
+</main>
 </html>

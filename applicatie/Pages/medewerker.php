@@ -38,7 +38,7 @@
     </div>
   </section>
 
-  <section class="container2">
+  <section class="leftcontainer">
   <form action="process_baggage.php" method="post"> <h3>Passagiergegevens</h3>
       <label for="name">Naam:</label>
       <input type="text" id="naam" name="naam" pattern=" [a-zA-Z\-'\s]+" maxlength="50" required>
@@ -70,7 +70,7 @@
         <button type="submit">Inchecken</button>
     </form> </section>
   
-    <section class="container3">
+    <section class="rightcontainer">
         <h3>Vluchtgegevens Ophalen</h3>
         <form action="process_flight_info.php" method="post"> <label for="flight_number">Vluchtnummer:</label>
             <input type="text" id="flight_number" name="flight_number" required>
@@ -81,8 +81,9 @@
     </section>
 
   </main>
-</body>
+
 <footer>
   <p> 2024 Marianne Peterson S2136361</p>
 </footer>
+</body>
 </html>

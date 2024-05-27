@@ -11,7 +11,7 @@
   <title>GelreAirport: Bereik meer!</title>
 </head>
 
-<body><main>
+<body>
   <!-- Navigatie balk -->
   <nav>
     <ul>
@@ -23,6 +23,7 @@
     </ul>
   </nav>
 
+  <main>
   <!-- Pagina vulling -->
   <section class="pagina-header">
     <div class="column1">
@@ -38,7 +39,7 @@
 
 
 
-    <div class="container2">
+    <div class="leftcontainer">
       <div class="left-box">
         <div class="Vlucht-info">
           <!-- Vluchtinfo hier -->
@@ -53,10 +54,11 @@
         </div>
       </div>
     </div>
-    </body>
+
 
     <footer>
       <p> 2024 Marianne Peterson S2136361</p>
     </footer>
-  </main>
+</main>
+</body>
   </html>

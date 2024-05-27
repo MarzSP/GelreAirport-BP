@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<main>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +21,7 @@
       <li><a href="../Pages/loginpassagier.php"><button type="button" class="shift-right">Log in</button></a></li>
     </ul>
   </nav>
-
+<main>
   <section class="pagina-header">
     <div class="column1">
             <div class="logo">
@@ -55,7 +54,6 @@
 <footer>
   <p> 2024 Marianne Peterson S2136361</p>
 </footer>
-
 </main>
 </body>
 </html>

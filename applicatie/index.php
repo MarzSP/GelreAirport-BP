@@ -8,12 +8,14 @@
   <link rel="stylesheet" href="../CSS/normalize.css">
   <link rel="stylesheet" href="../CSS/nav-header.css">  
   <link rel="stylesheet" href="../CSS/stylesheet.css">
-  <link rel="stylesheet" href="../CSS.forms.css">
+  <link rel="stylesheet" href="../CSS/forms.css">
     <title>GelreAirport</title>
 </head>
 
+<body>
 <!-- Navigatie balk -->
-<nav> <ul>
+<nav> 
+  <ul>
       <li><a href="index.php">Home</a></li>
       <li><a href="../Pages/passagier.php">Checkin</a></li>
       <li><a href="../Pages/contact.php">Contact</a></li>
@@ -24,12 +26,12 @@
   </nav>
 
 <main>
-<body>
+
 <!-- Pagina header(column1), en welkomst text(column2) -->
   <section class="pagina-header">
     <div class="column1">
             <div class="logo">
-                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
+                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220"/>
             </div> 
     </div>
     <div class="column2">
@@ -40,14 +42,14 @@
     </div>
     <!-- Vliegtuig afbeelding die geanimeerd wordt -->
     <div class="vliegtuigje">
-        <img src="../Images/airplane.png" alt="animatie van een vliegtuigje" width="50">
+        <img src="../Images/airplane.png" alt="animatie van een vliegtuigje" width="50"/>
   </div>
   </section>
 
 
     <!--Container2 linker box met vluchtinformatie-->
   <section class="container-wrapper">
-    <div class="container2">
+    <div class="leftcontainer">
           <!-- Vluchtinfo hier -->
           <div class="toggle-switch">
           <input type="radio" id="aankomst" name="vlucht-type" value="aankomst" checked>
@@ -62,8 +64,8 @@
         <tr>
           <th>Tijd</th>
           <th>Vluchtnummer</th>
-          <th>Land van afkomst/Bestemming</th>
-          <th>Maatschappijnaam</th>
+          <th>Aankomst/Bestemming</th>
+          <th>Maatschappij</th>
         </tr>
       </thead>
       <tbody>
@@ -73,7 +75,7 @@
 </div>
 
 <!-- Container3 rechter box met overige informatie -->
-    <div class="container3">
+    <div class="rightcontainer">
         <div class="Algemeneinfo">
           <!-- Algemene info hier -->
           <h1>Algemene Informatie</h1>
@@ -113,9 +115,10 @@
 </section>
 
   
-</body>
-  <!-- Footer -->
+<!-- Footer onderaan pagina -->
   <footer>
     <p> 2024 Marianne Peterson S2136361</p>
-  </footer></main>
+  </footer>
+</main> <!-- </main> moet onder Footer, anders strekt de achtergrond afbeedling totaan de onderkant van de pagina -->
+</body>
 </html>

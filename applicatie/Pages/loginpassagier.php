@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<main>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,6 @@
 </head>
 
 <body>
-  
   <!-- Navigatie balk -->
   <nav>
     <ul>
@@ -24,10 +23,11 @@
     </ul>
   </nav>
 
+  <main>
   <section class="pagina-header">
     <div class="column1">
             <div class="logo">
-                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
+                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220"/>
             </div> 
     </div>
     <div class="column2">
@@ -55,7 +55,7 @@
 <footer>
   <p> 2024 Marianne Peterson S2136361</p>
 </footer>
-
 </main>
 </body>
+
 </html>
