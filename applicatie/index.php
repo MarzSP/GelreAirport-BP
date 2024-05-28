@@ -1,3 +1,21 @@
+<?php
+include 'db_connectie.php';
+
+$db = maakVerbinding();
+
+$sql = "SELECT TOP 5
+  Vlucht.vertrektijd,
+  Vlucht.vluchtnummer,
+  Luchthaven.naam AS luchthaven_naam,
+  Luchthaven.land,
+  Maatschappij.naam AS maatschappij_naam
+FROM Vlucht
+JOIN Luchthaven ON Vlucht.bestemming = Luchthaven.luchthavencode
+JOIN Maatschappij ON Vlucht.maatschappijcode = Maatschappij.maatschappijcode
+";
+$result = $db->query($sql);
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,10 +83,23 @@
           <th>Tijd</th>
           <th>Vluchtnummer</th>
           <th>Aankomst/Bestemming</th>
+          <th>Land</th>
           <th>Maatschappij</th>
         </tr>
       </thead>
       <tbody>
+      <?php
+      while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Use $result here
+        echo '<tr>';
+        echo '<td>' . $row['vertrektijd'] . '</td>';
+        echo '<td>' . $row['vluchtnummer'] . '</td>';
+        echo '<td>' . $row['luchthaven_naam'] . '</td>';
+        echo '<td>' . $row['land'] . '</td>';
+        echo '<td>' . $row['maatschappij_naam'] . '</td>';
+        echo '</tr>';
+      }
+      ?>
+      
         </tbody>
     </table>
 </div>

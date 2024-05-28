@@ -1,3 +1,38 @@
+<?php
+include '../db_connectie.php';
+
+$db = maakVerbinding();
+
+function getLuchthavenCodes($db) {
+  $sql = "SELECT naam FROM Luchthaven";
+  $result = $db->query($sql); // Execute the query
+
+  if ($result->rowCount() > 0) { // Check if rows are found
+      while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+          echo '<option value="' . $row['naam'] . '">' . $row['naam'] . '</option>';
+      }
+  } else {
+      echo '<option value="">Geen luchthavencodes gevonden</option>';
+  }
+  return $options; 
+}
+
+ // SQL Query voor selecteer Luchthaven
+ function getMaatschappijCodes($db) {
+ $sql = "SELECT maatschappijcode, naam FROM Maatschappij";
+ $data = $db->query($sql);
+ $data->execute();
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+            echo '<option value="' . $row['maatschappijcode'] . '">' . $row['naam'] . '</option>';
+                    }
+                } else {
+           echo '<option value="">Geen maatschappijen gevonden</option>';
+           }
+           return $result;
+        }
+               
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +79,7 @@
 
           <!-- Formulier: Nieuwe Vlucht toevoegen-->
           <h1>Nieuwe Vlucht Toevoegen</h1>
-    <form action="includes/vluchtoevoegen.php" method="post">
+    <form action="includes/db_connectie.php" method="post">
 
         <label for="vluchtnummer">Vluchtnummer:</label>
         <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="15" required><br>

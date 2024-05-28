@@ -1,5 +1,5 @@
-<?php
-require_once '../db_connectie.php';
+<? php
+include 'db_connectie.php'
 
 $db = maakVerbinding();
 
@@ -33,12 +33,5 @@ function getLuchthavenCodes($db) {
            return $options;
         }
                
-$vluchtnummer = $_POST['vluchtnummer'];
-$luchthavencode = $_POST['luchthavencode'];
-$maxAantal = $_POST['max_aantal']; // Assuming form field names
-$maxGewichtPP = $_POST['max_gewicht_pp'];
-$maxTotaalGewicht = $_POST['max_totaalgewicht'];
-$vertrektijd = $_POST['vertrektijd'];
-$maatschappijcode = $_POST['maatschappijcode'];
 
 
