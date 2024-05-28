@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,33 +12,33 @@
 </head>
 
 <body>
-  
   <!-- Navigatie balk -->
   <nav>
     <ul>
       <li><a href="../index.php">Home</a></li>
       <li><a href="../Pages/passagier.php">Checkin</a></li>
       <li><a href="../Pages/contact.php">Contact</a></li>
-      <li><a href="../Pages/loginpassagier.php"><button type="button" class="shift-right">Log in</button></a></li>
+      <li><a href="../Pages/login.php"><button type="button" class="shift-right">Log in</button></a></li>
+      <li><a href="../Pages/nieuwvlucht.php">Nieuwe Vlucht</a></li>
     </ul>
   </nav>
-<main>
+
+  <main>
   <section class="pagina-header">
     <div class="column1">
             <div class="logo">
-                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
+                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220"/>
             </div> 
     </div>
     <div class="column2">
      <h1>Welkom bij GelreAirport!</h1>
-        <p> Login voor voor medewerkers </p>
+        <p> Login voor Gelre Checkin! </p>
     </div>
   </section>
 
   <section class="inlog-sectie">
   <div class="inlog-formulier">
-    <h2>Welkom collega!</h2>
-    <p> Login </p>
+    <h2>Login</h2>
     <form action="login.php" method="post">
       <label for="gebruikersnaam">Gebruikersnaam:</label>
       <input type="text" id="gebruikersnaam" name="gebruikersnaam" required>
@@ -56,4 +57,5 @@
 </footer>
 </main>
 </body>
+
 </html>
