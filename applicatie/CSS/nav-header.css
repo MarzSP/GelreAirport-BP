@@ -46,8 +46,8 @@ nav ul li a:hover {
 }
 
 @keyframes vliegIn {
-  from { transform: translateX(50%); } /* Start from 100% offscreen (right) */
-  to { transform: translateX(0); } /* End at original position (left) */
+  from { transform: translateX(50%); } /* Begint rechts off-screen */
+  to { transform: translateX(0); } /* Eindigt links bij de header tekst*/
 }
 
 

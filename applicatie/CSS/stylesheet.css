@@ -8,27 +8,13 @@ body {
   color: #FFDC00
 }
 
-/* Container wrapper is voor het grid waar container left en right in zitten. */
+/* Container wrapper is voor het grid waar container links en rechts in zitten */
 .container-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Twee kolommen */
   grid-column-gap: 0.2rem; /* Ruimte tussen kolommen */
 }
 
-.toggle-switch {
-  display: flex;
-  margin-bottom: 1rem;
-}
-
-
-/* index.php bevat vluchtinfo met een toggle-switch voor aankomend en vertrekkende vluchten */
-.toggle-switch input[type="radio"] {
-  margin-right: 0.6rem;
-}
-
-.toggle-switch label {
-  cursor: pointer;
-}
 
 .vlucht-tabel-container {
   overflow-y: auto; /* Scrollen mogelijk */
@@ -37,10 +23,11 @@ body {
 
 th, td {
   border: 0.1rem solid #ccc; /* Rand om iedere cell heen */
+  margin: 0rem;
 }
 
 
-/* Sub-containers left en right stijlen. */
+/* Main container links en rechts */
 .leftcontainer,
 .rightcontainer {
   background-color: #000;

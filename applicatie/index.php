@@ -3,11 +3,11 @@ include 'db_connectie.php';
 
 $db = maakVerbinding();
 
-// Gebruik de view vluchtinfo
-$sql = "SELECT * FROM vluchtinfo";
-$result = $db->query($sql);
+// Gebruik de view vluchtinfo.sql in directory Views
+$sql = "SELECT * FROM vluchtinfo"; // Laat alles zien uit de view vluchtinfo
+$result = $db->query($sql); // Het resultaat van deze view is de variabele $resultaat
+$totalRows = $result->rowCount(); // Totaal aantal rijen
 
-?>
 ?>
 
 <!DOCTYPE html>
@@ -61,48 +61,42 @@ $result = $db->query($sql);
   <section class="container-wrapper">
     <div class="leftcontainer">
           <!-- Vluchtinfo hier -->
-          <div class="toggle-switch">
-          <input type="radio" id="aankomst" name="vlucht-type" value="aankomst" checked>
-          <label for="aankomst">Aankomst</label>
-          <input type="radio" id="vertrek" name="vlucht-type" value="vertrek">
-          <label for="vertrek">Vertrek</label>
-         </div>
+          <h1> Aankomende vertrekkende vluchten: </h1>
 
+          <!-- Tabel in linker container met de actuele vlucht informatie uit de View -->
   <div class="vlucht-tabel-container">
     <table>
       <thead>
         <tr>
           <th>Tijd</th>
           <th>Vluchtnummer</th>
-          <th>Aankomst/Bestemming</th>
+          <th>Bestemming</th>
           <th>Land</th>
           <th>Maatschappij</th>
         </tr>
       </thead>
       <tbody>
       <?php
-      while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Use $result here
-        echo '<tr>';
-        echo '<td>' . $row['vertrektijd'] . '</td>';
-        echo '<td>' . $row['vluchtnummer'] . '</td>';
-        echo '<td>' . $row['luchthaven_naam'] . '</td>';
-        echo '<td>' . $row['land'] . '</td>';
-        echo '<td>' . $row['maatschappij_naam'] . '</td>';
-        echo '</tr>';
-      }
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit de view wordt hier gebruikt:
+         echo '<tr>';
+          echo '<td>' . $row['vertrektijd'] . '</td>';
+          echo '<td>' . $row['vluchtnummer'] . '</td>';
+          echo '<td>' . $row['luchthaven_naam'] . '</td>';
+          echo '<td>' . $row['land'] . '</td>';
+         echo '<td>' . $row['maatschappij_naam'] . '</td>';
+          echo '</tr>';
+        }
       ?>
-      
         </tbody>
     </table>
 </div>
 </div>
 
-<!-- Container3 rechter box met overige informatie -->
+<!-- Container3 rechter box met Algemene informatie -->
     <div class="rightcontainer">
         <div class="Algemeneinfo">
-          <!-- Algemene info hier -->
           <h1>Algemene Informatie</h1>
-
+<!-- De onderdelen van Algemene informatie in een lijst -->
 <section class="inchecken">
   <h3>Inchecken</h3>
   <ul>
@@ -142,6 +136,6 @@ $result = $db->query($sql);
   <footer>
     <p> 2024 Marianne Peterson S2136361</p>
   </footer>
-</main> <!-- </main> moet onder Footer, anders strekt de achtergrond afbeedling totaan de onderkant van de pagina -->
+</main> <!-- </main> moet onder Footer, zo strekt de achtergrond afbeedling totaan de onderkant van de pagina -->
 </body>
 </html>
