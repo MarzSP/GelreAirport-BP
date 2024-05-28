@@ -3,18 +3,11 @@ include 'db_connectie.php';
 
 $db = maakVerbinding();
 
-$sql = "SELECT TOP 5
-  Vlucht.vertrektijd,
-  Vlucht.vluchtnummer,
-  Luchthaven.naam AS luchthaven_naam,
-  Luchthaven.land,
-  Maatschappij.naam AS maatschappij_naam
-FROM Vlucht
-JOIN Luchthaven ON Vlucht.bestemming = Luchthaven.luchthavencode
-JOIN Maatschappij ON Vlucht.maatschappijcode = Maatschappij.maatschappijcode
-";
+// Gebruik de view vluchtinfo
+$sql = "SELECT * FROM vluchtinfo";
 $result = $db->query($sql);
 
+?>
 ?>
 
 <!DOCTYPE html>
