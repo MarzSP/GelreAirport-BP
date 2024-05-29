@@ -5,7 +5,7 @@ $db = maakVerbinding();
 
 // Gebruik de view vluchtinfo.sql in directory Views
 $sql = "SELECT * FROM vluchtinfo"; // Laat alles zien uit de view vluchtinfo
-$result = $db->query($sql); // Het resultaat van deze view is de variabele $result
+$result = $db->query($sql); // Resultaat van deze view is de variabele $result
 $totalRows = $result->rowCount(); // Totaal aantal rijen
 
 ?>

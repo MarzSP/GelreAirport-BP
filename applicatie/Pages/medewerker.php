@@ -77,8 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <li><a href="../index.php">Home</a></li>
       <li><a href="../Pages/passagier.php">Checkin</a></li>
       <li><a href="../Pages/contact.php">Contact</a></li>
-      <li><a href="../Pages/nieuwvlucht.php">Nieuwe Vlucht</a></li>
-      
+      <li><a href="../Pages/login.php"><button type="button" class="shift-right">Log in</button></a></li>
+      <li><a href="../Pages/medewerker.php">Medewerkertest</a></li>
     </ul>
   </nav>
 
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <br>
 
       <label for="vluchtnummer">Vluchtnummer:</label>
-      <input type="text" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="15" required>
+      <input type="text" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="5" required>
       <span class="message">Voer de cijfers van het vluchtnummer in.</span>
       <br>
 
@@ -126,6 +126,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <span class="message">Voer in cijfers het aantal stuks baggage in.</span>
       <br>
         
+      <label for="num_bags">Gewicht baggage:</label>
+      <input type="number" id="gewicht" name="gewicht" min="0" max="70" required>
+      <span class="message">Voer in cijfers het aantal kilo baggage in.</span>
+      <br>
         <div id="bag_details"> </div>
         <button type="submit">Inchecken</button>
     </form> </section>

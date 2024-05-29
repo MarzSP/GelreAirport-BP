@@ -34,6 +34,8 @@ th, td {
   box-shadow: 0rem 0rem 0.5rem #02ff8d;
   padding: 0.5rem;
   margin: 0.5rem;
+  opacity: 0.95;
+  border-radius: 1rem 1rem 1rem 1rem;
 }
 
 .container4 {
