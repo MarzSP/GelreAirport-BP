@@ -73,18 +73,20 @@ $totalRows = $result->rowCount(); // Totaal aantal rijen
           <th>Bestemming</th>
           <th>Land</th>
           <th>Maatschappij</th>
+          <th>Gate</th>
         </tr>
       </thead>
       <tbody>
       <?php
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit de view wordt hier gebruikt:
-         echo '<tr>';
-          echo '<td>' . $row['vertrektijd'] . '</td>';
-          echo '<td>' . $row['vluchtnummer'] . '</td>';
-          echo '<td>' . $row['luchthaven_naam'] . '</td>';
-          echo '<td>' . $row['land'] . '</td>';
-         echo '<td>' . $row['maatschappij_naam'] . '</td>';
-          echo '</tr>';
+        echo '<tr>';
+        echo '<td>' . $row['vertrektijd'] . '</td>';
+        echo '<td>' . $row['vluchtnummer'] . '</td>';
+        echo '<td>' . $row['luchthaven_naam'] . '</td>';
+        echo '<td>' . $row['land'] . '</td>';
+        echo '<td>' . $row['maatschappij_naam'] . '</td>';
+        echo '<td>' . $row['gatecode'] . '</td>';
+        echo '</tr>';
         }
       ?>
         </tbody>
