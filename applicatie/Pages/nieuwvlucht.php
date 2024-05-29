@@ -78,7 +78,7 @@ function getLuchthavenCodes($db) {
     <section class="leftcontainer">
 
           <!-- Formulier: Nieuwe Vlucht toevoegen-->
-          <h1>Nieuwe Vlucht Toevoegen</h1>
+          <h2>Nieuwe Vlucht Toevoegen </h2>
     <form action="includes/db_connectie.php" method="post">
 
         <label for="vluchtnummer">Vluchtnummer:</label>
@@ -112,7 +112,11 @@ function getLuchthavenCodes($db) {
                     
         <button type="submit">Vlucht toevoegen</button>
     </form>
+      </div>
 </section>
+
+
+
     
   </body>
   <!-- Footer -->

@@ -1,3 +1,62 @@
+<?php
+include '../db_connectie.php';
+
+// Database connection (from db_connectie.php)
+$db = maakVerbinding(); // Assuming this function uses PDO
+
+$vluchtnummer = ""; // Initialize empty variable
+$flight_data = array(); // Array to store flight details
+$error_message = "";
+
+// Check if a form is submitted using POST method
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Check if 'vluchtnummer' key exists in POST data
+  if (isset($_POST['vluchtnummer'])) {
+    $vluchtnummer = filter_var($_POST['vluchtnummer'], FILTER_SANITIZE_NUMBER_INT); // Sanitize input
+
+    // Validate flight number if provided (5-digit numeric)
+    if (!$vluchtnummer || strlen($vluchtnummer) != 5 || !is_numeric($vluchtnummer)) {
+      $error_message = "Ongeldig vluchtnummer.";
+    } else {
+      // Prepare SQL query
+      $stmt = $db->prepare('SELECT v.vluchtnummer, v.max_aantal, v.max_gewicht_pp, v.max_totaalgewicht, v.vertrektijd, v.gatecode, m.naam, m.maatschappijcode, l.naam, l.luchthavencode FROM Vlucht v JOIN Maatschappij m ON v.maatschappijcode = m.maatschappijcode JOIN Luchthaven l ON v.bestemming = l.luchthavencode WHERE v.vluchtnummer = ?');
+
+      // Check for empty vluchtnummer before binding (optional)
+      if (!empty($vluchtnummer) && is_numeric($vluchtnummer)) {
+        // Bind parameter (place holder for flight number) using PDO
+        $stmt->bindParam(1, $vluchtnummer, PDO::PARAM_INT);
+      } else {
+        $error_message = "Vluchtnummer is ongeldig.";
+      }
+
+      // Execute the query
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Check if records are found for the given flight number
+        if (count($result) > 0) {
+          // Fetch flight details into an associative array
+          $flight_data = $result;
+        } else {
+          $error_message = "Geen vlucht gevonden met nummer: " . $vluchtnummer;
+        }
+      } else {
+        // Handle query execution error
+        $error_message = "Error executing query: " . $stmt->errorInfo()[0];
+        // You can also log the error message here for further debugging
+      }
+    }
+  } else {
+    // Handle case where form was submitted but 'vluchtnummer' key is missing
+    $error_message = "Vluchtnummer ongeldig.";
+  }
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -38,6 +97,7 @@
     </div>
   </section>
 
+  <section class="container-wrapper">
   <section class="leftcontainer">
   <form action="process_baggage.php" method="post"> <h3>Passagiergegevens</h3>
       <label for="name">Naam:</label>
@@ -61,8 +121,8 @@
       <br>
 
       <h3>Bagage Informatie</h3>
-      <label for="num_bags">Aantal tassen:</label>
-      <input type="number" id="num_bags" name="num_bags" min="0" required>
+      <label for="num_bags">Aantal baggage:</label>
+      <input type="number" id="num_bags" name="num_bags" min="0" max="7" required>
       <span class="message">Voer in cijfers het aantal stuks baggage in.</span>
       <br>
         
@@ -71,19 +131,97 @@
     </form> </section>
   
     <section class="rightcontainer">
-        <h3>Vluchtgegevens Ophalen</h3>
-        <form action="process_flight_info.php" method="post"> <label for="flight_number">Vluchtnummer:</label>
-            <input type="text" id="flight_number" name="flight_number" required>
-            <br>
-            <button type="submit">Zoek Vlucht</button>
-        </form>
-        <div id="flight_details"> </div>
-    </section>
+            <h3>Vluchtgegevens Ophalen</h3>
+            <form action="" method="post" id="vluchtnummer">
+                <label for="vluchtnummer">Vluchtnummer:</label>
+                <input type="text" id="vluchtnummer" name="vluchtnummer" required>
+                <span class="error-message"><?php echo $error_message; ?></span>
+                <br>
+                <button type="submit">Zoek Vlucht</button>
+            </form>
 
-  </main>
+            <?php if (count($flight_data) > 0): ?>
+<div id="flight_results">
+    <h3>Vluchtgegevens</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Vluchtnummer</th>
+                <th>Vertrektijd</th>
+                <th>Maatschappij</th>
+                <th>Maatschappijcode</th>
+                <th>Luchthaven</th>
+                <th>Luchthavencode</th>
+                <th>Max. Aantal</th>
+                <th>Max. gewicht PP</th>
+                <th>Max. totaal gewicht</th>
+                <th>Gate</th>
+        </thead>
+        <tbody>
+            <?php foreach ($flight_data as $flight): ?>
+            <tr>
+                <td><?php echo $flight['vluchtnummer']; ?></td>
+                <td><?php echo $flight['vertrektijd']; ?></td>
+                <td><?php echo $flight['naam']; ?></td>
+                <td><?php echo $flight['maatschappijcode']; ?></td>
+                <td><?php echo $flight['naam']; ?></td>
+                <td><?php echo $flight['luchthavencode']; ?></td>
+                <td><?php echo $flight['max_aantal']; ?></td>
+                <td><?php echo $flight['max_gewicht_pp']; ?></td>
+                <td><?php echo $flight['max_totaalgewicht']; ?></td>
+                <td><?php echo $flight['gatecode']; ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php endif; ?>
+
+        </section>
+            </section>
+
+<!-- Formulier: Nieuwe Vlucht toevoegen-->
+<section class="leftcontainer">
+<h2>Nieuwe Vlucht Toevoegen </h2>
+<form action="includes/db_connectie.php" method="post">
+
+<label for="vluchtnummer">Vluchtnummer:</label>
+<input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="15" required><br>
+
+<label for="luchthavencode">Luchthavencode:</label>
+<select id="luchthavencode" name="luchthavencode" required>
+  <option value="">Selecteer luchthaven</option>
+  <?php echo $luchthavenOptions; 
+  ?>
+</select><br>
+
+<label for="max_aantal">Maximaal aantal passagiers:</label>
+<input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="5000" required><br>
+
+<label for="max_gewicht_pp">Maximaal gewicht per persoon (kg):</label>
+<input type="number" id="max_gewicht_pp" name="max_gewicht_pp" required><br>
+
+<label for="max_totaalgewicht">Maximaal totaalgewicht (kg):</label>
+<input type="number" id="max_totaalgewicht" name="max_totaalgewicht" required><br>
+
+<label for="vertrektijd">Vertrektijd:</label>
+<input type="datetime-local" id="vertrektijd" name="vertrektijd" required><br>
+
+<label for="maatschappijcode">Maatschappijcode:</label>
+<select id="maatschappijcode" name="maatschappijcode" required>
+  <option value="">Selecteer maatschappij</option>
+  <?php echo $maatschappijOptions; // Insert retrieved options ?>
+</select> <br>
+        <p>
+          
+<button type="submit">Vlucht toevoegen</button>
+</form>
+</div>
+</section>
+            </body>
 
 <footer>
   <p> 2024 Marianne Peterson S2136361</p>
 </footer>
-</body>
+            </main>
 </html>

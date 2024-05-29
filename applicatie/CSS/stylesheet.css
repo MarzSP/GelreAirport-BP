@@ -32,7 +32,8 @@ th, td {
 .rightcontainer {
   background-color: #000;
   box-shadow: 0rem 0rem 0.5rem #02ff8d;
-  padding: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
 .container4 {

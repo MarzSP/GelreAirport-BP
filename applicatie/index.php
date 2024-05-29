@@ -5,7 +5,7 @@ $db = maakVerbinding();
 
 // Gebruik de view vluchtinfo.sql in directory Views
 $sql = "SELECT * FROM vluchtinfo"; // Laat alles zien uit de view vluchtinfo
-$result = $db->query($sql); // Het resultaat van deze view is de variabele $resultaat
+$result = $db->query($sql); // Het resultaat van deze view is de variabele $result
 $totalRows = $result->rowCount(); // Totaal aantal rijen
 
 ?>
@@ -31,7 +31,7 @@ $totalRows = $result->rowCount(); // Totaal aantal rijen
       <li><a href="../Pages/passagier.php">Checkin</a></li>
       <li><a href="../Pages/contact.php">Contact</a></li>
       <li><a href="../Pages/login.php"><button type="button" class="shift-right">Log in</button></a></li>
-      <li><a href="../Pages/nieuwvlucht.php">Nieuwe Vlucht</a></li>
+      <li><a href="../Pages/medewerker.php">Medewerkertest</a></li>
     </ul>
   </nav>
 
@@ -61,7 +61,7 @@ $totalRows = $result->rowCount(); // Totaal aantal rijen
   <section class="container-wrapper">
     <div class="leftcontainer">
           <!-- Vluchtinfo hier -->
-          <h1> Aankomende vertrekkende vluchten: </h1>
+          <h1> Vertrekkende vluchten: </h1>
 
           <!-- Tabel in linker container met de actuele vlucht informatie uit de View -->
   <div class="vlucht-tabel-container">
