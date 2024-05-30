@@ -78,7 +78,8 @@ $totalRows = $result->rowCount(); // Totaal aantal rijen
       </thead>
       <tbody>
       <?php
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit de view wordt hier gebruikt:
+      //  fetch-methode hoe de volgende rij uit de view geretourneerd moet worden.
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit view - lus doorloopt de result rij voor rij
         echo '<tr>';
         echo '<td>' . $row['vertrektijd'] . '</td>';
         echo '<td>' . $row['vluchtnummer'] . '</td>';
