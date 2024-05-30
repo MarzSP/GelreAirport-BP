@@ -24,7 +24,7 @@
 
 <main>
   <!-- Container: Pagina header(column1), en welkomst text(column2) -->
-  
+
 <section class="pagina-header">
   <div class="column1">
     <div class="logo">

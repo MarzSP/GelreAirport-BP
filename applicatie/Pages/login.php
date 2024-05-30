@@ -1,7 +1,7 @@
 <?php
 require_once '../db_connectie.php';
 
-session_start(); // Start de sessie bovenaan
+session_start(); // Start de sessie 
 
 $melding = ''; // Lege variabele aanmaken voor evt plek van een error bericht
 
@@ -80,6 +80,7 @@ if (isset($_POST['inloggen'])) {
     </ul>
   </nav>
 
+  <!-- Pagina header/welkomst text -->
   <main>
   <section class="pagina-header">
     <div class="column1">
@@ -93,6 +94,7 @@ if (isset($_POST['inloggen'])) {
     </div>
   </section>
 
+  <!-- Inlog box -->
   <section class="inlog-sectie">
   <div class="inlog-formulier">
     <h2>Login</h2>
@@ -109,7 +111,7 @@ if (isset($_POST['inloggen'])) {
   </div>
 </section>
 
-
+<!-- footer -->
 <footer>
   <p> 2024 Marianne Peterson S2136361</p>
 </footer>
