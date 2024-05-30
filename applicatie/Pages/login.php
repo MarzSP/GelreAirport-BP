@@ -1,5 +1,7 @@
 <?php
-require_once '../db_connectie.php';
+
+include '../General/nav.php';
+require_once '../DB/db_connectie.php';
 
 session_start(); // Start de sessie 
 
@@ -61,7 +63,6 @@ if (isset($_POST['inloggen'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/normalize.css">
   <link rel="stylesheet" href="../CSS/nav-header.css">  
   <link rel="stylesheet" href="../CSS/stylesheet.css">
   <link rel="stylesheet" href="../CSS/forms.css">
@@ -69,16 +70,10 @@ if (isset($_POST['inloggen'])) {
 </head>
 
 <body>
-  <!-- Navigatie balk -->
-  <nav>
-    <ul>
-      <li><a href="../index.php">Home</a></li>
-      <li><a href="../Pages/passagier.php">Checkin</a></li>
-      <li><a href="../Pages/contact.php">Contact</a></li>
-      <li><a href="../Pages/login.php"><button type="button" class="shift-right">Log in</button></a></li>
-      <li><a href="../Pages/medewerker.php">Medewerkertest</a></li>
-    </ul>
-  </nav>
+
+<?php
+displayNav();
+?>
 
   <!-- Pagina header/welkomst text -->
   <main>
