@@ -1,6 +1,7 @@
 <?php
 
 include '../General/nav.php';
+include '../General/footer.php';
 require_once '../DB/db_connectie.php';
 
 session_start(); // Start de sessie 
@@ -106,10 +107,10 @@ displayNav();
   </div>
 </section>
 
-<!-- footer -->
-<footer>
-  <p> 2024 Marianne Peterson S2136361</p>
-</footer>
+<!-- Footer onderaan pagina -->
+<?php
+ displayFooter();
+      ?>
 </main>
 </body>
 

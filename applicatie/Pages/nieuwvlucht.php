@@ -1,6 +1,7 @@
 
 <?php
-include 'General/nav.php';
+include '../General/nav.php';
+include '../General/footer.php';
 include '../DB/db_connectie.php';
 
 $db = maakVerbinding();
@@ -121,9 +122,9 @@ function getLuchthavenCodes($db) {
 
     
   </body>
-  <!-- Footer -->
-  <footer>
-    <p> 2024 Marianne Peterson S2136361</p>
-  </footer>
+  <!-- Footer onderaan pagina -->
+ <?php
+ displayFooter();
+      ?>
 </main>
 </html>

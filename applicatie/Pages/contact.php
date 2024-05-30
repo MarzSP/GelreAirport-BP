@@ -1,5 +1,6 @@
 <?php
 include '../General/nav.php';
+include '../General/footer.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,13 +15,12 @@ include '../General/nav.php';
   <title>GelreAirport: Bereik meer!</title>
 </head>
 
-<body>
+<body><main>
   <!-- Navigatie balk -->
   <?php
 displayNav();
 ?>
 
-  <main>
   <!-- Pagina vulling -->
   <section class="pagina-header">
     <div class="column1">
@@ -53,9 +53,10 @@ displayNav();
     </div>
 
 
-    <footer>
-      <p> 2024 Marianne Peterson S2136361</p>
-    </footer>
+ <!-- Footer onderaan pagina -->
+ <?php
+ displayFooter();
+      ?>
 </main>
 </body>
   </html>

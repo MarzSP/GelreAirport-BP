@@ -1,6 +1,7 @@
 
 <?php
 include 'General/nav.php';
+include 'General/footer.php';
 include 'db/db_connectie.php';
 
 $db = maakVerbinding();
@@ -138,9 +139,9 @@ displayNav();
 
   
 <!-- Footer onderaan pagina -->
-  <footer>
-    <p> 2024 Marianne Peterson S2136361</p>
-  </footer>
+ <?php
+ displayFooter();
+      ?>
 </main> <!-- </main> moet onder Footer, zo strekt de achtergrond afbeedling totaan de onderkant van de pagina -->
 </body>
 </html>

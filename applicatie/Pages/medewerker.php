@@ -1,5 +1,6 @@
 <?php
 include '../General/nav.php';
+include '../General/footer.php';
 include '../DB/db_connectie.php';
 
 $db = maakVerbinding(); 
@@ -220,9 +221,8 @@ displayNav();
 </div>
 </section>
             </body>
-<!-- Footer -->
-<footer>
-  <p> 2024 Marianne Peterson S2136361</p>
-</footer>
-            </main>
+<!-- Footer onderaan pagina -->
+<?php
+ displayFooter();
+      ?></main>
 </html>
