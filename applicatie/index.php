@@ -1,13 +1,20 @@
+
 <?php
-include 'db_connectie.php';
+include 'General/nav.php';
+include 'db/db_connectie.php';
 
 $db = maakVerbinding();
 
-// Gebruik de view vluchtinfo.sql in directory Views
-$sql = "SELECT * FROM vluchtinfo"; // Laat alles zien uit de view vluchtinfo
+//Gebruik de view vluchtinfo.sql in directory Views
+$sql = "SELECT vertrektijd,
+vluchtnummer,
+luchthaven_naam,
+land,
+maatschappij_naam,
+gatecode FROM vluchtinfo"; // Laat alles zien uit de view vluchtinfo
 $result = $db->query($sql); // Resultaat van deze view is de variabele $result
 $totalRows = $result->rowCount(); // Totaal aantal rijen
-//$verbinding->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +23,6 @@ $totalRows = $result->rowCount(); // Totaal aantal rijen
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/normalize.css">
   <link rel="stylesheet" href="../CSS/nav-header.css">  
   <link rel="stylesheet" href="../CSS/stylesheet.css">
   <link rel="stylesheet" href="../CSS/forms.css">
@@ -25,15 +31,11 @@ $totalRows = $result->rowCount(); // Totaal aantal rijen
 
 <body>
 <!-- Navigatie balk -->
-<nav> 
-  <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="../Pages/passagier.php">Checkin</a></li>
-      <li><a href="../Pages/contact.php">Contact</a></li>
-      <li><a href="../Pages/login.php"><button type="button" class="shift-right">Log in</button></a></li>
-      <li><a href="../Pages/medewerker.php">Medewerkertest</a></li>
-    </ul>
-  </nav>
+<?php
+//include 'General/nav.php';
+displayNav();
+?>
+
 
 <main>
 

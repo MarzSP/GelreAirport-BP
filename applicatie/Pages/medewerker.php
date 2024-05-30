@@ -1,5 +1,6 @@
 <?php
-include '../db_connectie.php';
+include '../General/nav.php';
+include '../DB/db_connectie.php';
 
 $db = maakVerbinding(); 
 
@@ -70,16 +71,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-  <!-- Navigatie balk -->
-  <nav>
-    <ul>
-      <li><a href="../index.php">Home</a></li>
-      <li><a href="../Pages/passagier.php">Checkin</a></li>
-      <li><a href="../Pages/contact.php">Contact</a></li>
-      <li><a href="../Pages/login.php"><button type="button" class="shift-right">Log in</button></a></li>
-      <li><a href="../Pages/medewerker.php">Medewerkertest</a></li>
-    </ul>
-  </nav>
+  
+<?php
+displayNav();
+?>
 
 
   <!-- Main pagina vulling -->

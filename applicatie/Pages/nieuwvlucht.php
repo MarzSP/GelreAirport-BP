@@ -1,5 +1,7 @@
+
 <?php
-include '../db_connectie.php';
+include 'General/nav.php';
+include '../DB/db_connectie.php';
 
 $db = maakVerbinding();
 
