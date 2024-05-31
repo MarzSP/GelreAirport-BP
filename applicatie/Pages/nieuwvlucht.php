@@ -42,7 +42,7 @@
         <label for="maatschappijcode">Maatschappijcode:</label>
         <select id="maatschappijcode" name="maatschappijcode" required>
             <option value="">Selecteer maatschappij </option>
-            <?php echo $selectbox; ?> </option>
+           <option> <?php getMaatschappijCodes($db); ?> </option>
         </select><br>
 
         <button type="submit">Vlucht toevoegen</button>

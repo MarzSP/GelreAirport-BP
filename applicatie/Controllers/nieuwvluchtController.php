@@ -6,14 +6,16 @@ $db = maakVerbinding();
 
 // Function to get maatschappij codes
 function getMaatschappijCodes($db) {
-    $sql = "SELECT maatschappijcode FROM Maatschappij";
+    echo "Database connection: ";
+    var_dump($db);
+    $sql = 'SELECT maatschappijcode FROM Maatschappij';
     $result = $db->query($sql);
 
     $options = '';
 
     if ($result && $result->rowCount() > 0) {
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            $options .= '<option value="' . $row['maatschappijcode'] . '">' . $row['maatschappijcode'] . '</option>'; --> why is this line double?
+            $options .= '<option value="' . $row['maatschappijcode'] . '</option>';
         }
     } else {
         $options .= '<option value="">Geen maatschappijen gevonden</option>';
