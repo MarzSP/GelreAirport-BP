@@ -13,18 +13,18 @@
 <?php include 'General/nav.php';?>
 
 <main>
-<!-- Pagina header(column1), en welkomst text(column2) -->
 
+<!-- Pagina header(column1), en welkomst text(column2) -->
 <?php include 'General/header.php';?>
 
 
-    <!--Container2 linker box met vluchtinformatie-->
+<!--Container2 linker box met vluchtinformatie-->
   <section class="container-wrapper">
     <div class="leftcontainer">
           <!-- Vluchtinfo hier -->
           <h1> Vertrekkende vluchten: </h1>
 
-          <!-- Tabel in linker container met de actuele vlucht informatie uit de View -->
+<!-- Tabel in linker container met de actuele vlucht informatie uit de View -->
   <div class="vlucht-tabel-container">
     <table>
       <thead>

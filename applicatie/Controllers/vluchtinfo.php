@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include 'db/db_connectie.php';
 
 $db = maakVerbinding();
@@ -11,9 +9,9 @@ vluchtnummer,
 luchthaven_naam,
 land,
 maatschappij_naam,
-gatecode FROM vluchtinfo"; // Laat alles zien uit de view vluchtinfo
-$result = $db->query($sql); // Resultaat van deze view is de variabele $result
-$totalRows = $result->rowCount(); // Totaal aantal rijen
+gatecode FROM vluchtinfo"; 
+$result = $db->query($sql); // Resultaat van deze view = $result
+$totalRows = $result->rowCount(); 
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit view - lus doorloopt de result rij voor rij
     echo '<tr>';
     echo '<td>' . $row['vertrektijd'] . '</td>';
