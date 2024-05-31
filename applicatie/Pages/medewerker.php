@@ -162,47 +162,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 <?php endif; ?>
 
-        </section>
-            </section>
-
-<!-- Formulier: Nieuwe Vlucht toevoegen-->
-<section class="leftcontainer">
-<h2>Nieuwe Vlucht Toevoegen </h2>
-<form action="includes/db_connectie.php" method="post">
-
-<label for="vluchtnummer">Vluchtnummer:</label>
-<input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="15" required><br>
-
-<label for="luchthavencode">Luchthavencode:</label>
-<select id="luchthavencode" name="luchthavencode" required>
-  <option value="">Selecteer luchthaven</option>
-  <?php echo $luchthavenOptions; 
-  ?>
-</select><br>
-
-<label for="max_aantal">Maximaal aantal passagiers:</label>
-<input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="5000" required><br>
-
-<label for="max_gewicht_pp">Maximaal gewicht per persoon (kg):</label>
-<input type="number" id="max_gewicht_pp" name="max_gewicht_pp" required><br>
-
-<label for="max_totaalgewicht">Maximaal totaalgewicht (kg):</label>
-<input type="number" id="max_totaalgewicht" name="max_totaalgewicht" required><br>
-
-<label for="vertrektijd">Vertrektijd:</label>
-<input type="datetime-local" id="vertrektijd" name="vertrektijd" required><br>
-
-<label for="maatschappijcode">Maatschappijcode:</label>
-<select id="maatschappijcode" name="maatschappijcode" required>
-  <option value="">Selecteer maatschappij</option>
-  <?php echo $maatschappijOptions; ?>
-</select> <br>
-        <p>
-          
-<button type="submit">Vlucht toevoegen</button>
-</form>
-</div>
-</section>
+  </section>
+ </section>
             </body>
 <!-- Footer onderaan pagina -->
 <?php include '../General/footer.php';?>
