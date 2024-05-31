@@ -1,44 +1,25 @@
-<?php
-include '../General/nav.php';
-include '../General/footer.php';
-?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/nav-header.css">  
-  <link rel="stylesheet" href="../CSS/stylesheet.css">
-  <link rel="stylesheet" href="../CSS/forms.css">
-  <title>GelreAirport</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="../Styles/main.css">
+    <title>GelreAirport</title>
 </head>
 <body>
   
-<?php
-displayNav();
-?>
-
+<body>
+<!-- Navigatie balk -->
+<?php include '../General/nav.php';?>
 
 <main>
-  <!-- Container: Pagina header(column1), en welkomst text(column2) -->
+<!-- Pagina header(column1), en welkomst text(column2) -->
 
-<section class="pagina-header">
-  <div class="column1">
-    <div class="logo">
-        <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220"/>
-    </div> 
-  </div>
+<?php include '../General/header.php';?>
 
-  <div class="column2">
-    <h1>Welkom bij GelreAirport!</h1>
-     <p> Deze pagina biedt u de mogelijkheid om in te checken, inclusief bagage, en om uw boekingen te raadplegen. </p>
-  </div>
-  <div class="vliegtuigje">
-    <img src="../Images/airplane.png" alt="animatie van een vliegtuigje" width="50"/>
-  </div>
-</section>
+
 
   <section class="container-wrapper">
     <div class="leftcontainer">
@@ -85,9 +66,10 @@ displayNav();
 
   
   <!-- Footer onderaan pagina -->
- <?php
- displayFooter();
-      ?>
-</main>
+  <?php
+include '../General/footer.php';
+?>
+</main> <!-- moet onder footer zodat achtergrond afbeelding meestrekt tot onderkant -->
 </body>
+
     </html>

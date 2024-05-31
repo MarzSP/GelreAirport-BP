@@ -1,7 +1,5 @@
 
 <?php
-include '../General/nav.php';
-include '../General/footer.php';
 include '../DB/db_connectie.php';
 
 $db = maakVerbinding();
@@ -39,43 +37,24 @@ function getLuchthavenCodes($db) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/normalize.css">
-  <link rel="stylesheet" href="../CSS/nav-header.css">  
-  <link rel="stylesheet" href="../CSS/stylesheet.css">
-  <link rel="stylesheet" href="../CSS/forms.css">
-  <title>GelreAirport: Voeg Vlucht Toe</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="../Styles/main.css">
+    <title>GelreAirport</title>
 </head>
 
 
 <body>
-  <!-- Navigatie balk -->
-  <nav>
-    <ul>
-      <li><a href="../index.php">Home</a></li>
-      <li><a href="../Pages/passagier.php">Checkin</a></li>
-      <li><a href="../Pages/contact.php">Contact</a></li>
-      <li><a href="../Pages/login.php"><button type="button" class="shift-right">Log in</button></a></li>
-      <li><a href="../Pages/medewerker.php">Medewerkertest</a></li>
-    </ul>
-  </nav>
+<!-- Navigatie balk -->
+<?php include '../General/nav.php';?>
 
-  <!-- Main: pagina informatie voor pagina Nieuwe Vlucht -->
-  <main>
-  <section class="pagina-header">
-    <div class="column1">
-            <div class="logo">
-                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
-            </div> 
-    </div>
-    <div class="column2">
-     <h1>Welkom bij GelreAirport!</h1>
-        <p> Voeg een nieuwe vlucht toe </p>
-    </div>
-  </section>
+<main>
+<!-- Pagina header(column1), en welkomst text(column2) -->
+
+<?php include '../General/header.php';?>
+
 
 
     <section class="leftcontainer">
@@ -123,8 +102,6 @@ function getLuchthavenCodes($db) {
     
   </body>
   <!-- Footer onderaan pagina -->
- <?php
- displayFooter();
-      ?>
+  <?php include '../General/footer.php'; ?>
 </main>
 </html>

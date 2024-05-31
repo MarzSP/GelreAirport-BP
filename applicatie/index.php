@@ -1,63 +1,21 @@
-
-<?php
-include 'General/nav.php';
-include 'General/footer.php';
-include 'db/db_connectie.php';
-
-$db = maakVerbinding();
-
-//Gebruik de view vluchtinfo.sql in directory Views
-$sql = "SELECT vertrektijd,
-vluchtnummer,
-luchthaven_naam,
-land,
-maatschappij_naam,
-gatecode FROM vluchtinfo"; // Laat alles zien uit de view vluchtinfo
-$result = $db->query($sql); // Resultaat van deze view is de variabele $result
-$totalRows = $result->rowCount(); // Totaal aantal rijen
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/nav-header.css">  
-  <link rel="stylesheet" href="../CSS/stylesheet.css">
-  <link rel="stylesheet" href="../CSS/forms.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="../Styles/main.css">
     <title>GelreAirport</title>
 </head>
 
 <body>
 <!-- Navigatie balk -->
-<?php
-//include 'General/nav.php';
-displayNav();
-?>
-
+<?php include 'General/nav.php';?>
 
 <main>
-
 <!-- Pagina header(column1), en welkomst text(column2) -->
-  <section class="pagina-header">
-    <div class="column1">
-            <div class="logo">
-                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220"/>
-            </div> 
-    </div>
-    <div class="column2">
-      <div class="welkomst-animatie">
-     <h1>Welkom bij GelreAirport!</h1> </div>
-        <p>Ontdek een wereld van mogelijkheden! Beheer uw boekingen, check online in, zoek aankomende en vertrekkende vluchten en nog veel meer! 
-        <p>Uw avontuur begint hier - klaar voor vertrek?</p>
-    </div>
-    <!-- Vliegtuig afbeelding die geanimeerd wordt -->
-    <div class="vliegtuigje">
-        <img src="../Images/airplane.png" alt="animatie van een vliegtuigje" width="50"/>
-  </div>
-  </section>
+
+<?php include 'General/header.php';?>
 
 
     <!--Container2 linker box met vluchtinformatie-->
@@ -80,19 +38,7 @@ displayNav();
         </tr>
       </thead>
       <tbody>
-      <?php
-      //  fetch-methode hoe de volgende rij uit de view geretourneerd moet worden.
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit view - lus doorloopt de result rij voor rij
-        echo '<tr>';
-        echo '<td>' . $row['vertrektijd'] . '</td>';
-        echo '<td>' . $row['vluchtnummer'] . '</td>';
-        echo '<td>' . $row['luchthaven_naam'] . '</td>';
-        echo '<td>' . $row['land'] . '</td>';
-        echo '<td>' . $row['maatschappij_naam'] . '</td>';
-        echo '<td>' . $row['gatecode'] . '</td>';
-        echo '</tr>';
-        }
-      ?>
+      <?php include 'Controllers/vluchtinfo.php'; ?>
         </tbody>
     </table>
 </div>
@@ -139,9 +85,8 @@ displayNav();
 
   
 <!-- Footer onderaan pagina -->
- <?php
- displayFooter();
-      ?>
+<?php include 'General/footer.php' ; ?>
+
 </main> <!-- </main> moet onder Footer, zo strekt de achtergrond afbeedling totaan de onderkant van de pagina -->
 </body>
 </html>

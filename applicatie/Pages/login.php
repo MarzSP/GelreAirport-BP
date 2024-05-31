@@ -1,10 +1,6 @@
 <?php
-
-include '../General/nav.php';
-include '../General/footer.php';
 require_once '../DB/db_connectie.php';
 
-session_start(); // Start de sessie 
 
 $melding = ''; // Lege variabele aanmaken voor evt plek van een error bericht
 
@@ -60,35 +56,23 @@ if (isset($_POST['inloggen'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/nav-header.css">  
-  <link rel="stylesheet" href="../CSS/stylesheet.css">
-  <link rel="stylesheet" href="../CSS/forms.css">
-  <title>GelreAirport: Bereik meer!</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="../Styles/main.css">
+    <title>GelreAirport</title>
 </head>
 
 <body>
+<!-- Navigatie balk -->
+<?php include '../General/nav.php';?>
 
-<?php
-displayNav();
-?>
+<main>
+<!-- Pagina header(column1), en welkomst text(column2) -->
 
-  <!-- Pagina header/welkomst text -->
-  <main>
-  <section class="pagina-header">
-    <div class="column1">
-            <div class="logo">
-                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220"/>
-            </div> 
-    </div>
-    <div class="column2">
-     <h1>Welkom bij GelreAirport!</h1>
-        <p> Login voor Gelre Checkin! </p>
-    </div>
-  </section>
+<?php include '../General/header.php';?>
+
 
   <!-- Inlog box -->
   <section class="inlog-sectie">
@@ -109,8 +93,8 @@ displayNav();
 
 <!-- Footer onderaan pagina -->
 <?php
- displayFooter();
-      ?>
+include '../General/footer.php';
+?>
 </main>
 </body>
 

@@ -1,6 +1,4 @@
 <?php
-include '../General/nav.php';
-include '../General/footer.php';
 include '../DB/db_connectie.php';
 
 $db = maakVerbinding(); 
@@ -57,41 +55,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 
-
 <!DOCTYPE html>
-<html lang="nl">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/normalize.css">
-  <link rel="stylesheet" href="../CSS/nav-header.css">  
-  <link rel="stylesheet" href="../CSS/stylesheet.css">
-  <link rel="stylesheet" href="../CSS/forms.css">
-  <title>GelreAirport: Bereik meer!</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="../Styles/main.css">
+    <title>GelreAirport</title>
 </head>
 
-<body>
   
-<?php
-displayNav();
-?>
+<body>
+<!-- Navigatie balk -->
+<?php include '../General/nav.php';?>
 
+<main>
+<!-- Pagina header(column1), en welkomst text(column2) -->
 
-  <!-- Main pagina vulling -->
-  <main>
-    <!-- Pagina header Logo - Welkomsttext -->
-  <section class="pagina-header">
-    <div class="column1">
-            <div class="logo">
-                <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220">
-            </div> 
-    </div>
-    <div class="column2">
-     <h1>Welkom bij GelreAirport!</h1>
-        <p> Welkom Baliemedewerker </p>
-    </div>
-  </section>
+<?php include '../General/header.php';?>
+
 
   <!-- Linker box/formulier met Passagier toevoegen -->
   <section class="container-wrapper">
@@ -222,7 +205,5 @@ displayNav();
 </section>
             </body>
 <!-- Footer onderaan pagina -->
-<?php
- displayFooter();
-      ?></main>
+<?php include '../General/footer.php';?>
 </html>
