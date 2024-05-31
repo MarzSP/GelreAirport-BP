@@ -38,7 +38,7 @@
         </tr>
       </thead>
       <tbody>
-      <?php include 'Controllers/vluchtinfo.php'; ?>
+      <?php include 'Controllers/vluchtinfoController.php'; ?>
         </tbody>
     </table>
 </div>
