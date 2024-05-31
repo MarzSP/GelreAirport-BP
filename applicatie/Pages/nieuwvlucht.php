@@ -24,11 +24,8 @@
         <label for="vluchtnummer">Vluchtnummer:</label>
         <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="15" required><br>
 
-        <label for="luchthaven">Luchthaven:</label>
-        <select id="luchthaven" name="luchthaven" required>
-            <option value="">Selecteer luchthaven</option>
-            <?php echo $luchthavenOptions; ?>
-        </select><br>
+        <label for="Luchthaven">Luchthaven:</label>
+        <input type="varchar" id="Luchthaven" name="vlucLuchthaven" pattern="a-zA-Z" maxlength="35" required><br>
 
         <label for="max_aantal">Maximaal aantal passagiers:</label>
         <input type="number" id="max_aantal" name="max_aantal" pattern="[0-9]{1,15}" maxlength="5000" required><br>
@@ -45,7 +42,7 @@
         <label for="maatschappijcode">Maatschappijcode:</label>
         <select id="maatschappijcode" name="maatschappijcode" required>
             <option value="">Selecteer maatschappij </option>
-            <?php echo $maatschappijOptions; ?> </option>
+            <?php echo $selectbox; ?> </option>
         </select><br>
 
         <button type="submit">Vlucht toevoegen</button>
