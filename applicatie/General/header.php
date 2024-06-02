@@ -1,8 +1,5 @@
 <!-- include header.php -->
-<?php
-session_start();
-?>
-  <section class="pagina-header">
+<section class="pagina-header">
     <div class="column1">
             <div class="logo">
                 <img src="../Images/logomain.png" alt="GelreAirport Logo" width="220"/>

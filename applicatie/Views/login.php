@@ -22,11 +22,12 @@
 
   <!-- Inlog box -->
 <section class="inlog-sectie">
-<div class="inlog-formulier">
-  <h2>Login</h2>
+  <div class="inlog-formulier">
+    <h2>Login</h2>
+    <?php if (!empty($error)) { echo "<p>$error</p>"; } ?>
     <form method="post" action="">
       <label for="gebruikersnaam">Gebruikersnaam:</label>
-      <input type="text" id="bgebruikersnaam" pattern="[a-zA-Z0-9]+" name="gebruikersnaam" required>
+      <input type="text" id="gebruikersnaam" pattern="[a-zA-Z0-9]+" name="gebruikersnaam" required>
       <label for="wachtwoord">Wachtwoord:</label>
       <input type="wachtwoord" id="wachtwoord" name="wachtwoord" required>
       <button type="submit">Inloggen</button>
