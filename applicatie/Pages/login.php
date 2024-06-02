@@ -21,21 +21,17 @@
 
 
   <!-- Inlog box -->
-  <section class="inlog-sectie">
-  <div class="inlog-formulier">
-
-    <h2>Login</h2>
+<section class="inlog-sectie">
+<div class="inlog-formulier">
+  <h2>Login</h2>
     <form method="post" action="">
       <label for="gebruikersnaam">Gebruikersnaam:</label>
-      <input type="text" id="bgebruikersnaam" name="gebruikersnaam" required>
-
+      <input type="text" id="bgebruikersnaam" pattern="[a-zA-Z0-9]+" name="gebruikersnaam" required>
       <label for="wachtwoord">Wachtwoord:</label>
       <input type="wachtwoord" id="wachtwoord" name="wachtwoord" required>
-
       <button type="submit">Inloggen</button>
     </form>
   </div>
- <?php //echo($html) ?> 
 </section>
 
 <!-- Footer onderaan pagina -->
