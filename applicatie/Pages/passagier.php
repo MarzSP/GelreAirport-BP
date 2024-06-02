@@ -38,7 +38,7 @@ if (isset($_SESSION['user'])) {
   <p>Check hier online in en bekijk uw bagage-informatie.</p>
 
   <form id="inchecken-form" action="inchecken.php" method="post">
-  <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+  <!-- <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>"> -->
     <label for="vluchtnummer">Vluchtnummer:</label>
     <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="15" required>
     <span class="message">Voer de cijfers van het vluchtnummer in.</span>
