@@ -1,11 +1,4 @@
-<?php
-session_start();
-if (isset($_SESSION['user'])) {
-  $message = "Ingelogd: Passagier " . $_SESSION['user'];
-} else {
-  echo("Error pagina passagier");
-}
-?>
+<?php require_once "../DB/sessionCheck.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">

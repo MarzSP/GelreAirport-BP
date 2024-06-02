@@ -1,3 +1,4 @@
+<?php require_once "../DB/sessionCheck.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
