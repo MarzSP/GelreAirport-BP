@@ -1,17 +1,18 @@
 <?php
 declare(strict_types=1);
 
-function getPassagier($naam) {
+include_once 'db_connectie.php';
+function getPassagier($gebruikersnaam) {
         global $verbinding;
-        $query = $verbinding->prepare('SELECT naam, wachtwoord FROM Passagier WHERE naam = :naam');
-        $query->execute([':naam' => $naam]);
+        $query = $verbinding->prepare('SELECT naam, wachtwoord FROM Passagier WHERE naam = :gebruikersnaam');
+        $query->execute([':gebruikersnaam' => $gebruikersnaam]);
         return $query->fetch();
     }
     
     function getMedewerker($balienummer) {
         global $verbinding;
-        $query = $verbinding->prepare('SELECT balienummer, wachtwoord FROM Balie WHERE balienummer = :balienummer');
-        $query->execute([':balienummer' => $balienummer]);
+        $query = $verbinding->prepare('SELECT balienummer, wachtwoord FROM Balie WHERE balienummer = :gebruikersnaam');
+        $query->execute([':gebruikersnaam' => $balienummer]);
         return $query->fetch();
     }
 

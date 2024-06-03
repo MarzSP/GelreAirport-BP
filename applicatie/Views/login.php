@@ -24,15 +24,16 @@
 <section class="inlog-sectie">
   <div class="inlog-formulier">
     <h2>Login</h2>
-    <?php if (!empty($error)) { echo "<p>$error</p>"; } ?>
+
     <form method="post" action="">
       <label for="gebruikersnaam">Gebruikersnaam:</label>
       <input type="text" id="gebruikersnaam" pattern="[a-zA-Z0-9]+" name="gebruikersnaam" required>
       <label for="wachtwoord">Wachtwoord:</label>
       <input type="wachtwoord" id="wachtwoord" name="wachtwoord" required>
-      <button type="submit">Inloggen</button>
+      <input class="button" type="submit" value="Inloggen" />
     </form>
   </div>
+  <?php echo($html) ?>
 </section>
 
 <!-- Footer onderaan pagina -->
