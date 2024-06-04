@@ -14,12 +14,10 @@
 <!-- Navigatie balk -->
 <?php include '../General/nav.php';?>
 
-<main>
 <!-- Pagina header(column1), en welkomst text(column2) -->
-
 <?php include '../General/header.php';?>
 
-
+<main>
   <!-- Inlog box -->
 <section class="inlog-sectie">
   <div class="inlog-formulier">
@@ -37,9 +35,7 @@
 </section>
 
 <!-- Footer onderaan pagina -->
-<?php
-include '../General/footer.php';
-?>
+<?php include '../General/footer.php';?>
 </main>
 </body>
 

@@ -12,13 +12,11 @@
 <!-- Navigatie balk -->
 <?php include '../General/nav.php';?>
 
-<main>
-<!-- Pagina header(column1), en welkomst text(column2) -->
-
+<!-- Pagina header -->
 <?php include '../General/header.php';?>
 
-
-
+<main>
+<!-- Pagina header(column1), en welkomst text(column2) -->
     <div class="leftcontainer">
       <div class="left-box">
         <div class="Vlucht-info">

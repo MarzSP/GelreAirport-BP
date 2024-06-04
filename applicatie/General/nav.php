@@ -1,4 +1,4 @@
-<!-- /includes/nav.php 
+<!-- /includes/nav.php -->
     <nav> 
       <ul>
           <li><a href="../index.php">Home</a></li>
@@ -9,7 +9,11 @@
           <li><a href="../Views/nieuwvlucht.php">nieuwvluchttest</a></li>
       </ul>
     </nav>
--->
+
+
+<?php 
+/* session_start();
+include("../Controllers/loginController.php") ?>
 
 <nav>
   <ul>
@@ -23,16 +27,17 @@
           Ingelogd: Passagier (<?php echo $_SESSION['gebruikersnaam']; ?>)
         <?php } else if (isset($_SESSION['baliemedewerker'])) { ?>
           Ingelogd: Baliemedewerker (<?php echo $_SESSION['baliemedewerker']; ?>)
+          <li><a href="../Views/medewerker.php">Medewerkertest</a></li>
+         <li><a href="../Views/nieuwvlucht.php">nieuwvluchttest</a></li>
         <?php } ?>
       </li>
 
       <li><a href="../logout.php">Logout</a></li>
     <?php } else { ?>
-      
+
       <li><a href="../Views/login.php"><button type="button" class="shift-right">Log in</button></a></li>
     <?php } ?>
     
-    <li><a href="../Views/medewerker.php">Medewerkertest</a></li>
-    <li><a href="../Views/nieuwvlucht.php">nieuwvluchttest</a></li>
+   
   </ul>
-</nav>
+</nav>*/

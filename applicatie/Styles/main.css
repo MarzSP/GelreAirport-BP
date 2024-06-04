@@ -8,6 +8,8 @@ main {   background-image: url("../Images/achtergrond.png");
 }
 
 body {
+  background-image: url("../Images/achtergrond.png");
+  background-size: cover;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #FFDC00
 }

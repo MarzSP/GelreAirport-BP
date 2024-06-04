@@ -43344,4 +43344,34 @@ set @diff = DATEDIFF(minute, @middle_date, GETDATE());
 update vlucht set vertrektijd = DATEADD(minute, @diff, vertrektijd);
 update passagier set inchecktijdstip = DATEADD(minute, @diff, inchecktijdstip);
 
+-- view vluchtinfo voor passagier op index.php
+CREATE VIEW vluchtinfo AS
+SELECT
+    Vlucht.vertrektijd,
+    Vlucht.vluchtnummer,
+    Luchthaven.naam AS luchthaven_naam,
+    Luchthaven.land,
+    Maatschappij.naam AS maatschappij_naam,
+    Vlucht.gatecode
+FROM Vlucht
+JOIN Luchthaven ON Vlucht.bestemming = Luchthaven.luchthavencode
+JOIN Maatschappij ON Vlucht.maatschappijcode = Maatschappij.maatschappijcode
+JOIN GATE ON Vlucht.gatecode = Gate.gatecode
+
+-- view vluchtinfo voor medewerker op medewerker.php
+SELECT
+  v.vluchtnummer,
+  v.max_aantal,
+  v.max_gewicht_pp,
+  v.max_totaalgewicht,
+  v.vertrektijd,
+  v.gatecode,
+  m.maatschappij,
+  m.maatschappijcode,
+  l.luchthaven,
+  l.luchthavencode
+FROM Vlucht v
+JOIN Maatschappij m ON v.maatschappijcode = m.maatschappijcode
+JOIN Luchthaven l ON v.bestemming = l.luchthavencode
+WHERE v.vluchtnummer = ['vluchtnummer'];
 go
