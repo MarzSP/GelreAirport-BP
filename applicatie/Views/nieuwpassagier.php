@@ -22,17 +22,33 @@
 <?php // include Controller nieuwe passagier ?>
     <!-- Formulier: Nieuwe Passagier toevoegen -->
     <h2>Nieuwe Passagier toevoegen</h2>
-    <form action="includes/../DB/db_connectie.php" method="post">
-        <label for="naam ">Naam</label>
-        <input type="varchar" id="naam" name="naam" pattern="a-zA-Z" maxlength="35" required><br>
+    <form action="add_passenger.php" method="post">
+        <label for="passagiernummer">Passagiernummer:</label>
+        <input type="number" id="passagiernummer" name="passagiernummer" required><br>
 
-        <label for="Geslacht">Geslacht:</label>
-        <select id="Geslacht" name="Geslacht" required>
-            <option value="">M </option>
-            <option value="">V </option>
-            <option value="">X </option>
+        <label for="naam">Naam:</label>
+        <input type="text" id="naam" name="naam" required><br>
+
+        <label for="vluchtnummer">Vluchtnummer:</label>
+        <input type="text" id="vluchtnummer" name="vluchtnummer" required><br>
+
+        <label for="geslacht">Geslacht:</label>
+        <select id="geslacht" name="geslacht">
+            <option value="M">Man</option>
+            <option value="V">Vrouw</option>
+            <option value="O">Anders</option>
         </select><br>
-        <button type="submit">Passagier toevoegen</button>
+
+        <label for="balienummer">Balienummer:</label>
+        <input type="number" id="balienummer" name="balienummer"><br>
+
+        <label for="incheckstijdstip">Incheckstijdstip:</label>
+        <input type="datetime-local" id="incheckstijdstip" name="incheckstijdstip"><br>
+
+        <label for="wachtwoord">Wachtwoord:</label>
+        <input type="password" id="wachtwoord" name="wachtwoord" required><br>
+
+        <input type="submit" value="Toevoegen">
     </form>
 </section>
 </main>

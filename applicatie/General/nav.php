@@ -7,6 +7,7 @@
           <li><a href="../Views/login.php"><button type="button" class="shift-right">Log in</button></a></li>
           <li><a href="../Views/medewerker.php">Medewerkertest</a></li>
           <li><a href="../Views/nieuwvlucht.php">nieuwvluchttest</a></li>
+          <li><a href="../Views/nieuwpassagier.php">nieuwpassagiertest</a></li>
       </ul>
     </nav>
 
