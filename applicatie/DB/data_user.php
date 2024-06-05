@@ -16,19 +16,36 @@ function getPassagier($gebruikersnaam) {
         return $query->fetch();
     }
 
+// Voeg een nieuwe passagier toe
+if (isset($_POST['submit'])) {
+  $passagiernummer = $_POST['passagiernummer'];
+  $naam = $_POST['naam'];
+  $vluchtnummer = $_POST['vluchtnummer'];
+  $geslacht = $_POST['geslacht'];
+  $balienummer = $_POST['balienummer'];
+  $incheckstijdstip = $_POST['inchecktijdstip'];
+  $wachtwoord = $_POST['wachtwoord'];
 
-//function createUser(User $gebruikersnaam) {
-  //  global $verbinding;
-   // require_once '../DB/db_connectie.php';
-    //$hash = password_hash($gebruikersnaam->password, PASSWORD_DEFAULT);
-    //unset($wachtwoord);
+  $gebruiker = new Passagier($naam, $wachtwoord);
 
-   // try{
-    //    $query = $verbinding ->prepare("INSERT INTO Passagier (naam, wachtwoord) VALUES (?, ?)");
-    //   $result = $query->execute([$gebruikersnaam->naam, $hash]);
-  //  }
-  //  catch (PDOException $ex){
-  //      throw new Exception($ex->getMessage());
-//}
-//return $result;
-//}
+  // Gebruik prepared statements om SQL-injectie te voorkomen
+  $query = $verbinding->prepare("INSERT INTO Passagier (naam, vluchtnummer, geslacht, balienummer, inchecktijdstip, wachtwoord) VALUES (?, ?, ?, ?, ?, ?)");
+  $hash = password_hash($gebruiker->wachtwoord, PASSWORD_DEFAULT);
+
+  try {
+      $query->execute([$gevalideerdeNaam, $hash]);
+      return true;
+  } catch (PDOException $ex) {
+      throw new Exception($ex->getMessage());
+      return false;
+  }
+}
+
+  // Probeer de gebruiker te creëren
+  if (createUser($gebruiker)) {
+      // Gebruiker succesvol gecreëerd
+      echo "<p>Gebruiker succesvol gecreëerd!</p>";
+  } else {
+      // Fout bij het creëren van gebruiker
+      echo "<p>Er is een fout opgetreden bij het creëren van de gebruiker.</p>";
+  }

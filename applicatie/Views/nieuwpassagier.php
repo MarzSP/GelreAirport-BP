@@ -22,7 +22,7 @@
 <?php // include Controller nieuwe passagier ?>
     <!-- Formulier: Nieuwe Passagier toevoegen -->
     <h2>Nieuwe Passagier toevoegen</h2>
-    <form action="add_passenger.php" method="post">
+    <form action="data_user.php" method="post">
         <label for="passagiernummer">Passagiernummer:</label>
         <input type="number" id="passagiernummer" name="passagiernummer" required><br>
 

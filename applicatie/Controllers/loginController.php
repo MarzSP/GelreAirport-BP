@@ -33,7 +33,7 @@ if (isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord'])) {
                 $error = "Onbekende gebruikersrol: " . $rol; // Wat er gebeurt als er een geen rol is gevonden.
             }
 
-            if (!$error) { // If no errors occurred
+            if (!$error) { 
                 var_dump("Login: " . $gebruikersnaam['login']);
                 header("Location: $target_url"); // Breng de gebruiker naar de correcte pagina
                 exit();
@@ -44,10 +44,9 @@ if (isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord'])) {
     }
 
 if (!empty($error)) {
-    $html = "<p> Error: $error</p>"; // Display error message
+    $html = "<p>Error: " . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . "</p>";
 }
 }
-
-echo $html; // Output HTML content
+echo $html; 
 
 
