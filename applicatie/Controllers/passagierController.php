@@ -1,4 +1,5 @@
 <?php
+/* Code is veilig gemaakt door middel van: Filter_input, santize input, prepared statements, htmlspecialchars ren PDO::data-type */
 include '../DB/db_connectie.php';
 
 ini_set('display_errors', 1);
@@ -21,32 +22,33 @@ try {
   $passagiernummer = getNextPassagiernummer($data);
 
   // Haal data uit POST van formulier
-  $naam = $_POST['naam'];
-  $vluchtnummer = $_POST['vluchtnummer'];
-  $geslacht = $_POST['geslacht'];
-  $balienummer = (isset($_POST['balienummer']) ? $_POST['balienummer'] : null); // Balienummer is optioneel
-  $stoel = (isset($_POST['stoel']) ? $_POST['stoel'] : null); // Stoel is optioneel
-  $incheckstijdstip = (isset($_POST['incheckstijdstip']) ? $_POST['incheckstijdstip'] : null); // Incheckstijdstip is optioneel
+  $naam = filter_input(INPUT_POST, 'naam', FILTER_SANITIZE_STRING);
+  $vluchtnummer = filter_input(INPUT_POST, 'vluchtnummer', FILTER_SANITIZE_NUMBER_INT);
+  $geslacht = filter_input(INPUT_POST, 'geslacht', FILTER_SANITIZE_STRING);
+  $balienummer = filter_input(INPUT_POST, 'balienummer', FILTER_SANITIZE_NUMBER_INT); // Balienummer is optioneel
+  $stoel = filter_input(INPUT_POST, 'stoel', FILTER_SANITIZE_STRING); // Stoel is optioneel
+  $incheckstijdstip = filter_input(INPUT_POST, 'incheckstijdstip', FILTER_SANITIZE_STRING); // Incheckstijdstip is optioneel
   $wachtwoord = password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT); // Hash password for security
+
 
   // Prepare SQL statement
   $sql = "INSERT INTO Passagier (Passagiernummr, naam, vluchtnummer, Geslacht, balienummer, stoel, incheckstijdstip, wachtwoord)
           VALUES (:passagiernummer, :naam, :vluchtnummer, :geslacht, :balienummer, :stoel, :incheckstijdstip, :wachtwoord)";
   $stmt = $data->prepare($sql);
 
-  // Bind parameters with form data
-  $stmt->bindParam(':passagiernummer', $passagiernummer);
-  $stmt->bindParam(':naam', $naam);
-  $stmt->bindParam(':vluchtnummer', $vluchtnummer);
-  $stmt->bindParam(':geslacht', $geslacht);
-  $stmt->bindParam(':balienummer', $balienummer);
-  $stmt->bindParam(':stoel', $stoel);
-  $stmt->bindParam(':incheckstijdstip', $incheckstijdstip);
-  $stmt->bindParam(':wachtwoord', $wachtwoord);
+  // Bind parameters met formulier data
+  $stmt->bindParam(':passagiernummer', $passagiernummer, PDO::PARAM_INT);
+  $stmt->bindParam(':naam', $naam, PDO::PARAM_STR);
+  $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
+  $stmt->bindParam(':geslacht', $geslacht, PDO::PARAM_STR);
+  $stmt->bindParam(':balienummer', $balienummer, PDO::PARAM_INT);
+  $stmt->bindParam(':stoel', $stoel, PDO::PARAM_STR);
+  $stmt->bindParam(':incheckstijdstip', $incheckstijdstip, PDO::PARAM_STR);
+  $stmt->bindParam(':wachtwoord', $wachtwoord, PDO::PARAM_STR);
 
   // Execute the prepared statement
   if ($stmt->execute()) {
-    echo "Nieuwe passagier toegevoegd! Passagiernummer: " . $passagiernummer;
+    echo "Nieuwe passagier toegevoegd! Passagiernummer: " . htmlspecialchars($passagiernummer, ENT_QUOTES, 'UTF-8');
   } else {
     echo "Error adding passenger.";
   }
