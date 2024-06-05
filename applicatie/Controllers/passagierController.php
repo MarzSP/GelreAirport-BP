@@ -2,8 +2,8 @@
 /* Code is veilig gemaakt door middel van: Filter_input, santize input, prepared statements, htmlspecialchars ren PDO::data-type */
 include '../DB/db_connectie.php';
 
-ini_set('display_errors', 1);
-ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1); // Errors worden weergegeven in browsert
+ini_set('error_reporting', E_ALL); // Alle soorten errors worden weergegeven
 
 try {
   $data = $verbinding;
