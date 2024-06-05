@@ -22,16 +22,16 @@
 <?php require '../Controllers/nieuwvluchtController.php'; ?>
     <!-- Formulier: Nieuwe Vlucht toevoegen-->
     <h2>Nieuwe Vlucht Toevoegen</h2>
-    <form method="POST" action="../Controllers/nieuwvluchtController" >
+    <form method="POST" action="../Controllers/nieuwvluchtController.php" >
         <label for="vluchtnummer">Vluchtnummer:</label>
         <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="9" required><br>
 
 <!-- Dropdown lijst van Bestemmingen -->
-        <select id="naam" name="naam" required>
+        <select id="bestemming" name="bestemming" required>
         <option value="">Selecteer bestemming</option>
         <?php foreach ($bestemmingen as $bestemming): ?>
-         <option value="<?php echo $bestemming['naam']; ?>">
-          <?php echo $bestemming['naam']; ?>
+         <option value="<?php echo $bestemming['bestemming']; ?>">
+          <?php echo $bestemming['bestemming']; ?>
         </option>
          <?php endforeach; ?>
         </select>

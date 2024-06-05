@@ -11,8 +11,9 @@ if(isset($_POST['submit'])){
     $vertrektijd = $_POST['vertrektijd'];
 
     // Prepare SQL statement
-$sql = "INSERT INTO Vlucht (vluchtnummer, bestemming, gatecode, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, maatschappijcode)
+ $sql = "INSERT INTO Vlucht (vluchtnummer, bestemming, gatecode, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, maatschappijcode)
 VALUES (:vluchtnummer, :bestemming, NULL, :max_aantal, :max_gewicht_pp, :max_totaalgewicht, :vertrektijd, :maatschappijcode)";
+
 
 $stmt = $verbinding->prepare($sql);
 
@@ -24,14 +25,10 @@ $stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp);
 $stmt->bindParam('max_totaalgewicht', $max_totaalgewicht);
 $stmt->bindParam(':vertrektijd', $vertrektijd);
 
-
-// Execute the prepared statement
-if ($stmt->execute()) {
-echo "New flight added successfully!";
 } else {
-echo "Error adding flight.";
+echo "Error: Vlucht niet toegevoegd.";
 }
-}
+
 
 
 
@@ -41,7 +38,7 @@ try {
   
     // Function to get destinations
     function getDestinations($db) {
-      $sql = "SELECT naam FROM Luchthaven";
+      $sql = "SELECT bestemming FROM Vlucht";
       $stmt = $db->prepare($sql);
       $stmt->execute();
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
