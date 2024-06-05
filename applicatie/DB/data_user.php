@@ -1,4 +1,5 @@
 <?php
+/* Code is veilig gemaakt tegen SQL-Injection en XSS door middel van: Prepared statements, Sanitized input, htmlspecialchars, error handling en validatie. */
 declare(strict_types=1);
 
 include_once 'db_connectie.php';
