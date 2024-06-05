@@ -1,14 +1,15 @@
 <?php
-// Include the database connection
+/* Code is veilig gemaakt door middel van: filter_input, santized input, prepared statements, PDO params, en htmlspecialchars */
 include '../DB/db_connectie.php';
 
 if(isset($_POST['submit'])){
-    $vluchtnummer = $_POST['vluchtnummer'];
-    $bestemming = $_POST['bestemming'];
-    $max_aantal = $_POST['max_aantal'];
-    $max_gewicht_pp = $_POST['max_gewicht_pp'];
-    $max_totaalgewicht = $_POST['max_totaalgewicht'];
-    $vertrektijd = $_POST['vertrektijd'];
+  $vluchtnummer = filter_input(INPUT_POST, 'vluchtnummer', FILTER_SANITIZE_STRING);
+  $bestemming = filter_input(INPUT_POST, 'bestemming', FILTER_SANITIZE_STRING);
+  $max_aantal = filter_input(INPUT_POST, 'max_aantal', FILTER_SANITIZE_NUMBER_INT);
+  $max_gewicht_pp = filter_input(INPUT_POST, 'max_gewicht_pp', FILTER_SANITIZE_NUMBER_FLOAT);
+  $max_totaalgewicht = filter_input(INPUT_POST, 'max_totaalgewicht', FILTER_SANITIZE_NUMBER_FLOAT);
+  $vertrektijd = filter_input(INPUT_POST, 'vertrektijd', FILTER_SANITIZE_STRING);
+  $maatschappijcode = filter_input(INPUT_POST, 'maatschappijcode', FILTER_SANITIZE_STRING);
 
     // Prepare SQL statement
  $sql = "INSERT INTO Vlucht (vluchtnummer, bestemming, gatecode, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, maatschappijcode)
@@ -17,14 +18,14 @@ VALUES (:vluchtnummer, :bestemming, NULL, :max_aantal, :max_gewicht_pp, :max_tot
 
 $stmt = $verbinding->prepare($sql);
 
-// Bind parameters with form data
-$stmt->bindParam(':vluchtnummer', $vluchtnummer);
-$stmt->bindParam(':bestemming', $bestemming);
-$stmt->bindParam(':max_aantal', $max_aantal);
-$stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp);
-$stmt->bindParam('max_totaalgewicht', $max_totaalgewicht);
-$stmt->bindParam(':vertrektijd', $vertrektijd);
-
+// Bind parameters met formulier data
+$stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_STR);
+$stmt->bindParam(':bestemming', $bestemming, PDO::PARAM_STR);
+$stmt->bindParam(':max_aantal', $max_aantal, PDO::PARAM_INT);
+$stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp, PDO::PARAM_STR);
+$stmt->bindParam(':max_totaalgewicht', $max_totaalgewicht, PDO::PARAM_STR);
+$stmt->bindParam(':vertrektijd', $vertrektijd, PDO::PARAM_STR);
+$stmt->bindParam(':maatschappijcode', $maatschappijcode, PDO::PARAM_STR);
 } else {
 echo "Error: Vlucht niet toegevoegd.";
 }
@@ -56,7 +57,7 @@ try {
     $bestemmingen = getDestinations($data);
     $maatschappijcodes = getMaatschappijCodes($data);
   } catch(PDOException $e) {
-    echo "Error fetching options: " . $e->getMessage();
+    echo "Error fetching options: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
     $bestemmingen = [];
     $maatschappijcodes = [];
   }
