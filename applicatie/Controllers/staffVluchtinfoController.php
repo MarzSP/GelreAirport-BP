@@ -1,15 +1,14 @@
 <?php
+/* Code is veilig gemaakt tegen SQL-Injection en XSS door middel van: Prepared statements, Sanitized input, htmlspecialchars, error handling en validatie. */
 include '../DB/db_connectie.php';
 
 $db = maakVerbinding(); 
 
-$vluchtnummer = ""; // initialisatie variabele om vluchtnummer in te bewaren
-$flight_data = array(); // lege array om de opgehaalde vluchtdetails  in op te slaan
-$error_message = ""; // plek om error messages in op te slaan
+$vluchtnummer = ""; 
+$flight_data = array(); 
+$error_message = ""; 
 
-// Gegevens uit formulier -> Server (POST)
 // Constante FILTER_SANITIZE_NUMBER_INT: om input van user "reinigen" / voorkomen van SQL injectie
-// Constante ^ verwijderd alle tekends uit de invoer behalve 0-9
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['vluchtnummer'])) {
     $vluchtnummer = filter_var($_POST['vluchtnummer'], FILTER_SANITIZE_NUMBER_INT); 
@@ -21,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       // SQL query wordt voorbereid:
       $stmt = $db->prepare('SELECT v.vluchtnummer, v.max_aantal, v.max_gewicht_pp, v.max_totaalgewicht, v.vertrektijd, v.gatecode, m.naam, m.maatschappijcode, l.naam, l.luchthavencode FROM Vlucht v JOIN Maatschappij m ON v.maatschappijcode = m.maatschappijcode JOIN Luchthaven l ON v.bestemming = l.luchthavencode WHERE v.vluchtnummer = ?');
 
-      // Controlleert of vluchtnummer leeg is of ingevuld
       if (!empty($vluchtnummer) && is_numeric($vluchtnummer)) {
         // Bind parameter vluchtnummer aan het sql statement
         $stmt->bindParam(1, $vluchtnummer, PDO::PARAM_INT);
@@ -29,25 +27,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error_message = "Vluchtnummer is ongeldig.";
       }
 
-      // Controlleert of de query geslaagd is Zo ja, komen de resultaten als associatieve rijen terug
       if ($stmt->execute()) {
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Controle of er een vluchtnummer is in dB
         if (count($result) > 0) {
-          // Fetch de gevonden vluchtdetails en sla ze op in $flight-details
           $flight_data = $result;
         } else {
           $error_message = "Geen vlucht gevonden met nummer: " . $vluchtnummer;
         }
       } else {
-        // Error bericht als de query mislukt
-        $error_message = "Error executing query: " . $stmt->errorInfo()[0];
+        $error_message = "Error executing query: " . $stmt->errorInfo()[0]; //Als query mislukt
       }
     }
   } else {
-    // Error als vluchtnummer niet is ingevuld
-    $error_message = "Vluchtnummer ongeldig.";
+    $error_message = "Vluchtnummer ongeldig."; // Als invoer incorrect is
   }
 }
 
@@ -76,16 +69,16 @@ if (count($flight_data) > 0): ?>
         <tbody>
             <?php foreach ($flight_data as $flight): ?>
             <tr>
-                <td><?php echo $flight['vluchtnummer']; ?></td>
-                <td><?php echo $flight['vertrektijd']; ?></td>
-                <td><?php echo $flight['naam']; ?></td>
-                <td><?php echo $flight['maatschappijcode']; ?></td>
-                <td><?php echo $flight['naam']; ?></td>
-                <td><?php echo $flight['luchthavencode']; ?></td>
-                <td><?php echo $flight['max_aantal']; ?></td>
-                <td><?php echo $flight['max_gewicht_pp']; ?></td>
-                <td><?php echo $flight['max_totaalgewicht']; ?></td>
-                <td><?php echo $flight['gatecode']; ?></td>
+                <td><?php echo htmlspecialchars($flight['vluchtnummer'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($flight['vertrektijd'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($flight['naam'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($flight['maatschappijcode'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($flight['naam'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($flight['luchthavencode'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($flight['max_aantal'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($flight['max_gewicht_pp'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($flight['max_totaalgewicht'], ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php echo htmlspecialchars($flight['gatecode'], ENT_QUOTES, 'UTF-8'); ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
