@@ -10,16 +10,17 @@ luchthaven_naam,
 land,
 maatschappij_naam,
 gatecode FROM vluchtinfo"; 
-$result = $db->query($sql); // Resultaat van deze view = $result
+$result = $db->prepare($sql); // Prepare statement om SQL-injectie te voorkomen
+$result->execute();
 $totalRows = $result->rowCount(); 
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit view - lus doorloopt de result rij voor rij
     echo '<tr>';
-    echo '<td>' . $row['vertrektijd'] . '</td>';
-    echo '<td>' . $row['vluchtnummer'] . '</td>';
-    echo '<td>' . $row['luchthaven_naam'] . '</td>';
-    echo '<td>' . $row['land'] . '</td>';
-    echo '<td>' . $row['maatschappij_naam'] . '</td>';
-    echo '<td>' . $row['gatecode'] . '</td>';
+    echo '<td>' . htmlspecialchars($row['vertrektijd'], ENT_QUOTES, 'UTF-8') . '</td>';
+    echo '<td>' . htmlspecialchars($row['vluchtnummer'], ENT_QUOTES, 'UTF-8')  . '</td>';
+    echo '<td>' . htmlspecialchars($row['luchthaven_naam'], ENT_QUOTES, 'UTF-8')  . '</td>';
+    echo '<td>' . htmlspecialchars($row['land'], ENT_QUOTES, 'UTF-8')  . '</td>';
+    echo '<td>' . htmlspecialchars($row['maatschappij_naam'], ENT_QUOTES, 'UTF-8')  . '</td>';
+    echo '<td>' . htmlspecialchars($row['gatecode'], ENT_QUOTES, 'UTF-8')  . '</td>';
     echo '</tr>';
     }
 ?>

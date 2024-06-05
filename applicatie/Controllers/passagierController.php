@@ -5,7 +5,6 @@ ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 
 try {
-  // verbind met DB
   $data = $verbinding;
   $data->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
