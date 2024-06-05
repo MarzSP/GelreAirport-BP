@@ -19,15 +19,22 @@
 
 
 <section class="leftcontainer">
-<?php include '../Controllers/nieuwvluchtController.php'; ?>
+<?php require '../Controllers/nieuwvluchtController.php'; ?>
     <!-- Formulier: Nieuwe Vlucht toevoegen-->
     <h2>Nieuwe Vlucht Toevoegen</h2>
-    <form action="includes/../DB/db_connectie.php" method="post">
+    <form method="POST" action="../Controllers/nieuwvluchtController" >
         <label for="vluchtnummer">Vluchtnummer:</label>
-        <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="15" required><br>
+        <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="9" required><br>
 
-        <label for="Luchthaven">Luchthaven:</label>
-        <input type="varchar" id="Luchthaven" name="vlucLuchthaven" pattern="a-zA-Z" maxlength="35" required><br>
+<!-- Dropdown lijst van Bestemmingen -->
+        <select id="naam" name="naam" required>
+        <option value="">Selecteer bestemming</option>
+        <?php foreach ($bestemmingen as $bestemming): ?>
+         <option value="<?php echo $bestemming['naam']; ?>">
+          <?php echo $bestemming['naam']; ?>
+        </option>
+         <?php endforeach; ?>
+        </select>
 
         <label for="max_aantal">Maximaal aantal passagiers:</label>
         <input type="number" id="max_aantal" name="max_aantal" pattern="[0-9]{1,15}" maxlength="5000" required><br>
@@ -41,13 +48,16 @@
         <label for="vertrektijd">Vertrektijd:</label>
         <input type="datetime-local" id="vertrektijd" name="vertrektijd" required><br>
 
-        <label for="maatschappijcode">Maatschappijcode:</label>
+<!-- Dropdown lijst van Maatschappijcodes -->
         <select id="maatschappijcode" name="maatschappijcode" required>
-            <option value="">Selecteer maatschappij </option>
-           <option> <?php getMaatschappijCodes($db); ?> </option>
-        </select><br>
-
-        <button type="submit">Vlucht toevoegen</button>
+        <option value="">Selecteer maatschappij</option>
+        <?php foreach ($maatschappijcodes as $maatschappijcode): ?>
+        <option value="<?php echo $maatschappijcode['maatschappijcode']; ?>">
+        <?php echo $maatschappijcode['maatschappijcode']; ?>
+        </option>
+        <?php endforeach; ?>
+        </select>
+        <button type="submit" name="submit">Vlucht toevoegen</button>
     </form>
 </section>
 </main>

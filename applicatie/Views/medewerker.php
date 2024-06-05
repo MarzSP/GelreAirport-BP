@@ -84,7 +84,7 @@
             <button type="submit">Zoek Vlucht</button>
         </form>
 
-        <!-- Include the controller to process and display flight data -->
+        <!-- Ik geef de controller mee om het vluchtinfo te kunnen weergeven -->
         <?php include '../Controllers/staffVluchtinfoController.php'; ?>
     </section>
 </section>

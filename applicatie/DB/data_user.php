@@ -4,7 +4,7 @@ declare(strict_types=1);
 include_once 'db_connectie.php';
 function getPassagier($gebruikersnaam) {
         global $verbinding;
-        $query = $verbinding->prepare('SELECT naam, wachtwoord FROM Passagier WHERE naam = :gebruikersnaam');
+        $query = $verbinding->prepare('SELECT passagiernummer, wachtwoord FROM Passagier WHERE passagiernummer = :gebruikersnaam');
         $query->execute([':gebruikersnaam' => $gebruikersnaam]);
         return $query->fetch();
     }
