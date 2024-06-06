@@ -3,6 +3,8 @@
 
 <!-- To do
 1. Login werkend maken. Medewerkers + passagier. Wachtwoorden staan ongehashed in DB? Kolom wachtwoord verwijderen en een nieuwe kolom aanmaken met gehashde wachtwoorden?
+Zodra je ingelogd bent, alleen een knop naar afmelden, login pagina niet meer tonen in nav balk.
+
 2. Nav-balk voor passagier + navbalk medewerker
 3. Passagier toevoegen werkend maken.
 4. Privacy/cookieverklaring
