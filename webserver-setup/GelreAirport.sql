@@ -43345,18 +43345,16 @@ update vlucht set vertrektijd = DATEADD(minute, @diff, vertrektijd);
 update passagier set inchecktijdstip = DATEADD(minute, @diff, inchecktijdstip);
 
 -- view vluchtinfo voor passagier op index.php
-CREATE VIEW vluchtinfo AS
-SELECT
-    Vlucht.vertrektijd,
-    Vlucht.vluchtnummer,
-    Luchthaven.naam AS luchthaven_naam,
-    Luchthaven.land,
-    Maatschappij.naam AS maatschappij_naam,
-    Vlucht.gatecode
+CREATE VIEW vluchtinfo AS 
+SELECT    CONCAT(   
+	CONVERT(VARCHAR(10), vertrektijd, 120), ' ',         
+CAST(DATEPART(hour, vertrektijd) AS varchar(2)), ':',         
+CAST(DATEPART(minute, vertrektijd) AS varchar(2)), ' ', ' '
+) AS Vertrektijd, Vlucht.vluchtnummer, Luchthaven.naam AS luchthaven_naam, Luchthaven.land, Maatschappij.naam AS maatschappij_naam, Vlucht.gatecode
 FROM Vlucht
-JOIN Luchthaven ON Vlucht.bestemming = Luchthaven.luchthavencode
-JOIN Maatschappij ON Vlucht.maatschappijcode = Maatschappij.maatschappijcode
-JOIN GATE ON Vlucht.gatecode = Gate.gatecode
+JOIN Luchthaven ON Vlucht.bestemming = Luchthaven.luchthavencode 
+JOIN Maatschappij ON Vlucht.maatschappijcode = Maatschappij.maatschappijcode 
+JOIN GATE ON Vlucht.gatecode = Gate.gatecode;
 
 -- view vluchtinfo voor medewerker op medewerker.php
 SELECT
