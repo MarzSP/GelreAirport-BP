@@ -9,7 +9,8 @@ vluchtnummer,
 luchthaven_naam,
 land,
 maatschappij_naam,
-gatecode FROM vluchtinfo"; 
+gatecode,
+Incheck_balie FROM vluchtinfo"; 
 $result = $db->prepare($sql); 
 $result->execute();
 $totalRows = $result->rowCount(); 
@@ -21,6 +22,8 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit view 
     echo '<td>' . htmlspecialchars($row['land'], ENT_QUOTES, 'UTF-8')  . '</td>';
     echo '<td>' . htmlspecialchars($row['maatschappij_naam'], ENT_QUOTES, 'UTF-8')  . '</td>';
     echo '<td>' . htmlspecialchars($row['gatecode'], ENT_QUOTES, 'UTF-8')  . '</td>';
+    echo '<td>' . htmlspecialchars($row['Incheck_balie'], ENT_QUOTES, 'UTF-8')  . '</td>';
     echo '</tr>';
     }
-?>
+
+

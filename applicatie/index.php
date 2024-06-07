@@ -49,12 +49,15 @@ Zodra je ingelogd bent, alleen een knop naar afmelden, login pagina niet meer to
           <th>Land</th>
           <th>Maatschappij</th>
           <th>Gate</th>
+          <th>Incheck_balie</th>
         </tr>
       </thead>
       <tbody>
       <?php include 'Controllers/vluchtinfoController.php'; ?>
         </tbody>
     </table>
+
+    <!-- zoeken op Vluchtnummer: -->
 </div>
 </div>
 
