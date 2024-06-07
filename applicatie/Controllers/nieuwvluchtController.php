@@ -1,6 +1,5 @@
 <?php
 /* Code is veilig gemaakt door middel van: filter_input, santized input, prepared statements, PDO params, en htmlspecialchars */
-include '../DB/db_connectie.php';
 
 if(isset($_POST['submit'])){
   $vluchtnummer = filter_input(INPUT_POST, 'vluchtnummer', FILTER_SANITIZE_STRING);

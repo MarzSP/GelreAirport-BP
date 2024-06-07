@@ -1,4 +1,5 @@
-<?php //require_once "../DB/sessionCheck.php" ?>
+<?php require_once "../includes.php" ?>
+<?php redirectIfNotLoggedin() ?>
 
 <!DOCTYPE html>
 <html lang="en">

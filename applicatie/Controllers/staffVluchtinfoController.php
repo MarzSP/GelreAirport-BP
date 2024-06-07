@@ -1,8 +1,7 @@
 <?php
 /* Code is veilig gemaakt tegen SQL-Injection en XSS door middel van: Prepared statements, Sanitized input, htmlspecialchars, error handling en validatie. */
-include '../DB/db_connectie.php';
 
-$db = maakVerbinding(); 
+$db = maakVerbinding();
 
 $vluchtnummer = ""; 
 $flight_data = array(); 
@@ -18,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $error_message = "Ongeldig vluchtnummer.";
     } else {
       $stmt = $db->prepare('SELECT v.vluchtnummer, v.max_aantal, v.max_gewicht_pp, v.max_totaalgewicht, v.vertrektijd, v.gatecode, m.naam, m.maatschappijcode, l.naam, l.luchthavencode FROM Vlucht v JOIN Maatschappij m ON v.maatschappijcode = m.maatschappijcode JOIN Luchthaven l ON v.bestemming = l.luchthavencode WHERE v.vluchtnummer = ?');
+
 
       if (!empty($vluchtnummer) && is_numeric($vluchtnummer)) {
         // Bind parameter vluchtnummer aan het sql statement

@@ -1,3 +1,4 @@
+<?php require_once "../includes.php" ?>
 <?php require_once '../Controllers/loginController.php'; ?>
 
 <!DOCTYPE html>
