@@ -2,16 +2,12 @@
 <html lang="en">
 
 <!-- To do
-1. Login werkend maken. Medewerkers + passagier. Wachtwoorden staan ongehashed in DB? Kolom wachtwoord verwijderen en een nieuwe kolom aanmaken met gehashde wachtwoorden?
-Zodra je ingelogd bent, alleen een knop naar afmelden, login pagina niet meer tonen in nav balk.
+Login:
+Rol baliemedewerker: Balienummers zijn gekoppeld aan luchthavenmaatschappijen waar ze die kunnen inchecken. Nav balk: niewvlucht, niewpassagier, home, logout
+Rol passagier: Nav balk: Home, check-in, overzicht van boeking, logout
 
-2. Nav-balk voor passagier + navbalk medewerker
-3. Passagier toevoegen werkend maken.
-4. Privacy/cookieverklaring
-5. Check-in systeem maken Passagier
-6. Check-in systeem maken Medewerker
-7. Controlleer alles op SQL-injection/XSS gevaren
-8. Word rapport uitwerken
+
+
 -->
 
 <head>
