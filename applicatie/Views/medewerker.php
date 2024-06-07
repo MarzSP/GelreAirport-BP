@@ -72,10 +72,11 @@
         <div id="bag_details"> </div>
         <button type="submit">Inchecken</button>
     </form> </section>
-  
+      
+      
   <!-- Vlucht gegevens ophalen box/formulier -->
   <section class="rightcontainer">
-        <h3>Vluchtgegevens Ophalen</h3>
+        <h3>Vluchtgegevens Ophalen: Vluchtnummer</h3>
         <form action="" method="post" id="vluchtnummer">
             <label for="vluchtnummer">Vluchtnummer:</label>
             <input type="text" id="vluchtnummer" name="vluchtnummer" required>
@@ -86,11 +87,25 @@
 
         <!-- Ik geef de controller mee om het vluchtinfo te kunnen weergeven -->
         <?php include '../Controllers/staffVluchtinfoController.php'; ?>
-    </section>
+      </section> 
+      </section>
+
+      <section class="container4">
+    <h3>Vluchtgegevens Ophalen: Luchthaven</h3>
+    <form action="" method="post" id="luchthaven">
+        <label for="luchthavennaam">Luchthavennaam:</label>
+        <input type="text" id="luchthavennaam" name="luchthavennaam" required>
+        <span class="error-message"></span>
+        <br>
+        <button type="submit">Zoek op luchthaven</button>
+    </form>
+    <?php include '../Controllers/luchthavenController.php'; ?>
 </section>
+
 
 
 </body>
 <!-- Footer onderaan pagina -->
 <?php include '../General/footer.php';?>
+      </main>
 </html>

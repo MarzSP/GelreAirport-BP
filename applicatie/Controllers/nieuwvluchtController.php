@@ -37,7 +37,7 @@ try {
     $data = $verbinding; 
     $data->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
-    // Function to get destinations
+
     function getDestinations($db) {
       $sql = "SELECT bestemming FROM Vlucht";
       $stmt = $db->prepare($sql);
@@ -45,7 +45,7 @@ try {
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
   
-    // Function to get maatschappijcodes
+
     function getMaatschappijCodes($db) {
       $sql = "SELECT maatschappijcode FROM Maatschappij";
       $stmt = $db->prepare($sql);
@@ -53,7 +53,7 @@ try {
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
   
-    // Call functions and store results
+    // Roep functies aan en sla resultaten op
     $bestemmingen = getDestinations($data);
     $maatschappijcodes = getMaatschappijCodes($data);
   } catch(PDOException $e) {
