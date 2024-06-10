@@ -13,13 +13,13 @@
   
 <body>
 <!-- Navigatie balk -->
-<?php include '../General/nav.php';?>
+<?php include '../Components/General/nav.php';?>
 
 <main>
 
-<!-- Pagina header(column1), en welkomst text(column2) -->
+<!-- Pagina General/(column1), en welkomst text(column2) -->
 
-<?php include '../General/header.php';?>
+<?php include '../Components/General/header.php';?>
 
 
 
@@ -68,10 +68,8 @@
 
   
   <!-- Footer onderaan pagina -->
-  <?php
-include '../General/footer.php';
-?>
-</main> <!-- moet onder footer zodat achtergrond afbeelding meestrekt tot onderkant -->
+  <?php include '../Components/General/footer.php';?>
+</main> <!-- moet onder General/ zodat achtergrond afbeelding meestrekt tot onderkant -->
 </body>
 
     </html>

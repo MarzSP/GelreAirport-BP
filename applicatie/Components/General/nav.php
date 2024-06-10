@@ -8,7 +8,7 @@ $isLoggedin = isLoggedIn();
           <li><a href="../Views/passagier.php">Checkin</a></li>
           <li><a href="../Views/contact.php">Contact</a></li>
           <?php if ($isLoggedin) { ?>
-              <li><?= $_SESSION['rol'].':'.$_SESSION['gebruikersnaam'] ?>(<a href="../Views/logout.php">Logout</a>)</li>
+             <li><?= $_SESSION['rol'].':'.$_SESSION['gebruikersnaam'] ?>(<a href="../Views/logout.php">Logout</a>)</li>
           <?php } else { ?>
             <li><a href="../Views/login.php">Login</a></li>
           <?php } ?>
