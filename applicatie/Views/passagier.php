@@ -1,4 +1,5 @@
 <?php require_once "../includes.php" ?>
+<?php redirectIfNotLoggedin() ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,13 +60,26 @@
 </div>
 
 
-  <div class="rightcontainer">
-      <h2>Mijn Boekingen</h2>
-      <p>Bekijk hier uw aankomende vluchten</p>
-  </div>
+<div class="rightcontainer">
+<?php include '../Controllers/_boekingbekijken.php'; 
+if($_SESSION['rol'] === 'passagier'){ $boeking = getPassengierBoeking(); } ?>
+  <h2>Mijn Boekingen</h2>
+  <?php if ($login): ?>
+    <p>Uw aankomende vlucht:</p>
+    <ul>
+      <li>Passagiernummer: <?= $$boeking['passagiernummer'] ?></li>
+      <li>Vertrektijd: <?= $$boeking['Vertrektijd'] ?></li>
+      <li>Vluchtnummer: <?= $$boeking['vluchtnummer'] ?></li>
+      <li>Luchthaven: <?= $$boeking['luchthaven_naam'] ?> (<?= $$boeking['land'] ?>)</li>
+      <li>Maatschappij: <?= $$boeking['maatschappij_naam'] ?></li>
+      <li>Gate: <?= $$boeking['gatecode'] ?></li>
+      <li>Incheckbalie: <?= $$boeking['Incheck_balie'] ?></li>
+    </ul>
+  <?php else: ?>
+    <p>U heeft momenteel geen aankomende vluchten.</p>
+  <?php endif; ?>
+</div>
 </section>
-  
-
   
   <!-- Footer onderaan pagina -->
   <?php include '../Components/General/footer.php';?>

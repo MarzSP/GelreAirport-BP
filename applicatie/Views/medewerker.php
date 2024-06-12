@@ -84,23 +84,36 @@
             <span class="error-message"></span>
             <br>
             <button type="submit">Zoek Vlucht</button>
+            <?php include '../Controllers/_staff_vluchtinfo.php'; ?>
         </form>
-
-        <!-- Ik geef de controller mee om het vluchtinfo te kunnen weergeven -->
-        <?php include '../Controllers/staffVluchtinfoController.php'; ?>
       </section> 
       </section>
 
       <section class="container4">
     <h3>Vluchtgegevens Ophalen: Luchthaven</h3>
-    <form action="" method="post" id="luchthaven">
-        <label for="luchthavennaam">Luchthavennaam:</label>
-        <input type="text" id="luchthavennaam" name="luchthavennaam" required>
+    <form action=" " method="post" id="luchthaven">
+        <label for="luchthaven">Luchthavennaam:</label>
+        <input type="text" id="luchthaven" name="luchthaven" required>
         <span class="error-message"></span>
         <br>
         <button type="submit">Zoek op luchthaven</button>
+        <?php include '../Controllers/_staff_zoekluchthaven.php'; ?>
     </form>
-    <?php include '../Controllers/luchthavenController.php'; ?>
+
+      </section>
+
+    <section class="container4">
+    <h3>Vluchtgegevens Ophalen: Datum & Tijd</h3>
+    <form action="" method="post">
+        <label for="datum">Datum:</label>
+        <input type="date" id="datum" name="datum">
+
+        <label for="tijdstip">Tijdstip:</label>
+        <input type="time" id="tijdstip" name="tijdstip"> <p>
+
+        <button type="submit">Zoeken op Datum & Tijd </button>
+    </form>
+    <?php include '../Controllers/_staff_zoekdatum.php'; ?> 
 </section>
 
 

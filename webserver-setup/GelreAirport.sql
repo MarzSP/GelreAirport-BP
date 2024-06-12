@@ -43345,7 +43345,7 @@ update vlucht set vertrektijd = DATEADD(minute, @diff, vertrektijd);
 update passagier set inchecktijdstip = DATEADD(minute, @diff, inchecktijdstip);
 
 -- view vluchtinfo voor passagier op index.php
-CREATE VIEW vluchtinfo_met_balienummer AS
+CREATE VIEW vluchtinfo AS
 SELECT
     CONCAT(
         CONVERT(VARCHAR(10), vertrektijd, 120), ' ',
@@ -43365,6 +43365,7 @@ JOIN Gate ON Vlucht.gatecode = Gate.gatecode
 JOIN IncheckenMaatschappij ON Maatschappij.maatschappijcode = IncheckenMaatschappij.maatschappijcode;
 
 -- view vluchtinfo voor medewerker op medewerker.php
+CREATE VIEW vluchtnummer AS
 SELECT
   v.vluchtnummer,
   v.max_aantal,

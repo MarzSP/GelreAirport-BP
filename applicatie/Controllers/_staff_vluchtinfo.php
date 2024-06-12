@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$vluchtnummer || strlen($vluchtnummer) != 5 || !is_numeric($vluchtnummer)) {
       $error_message = "Ongeldig vluchtnummer.";
     } else {
-      $stmt = $db->prepare('SELECT v.vluchtnummer, v.max_aantal, v.max_gewicht_pp, v.max_totaalgewicht, v.vertrektijd, v.gatecode, m.naam, m.maatschappijcode, l.naam, l.luchthavencode FROM Vlucht v JOIN Maatschappij m ON v.maatschappijcode = m.maatschappijcode JOIN Luchthaven l ON v.bestemming = l.luchthavencode WHERE v.vluchtnummer = ?');
+      $stmt = $db->prepare('SELECT vluchtnummer, Lnaam, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, gatecode, naam, maatschappijcode, luchthavencode FROM vluchtnummer WHERE vluchtnummer = ?');
 
 
       if (!empty($vluchtnummer) && is_numeric($vluchtnummer)) {
