@@ -1,5 +1,5 @@
 <?php require_once "../includes.php" ?>
-<?php require_once '../Controllers/loginController.php'; ?>
+<?php require_once '../Controllers/login.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

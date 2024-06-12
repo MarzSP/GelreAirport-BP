@@ -37,7 +37,6 @@ function renderVluchtInformatieTabel($data, $redirect)
         </tbody>
     </table>
 
-    <!-- zoeken op Vluchtnummer: -->
     </div> <!-- -->
     <?php
 }

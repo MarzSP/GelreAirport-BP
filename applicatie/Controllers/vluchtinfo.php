@@ -10,11 +10,13 @@ luchthaven_naam,
 land,
 maatschappij_naam,
 gatecode,
-Incheck_balie FROM vluchtinfo";
+Incheck_balie FROM vluchtinfo
+where vertrektijd > GETDATE()
+";
 
 // Query als er een zoekterm is ingevoerd
     if ($zoekVluchtNummer) {
-        $sql .= " WHERE vluchtnummer LIKE :zoekVluchtnummer";
+        $sql .= " AND vluchtnummer LIKE :zoekVluchtnummer";
     }
     $result = $db->prepare($sql);
 

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       if (!empty($luchthaven)) {
           $sql = 'SELECT vluchtnummer, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, gatecode, naam, maatschappijcode, Lnaam, luchthavencode FROM vluchtnummer WHERE Lnaam = ?';
           $stmt = $db->prepare($sql);
-   
+   // ToDo: zoek op luchthaven in SQL query aanpassen
           $stmt->bindParam(1, $luchthaven, PDO::PARAM_STR);
           
           if ($stmt->execute()) {
