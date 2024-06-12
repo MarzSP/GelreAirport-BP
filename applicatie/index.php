@@ -19,21 +19,27 @@ Rol passagier: Nav balk: Home, check-in, overzicht van boeking, logout
     <title>GelreAirport</title>
 </head>
 
-<body>
-<!-- Navigatie balk -->
-<?php include 'General/nav.php';?>
 
-<main>
+<!-- Navigatie balk -->
+<?php include 'Components/General/nav.php';?>
+
 
 <!-- Pagina header(column1), en welkomst text(column2) -->
-<?php include 'General/header.php';?>
-
+<?php include 'Components/General/header.php';?>
+<body>
+<main>
 
 <!--Container2 linker box met vluchtinformatie-->
   <section class="container-wrapper">
     <div class="leftcontainer">
           <!-- Vluchtinfo hier -->
           <h1> Vertrekkende vluchten: </h1>
+
+<!-- Zoekformulier -->
+    <form method="GET" action="">
+        <input type="text" name="zoekVluchtnummer" placeholder="Zoek vluchtnummer" value="<?php echo htmlspecialchars($_GET['zoekVluchtnummer'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+        <button type="submit">Zoek op vluchtnummer</button>
+    </form>
 
 <!-- Tabel in linker container met de actuele vlucht informatie uit de View -->
   <div class="vlucht-tabel-container">
@@ -99,7 +105,7 @@ Rol passagier: Nav balk: Home, check-in, overzicht van boeking, logout
 
   
 <!-- Footer onderaan pagina -->
-<?php include 'General/footer.php' ; ?>
+<?php include 'Components/General/footer.php' ; ?>
 
 </main> <!-- </main> moet onder Footer, zo strekt de achtergrond afbeedling totaan de onderkant van de pagina -->
 </body>

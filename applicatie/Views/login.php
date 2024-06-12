@@ -28,7 +28,7 @@
       <label for="gebruikersnaam">Gebruikersnaam:</label>
       <input type="text" id="gebruikersnaam" pattern="[a-zA-Z0-9]+" name="gebruikersnaam" required>
       <label for="wachtwoord">Wachtwoord:</label>
-      <input type="wachtwoord" id="wachtwoord" name="wachtwoord" required>
+      <input type="password" id="wachtwoord" name="wachtwoord" required>
       <input class="button" type="submit" value="Inloggen" />
     </form>
   </div>

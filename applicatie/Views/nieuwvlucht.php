@@ -11,11 +11,11 @@
 </head>
 <body>
 <!-- Navigatie balk -->
-<?php include '../General/nav.php';?>
+<?php include '../Components/General/nav.php';?>
 
 <main>
 <!-- Pagina header(column1), en welkomst text(column2) -->
-<?php include '../General/header.php';?>
+<?php include '../Components/General/header.php';?>
 
 
 <section class="leftcontainer">
@@ -63,6 +63,6 @@
 </main>
 
 <!-- Footer onderaan pagina -->
-<?php include '../General/footer.php';?>
+<?php include '../Components/General/footer.php';?>
 </body>
 </html>
