@@ -6,12 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Styles/main.css">
     <title>GelreAirport</title>
 </head>
 <body>
-  
+
 <body>
 <!-- Navigatie balk -->
 <?php include '../Components/General/nav.php';?>
@@ -47,7 +47,7 @@
     <br>
 
     <label for="gewicht">Gewicht bagage (max 30 kg):</label>
-    <input type="number" id="gewicht" name="gewicht" step="0.1" min="0" max="30" required> 
+    <input type="number" id="gewicht" name="gewicht" step="0.1" min="0" max="30" required>
     <br>
 
     <button type="submit">Inchecken</button>
@@ -56,31 +56,28 @@
   </form>
 
   <div id="inchecken-resultaat">
-    </div> 
+    </div>
 </div>
 
 
-<div class="rightcontainer">
-<?php include '../Controllers/_boekingbekijken.php'; 
-if($_SESSION['rol'] === 'passagier'){ $boeking = getPassengierBoeking(); } ?>
-  <h2>Mijn Boekingen</h2>
-  <?php if ($login): ?>
-    <p>Uw aankomende vlucht:</p>
-    <ul>
-      <li>Passagiernummer: <?= $$boeking['passagiernummer'] ?></li>
-      <li>Vertrektijd: <?= $$boeking['Vertrektijd'] ?></li>
-      <li>Vluchtnummer: <?= $$boeking['vluchtnummer'] ?></li>
-      <li>Luchthaven: <?= $$boeking['luchthaven_naam'] ?> (<?= $$boeking['land'] ?>)</li>
-      <li>Maatschappij: <?= $$boeking['maatschappij_naam'] ?></li>
-      <li>Gate: <?= $$boeking['gatecode'] ?></li>
-      <li>Incheckbalie: <?= $$boeking['Incheck_balie'] ?></li>
-    </ul>
-  <?php else: ?>
-    <p>U heeft momenteel geen aankomende vluchten.</p>
-  <?php endif; ?>
-</div>
-</section>
-  
+      <div class="rightcontainer">
+          <?php
+          include '../Controllers/_boekingbekijken.php';
+          include '../Components/General/vluchtinformatie.php';
+          if ($_SESSION['rol'] === 'passagier') {
+              $boeking = getPassengierBoeking();
+          } ?>
+          <h2>Mijn Boekingen</h2>
+          <?php
+          $data = getPassengierBoeking();
+          if (count($data)) {
+              renderVluchtInformatieTabel($data);
+          } else { ?>
+              <p>U heeft momenteel geen aankomende vluchten.</p>
+          <?php } ?>
+      </div>
+  </section>
+
   <!-- Footer onderaan pagina -->
   <?php include '../Components/General/footer.php';?>
 </main> <!-- moet onder General/ zodat achtergrond afbeelding meestrekt tot onderkant -->

@@ -1,34 +1,30 @@
 <?php
 
 
-function getPassengierBoeking() {
+function getPassengierBoeking()
+{
     $db = maakVerbinding();
-$login = $_SESSION['gebruikersnaam'];
+    $login = $_SESSION['gebruikersnaam'];
 
-  $sql = "SELECT
-Passagier.passagiernummer,
-     Vertrektijd,
-    Vlucht.vluchtnummer,
-    luchthaven_naam,
-    Luchthaven.land,
-    maatschappij_naam,
-    Vlucht.gatecode,
-    Incheck_balie
+    $sql = "SELECT
+vertrektijd,
+vluchtnummer,
+luchthaven_naam,
+land,
+maatschappij_naam,
+gatecode,
+Incheck_balie
 FROM boeking_passagier
 WHERE passagiernummer = ?";
 
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param(":login", $login);
-  $stmt->execute();
-  $result = $stmt->get_result();
+    $result = $db->prepare($sql);
+    $result->bindValue(1, $login);
+    $result->execute();
+    $data = [];
 
-  if ($result->num_rows > 0) {
-    $row = $result->fetch(PDO::FETCH_ASSOC);
-    return $row;
-  } else {
-    return null;
-  }
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit view - lus doorloopt de result rij voor rij
+        $data[] = $row;
+    }
+
+    return $data;
 }
-?>
-
-
