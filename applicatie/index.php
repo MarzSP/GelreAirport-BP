@@ -19,15 +19,16 @@ Rol passagier: Nav balk: Home, check-in, overzicht van boeking, logout
     <title>GelreAirport</title>
 </head>
 
+<body>
 
 <!-- Navigatie balk -->
 <?php include 'Components/General/nav.php';?>
 
+<main>
 
 <!-- Pagina header(column1), en welkomst text(column2) -->
 <?php include 'Components/General/header.php';?>
-<body>
-<main>
+
 
 <!--Container2 linker box met vluchtinformatie-->
   <section class="container-wrapper">

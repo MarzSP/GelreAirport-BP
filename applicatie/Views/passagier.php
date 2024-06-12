@@ -80,7 +80,7 @@
             <?php
             $data = getPassengierBoeking();
             if (count($data)) {
-                renderVluchtInformatieTabel($data, '/Views/passagier.php?vluchtnummer=');
+                renderVluchtInformatieTabel($data, '/Views/passagier.php?vluchtnummer='); // Deze zit in Components/vluchtinformatie.php om herbruikbare code te maken.
             } else { ?>
                 <p>U heeft momenteel geen aankomende vluchten.</p>
             <?php } ?>

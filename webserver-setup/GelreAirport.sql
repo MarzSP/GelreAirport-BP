@@ -43383,7 +43383,7 @@ JOIN Luchthaven l ON v.bestemming = l.luchthavencode
 WHERE v.vluchtnummer = ['vluchtnummer'];
 
 
--- view boeking_info voor _boekingbekijken.php
+-- view boeking_info voor passagier.php
 CREATE VIEW boeking_passagier AS
 SELECT
 Passagier.passagiernummer,

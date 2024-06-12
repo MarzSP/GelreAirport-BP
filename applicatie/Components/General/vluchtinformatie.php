@@ -1,5 +1,6 @@
 <?php
-
+// Hebruikbare Code: De tabel die de vluchtinfo op de index.php geeft, dient ook als de basis voor de tabel waarin de passagier kan zien welke boekingen deze wel of niet heeft.
+// Bij passagier.php heeft deze de input parameter $redirect (regel 83) en bij index.php NULL. Vanuit Passagier is dit dus een klikbare link om in te kunnen checken.
 function renderVluchtInformatieTabel($data, $redirect)
 {
     ?>
