@@ -39,9 +39,9 @@ function loginUser($user, $wachtwoord) {
         return false;
     }
 
-//    if (!password_verify($wachtwoord, $user['wachtwoord'])) {
-//        return false;
-//    }
+    if (!password_verify($wachtwoord, $user['wachtwoord'])) {
+        return false;
+    }
 
     $_SESSION['rol'] = $user['balienummer'] ? 'medewerker' : 'passagier';
     $_SESSION['gebruikersnaam'] = isset($user['balienummer']) ? $user['balienummer'] : $user['passagiernummer'];
