@@ -1,6 +1,8 @@
 <?php
 
 $db = maakVerbinding();
+// Check of er een zoekterm is ingevoerd
+$zoekVluchtnummer = $_GET['zoekVluchtnummer'] ?? '';
 
 //Gebruik de view vluchtinfo in DB
 $sql = "SELECT vertrektijd,
@@ -10,7 +12,17 @@ land,
 maatschappij_naam,
 gatecode,
 Incheck_balie FROM vluchtinfo"; 
+
+// Query als er een zoekterm is ingevoerd
+if ($zoekVluchtnummer) {
+    $sql .= " WHERE vluchtnummer LIKE :zoekVluchtnummer";
+}
 $result = $db->prepare($sql); 
+
+if ($zoekVluchtnummer) {
+    $result->bindValue(':zoekVluchtnummer', '%' . $zoekVluchtnummer . '%');
+}
+
 $result->execute();
 $totalRows = $result->rowCount(); 
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) { // Variabele $result uit view - lus doorloopt de result rij voor rij

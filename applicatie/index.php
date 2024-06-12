@@ -35,6 +35,12 @@ Rol passagier: Nav balk: Home, check-in, overzicht van boeking, logout
           <!-- Vluchtinfo hier -->
           <h1> Vertrekkende vluchten: </h1>
 
+<!-- Zoekformulier -->
+    <form method="GET" action="">
+        <input type="text" name="zoekVluchtnummer" placeholder="Zoek vluchtnummer" value="<?php echo htmlspecialchars($_GET['zoekVluchtnummer'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+        <button type="submit">Zoek op vluchtnummer</button>
+    </form>
+
 <!-- Tabel in linker container met de actuele vlucht informatie uit de View -->
   <div class="vlucht-tabel-container">
     <table>
