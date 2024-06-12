@@ -1,6 +1,6 @@
 <?php
 
-function renderVluchtInformatieTabel($data)
+function renderVluchtInformatieTabel($data, $redirect)
 {
     ?>
     <!-- Tabel in linker container met de actuele vlucht informatie uit de View -->
@@ -21,7 +21,11 @@ function renderVluchtInformatieTabel($data)
         foreach ($data as $row) { ?>
             <tr>
                 <td><?= htmlspecialchars($row['vertrektijd'], ENT_QUOTES, 'UTF-8') ?></td>
-                <td><?= htmlspecialchars($row['vluchtnummer'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td>
+                    <?php if ($redirect) echo '<a href='.$redirect . $row['vluchtnummer'].'>'; ?>
+                    <?= htmlspecialchars($row['vluchtnummer'], ENT_QUOTES, 'UTF-8') ?>
+                    <?php if ($redirect) echo '</a>'; ?>
+                </td>
                 <td><?= htmlspecialchars($row['luchthaven_naam'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td><?= htmlspecialchars($row['land'], ENT_QUOTES, 'UTF-8') ?></td>
                 <td><?= htmlspecialchars($row['maatschappij_naam'], ENT_QUOTES, 'UTF-8') ?></td>

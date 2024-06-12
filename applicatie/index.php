@@ -44,7 +44,7 @@ Rol passagier: Nav balk: Home, check-in, overzicht van boeking, logout
       include 'Controllers/vluchtinfoController.php';
       include 'Components/General/vluchtinformatie.php';
       $data = getVluchtInformatie($_GET['zoekVluchtnummer'] ?? '');
-      renderVluchtInformatieTabel($data);
+      renderVluchtInformatieTabel($data, null);
       ?>
 </div>
 
