@@ -19,19 +19,20 @@
 
 
 <section class="leftcontainer">
-<?php require '../Controllers/nieuwvluchtController.php'; ?>
+<?php require '../Controllers/_nieuwvlucht.php'; ?>
     <!-- Formulier: Nieuwe Vlucht toevoegen-->
     <h2>Nieuwe Vlucht Toevoegen</h2>
-    <form method="POST" action="../Controllers/nieuwvluchtController.php" >
+    <form method="POST" action="../Controllers/_nieuwvlucht.php" >
         <label for="vluchtnummer">Vluchtnummer:</label>
         <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="9" required><br>
 
 <!-- Dropdown lijst van Bestemmingen -->
+        <label for="Bestemming">Bestemming:</label>
         <select id="bestemming" name="bestemming" required>
         <option value="">Selecteer bestemming</option>
         <?php foreach ($bestemmingen as $bestemming): ?>
-         <option value="<?php echo $bestemming['bestemming']; ?>">
-          <?php echo $bestemming['bestemming']; ?>
+        <option value="<?php echo htmlspecialchars($bestemming['bestemming'], ENT_QUOTES, 'UTF-8'); ?>">
+        <?php echo htmlspecialchars($bestemming['bestemming'], ENT_QUOTES, 'UTF-8'); ?>
         </option>
          <?php endforeach; ?>
         </select>
@@ -40,10 +41,10 @@
         <input type="number" id="max_aantal" name="max_aantal" pattern="[0-9]{1,15}" maxlength="5000" required><br>
 
         <label for="max_gewicht_pp">Maximaal gewicht per persoon (kg):</label>
-        <input type="number" id="max_gewicht_pp" name="max_gewicht_pp" required><br>
+        <input type="number" step="0.1" id="max_gewicht_pp" name="max_gewicht_pp" required><br>
 
         <label for="max_totaalgewicht">Maximaal totaalgewicht (kg):</label>
-        <input type="number" id="max_totaalgewicht" name="max_totaalgewicht" required><br>
+        <input type="number" step="0.1" id="max_totaalgewicht" name="max_totaalgewicht" required><br>
 
         <label for="vertrektijd">Vertrektijd:</label>
         <input type="datetime-local" id="vertrektijd" name="vertrektijd" required><br>
@@ -52,8 +53,8 @@
         <select id="maatschappijcode" name="maatschappijcode" required>
         <option value="">Selecteer maatschappij</option>
         <?php foreach ($maatschappijcodes as $maatschappijcode): ?>
-        <option value="<?php echo $maatschappijcode['maatschappijcode']; ?>">
-        <?php echo $maatschappijcode['maatschappijcode']; ?>
+            <option value="<?php echo htmlspecialchars($maatschappijcode['maatschappijcode'], ENT_QUOTES, 'UTF-8'); ?>">
+            <?php echo htmlspecialchars($maatschappijcode['maatschappijcode'], ENT_QUOTES, 'UTF-8'); ?>
         </option>
         <?php endforeach; ?>
         </select>

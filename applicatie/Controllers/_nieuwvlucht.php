@@ -1,21 +1,20 @@
 <?php
+
 /* Code is veilig gemaakt door middel van: filter_input, santized input, prepared statements, PDO params, en htmlspecialchars */
 
 if(isset($_POST['submit'])){
-  $vluchtnummer = filter_input(INPUT_POST, 'vluchtnummer', FILTER_SANITIZE_STRING);
-  $bestemming = filter_input(INPUT_POST, 'bestemming', FILTER_SANITIZE_STRING);
+  $vluchtnummer = filter_input(INPUT_POST, 'vluchtnummer', FILTER_SANITIZE_SPECIAL_CHARS);
+  $bestemming = filter_input(INPUT_POST, 'bestemming', FILTER_SANITIZE_SPECIAL_CHARS);
   $max_aantal = filter_input(INPUT_POST, 'max_aantal', FILTER_SANITIZE_NUMBER_INT);
-  $max_gewicht_pp = filter_input(INPUT_POST, 'max_gewicht_pp', FILTER_SANITIZE_NUMBER_FLOAT);
-  $max_totaalgewicht = filter_input(INPUT_POST, 'max_totaalgewicht', FILTER_SANITIZE_NUMBER_FLOAT);
-  $vertrektijd = filter_input(INPUT_POST, 'vertrektijd', FILTER_SANITIZE_STRING);
-  $maatschappijcode = filter_input(INPUT_POST, 'maatschappijcode', FILTER_SANITIZE_STRING);
+  $max_gewicht_pp = filter_input(INPUT_POST, 'max_gewicht_pp', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+  $max_totaalgewicht = filter_input(INPUT_POST, 'max_totaalgewicht', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+  $vertrektijd = filter_input(INPUT_POST, 'vertrektijd', FILTER_SANITIZE_SPECIAL_CHARS);
+  $maatschappijcode = filter_input(INPUT_POST, 'maatschappijcode', FILTER_SANITIZE_SPECIAL_CHARS);
 
     // Prepare SQL statement
  $sql = "INSERT INTO Vlucht (vluchtnummer, bestemming, gatecode, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, maatschappijcode)
 VALUES (:vluchtnummer, :bestemming, NULL, :max_aantal, :max_gewicht_pp, :max_totaalgewicht, :vertrektijd, :maatschappijcode)";
-
-
-$stmt = $verbinding->prepare($sql);
+$stmt = $db->prepare($sql);
 
 // Bind parameters met formulier data
 $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_STR);
@@ -25,10 +24,16 @@ $stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp, PDO::PARAM_STR);
 $stmt->bindParam(':max_totaalgewicht', $max_totaalgewicht, PDO::PARAM_STR);
 $stmt->bindParam(':vertrektijd', $vertrektijd, PDO::PARAM_STR);
 $stmt->bindParam(':maatschappijcode', $maatschappijcode, PDO::PARAM_STR);
-} else {
-echo "Error: Vlucht niet toegevoegd.";
-}
 
+   // Voer de query uit en controleer op succes
+   if ($stmt->execute()) {
+    echo "Vlucht succesvol toegevoegd.";
+} else {
+    echo "Error: Vlucht niet toegevoegd.";
+}
+} else {
+echo "Gebruik het formulier om een vlucht toe te voegen.";
+}
 
 
 
