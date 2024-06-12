@@ -5,9 +5,9 @@ SELECT
   v.max_totaalgewicht,
   v.vertrektijd,
   v.gatecode,
-  m.maatschappij,
+  m.naam,
   m.maatschappijcode,
-  l.luchthaven,
+  l.naam,
   l.luchthavencode
 FROM Vlucht v
 JOIN Maatschappij m ON v.maatschappijcode = m.maatschappijcode
