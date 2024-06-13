@@ -25,17 +25,17 @@ include '../Controllers/passagier.php';
         // ToDo; check in
         $vluchtnummer = $_POST['vluchtnummer'];
         $gewichten = $_POST['gewicht'];
-        $passagiernummer = $_SESSION['id'];
+        $passagiernummer = $_SESSION['gebruikersID'];
 
         foreach ($gewichten as $key => $gewicht) {
-            $gewicht[$key] = floatval($gewicht);
+            $gewichten[$key] = floatval($gewicht);
         }
         $data = getBaggageInfo($vluchtnummer);
         $maxObjecten = $data['objecten'];
         $maxGewicht = $data['pp'];
 
         // ToDo; check max weight
-        $totaalGewicht = array_sum($gewicht);
+        $totaalGewicht = array_sum($gewichten);
          if ($totaalGewicht > $maxGewicht) {
                     echo "<p>Het totale gewicht overschrijdt het limiet van {$maxGewicht} kg.</p>";
                 } elseif (count($gewichten) > $maxObjecten) {
@@ -44,7 +44,7 @@ include '../Controllers/passagier.php';
         // ToDo; check if count of gewichten is allowed
         foreach ($gewichten as $key => $gewicht) {
             if ($gewicht >= 0) {
-                addBaggage($_SESSION['id'], $key, $gewicht);
+                addBaggage($_SESSION['gebruikersID'], $key, $gewicht);
             }
 
         } echo "<p> U bent ingechecked!</p>";
