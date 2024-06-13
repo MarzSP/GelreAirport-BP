@@ -20,13 +20,11 @@
 
 <section class="leftcontainer">
   <form action="process_baggage.php" method="post"> <h3>Passagier inchecken</h3>
-    <label for="name">Naam:</label>
-      <input type="text" id="naam" name="naam" pattern=" [a-zA-Z\-'\s]+" maxlength="50" required>
+      <label for="naam">Naam:</label><input type="text" id="naam" name="naam" pattern=" [a-zA-Z\-'\s]+" maxlength="50" required>
       <span class="message">Voer een naam in met letters.</span>
     <br>
 
-    <label for="name">Passagiernummer:</label>
-      <input type="text" id="passagiernummer" name="passagiernummer" pattern="[a-zA-Z0-9]" maxlength="50" required>
+      <label for="passagiernummer">Passagiernummer:</label><input type="text" id="passagiernummer" name="passagiernummer" pattern="[a-zA-Z0-9]" maxlength="50" required>
       <span class="message">Voer de cijfers van het passagiersnummer in.</span>
     <br>
 

@@ -70,5 +70,5 @@
 </body>
 <!-- Footer onderaan pagina -->
 <?php include '../Components/General/footer.php';?>
-      </main>
+
 </html>
