@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vluchtnummer'])) {
     if (!$vluchtnummer || strlen($vluchtnummer) != 5 || !is_numeric($vluchtnummer)) {
         $error_message = "Ongeldig vluchtnummer.";
     } else {
-        $vlucht_data = fetchFlightDataVluchtnummer($db, $vluchtnummer);
+        $flight_data = fetchFlightDataVluchtnummer($db, $vluchtnummer);
         if (empty($flight_data)) {
             $error_message = "Geen vlucht gevonden met nummer: " . htmlspecialchars($vluchtnummer, ENT_QUOTES, 'UTF-8');
         }

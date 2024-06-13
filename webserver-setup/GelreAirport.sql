@@ -43371,7 +43371,11 @@ SELECT
   v.max_aantal,
   v.max_gewicht_pp,
   v.max_totaalgewicht,
-  v.vertrektijd,
+   CONCAT(
+        CONVERT(VARCHAR(10), vertrektijd, 120), ' ',
+        CAST(DATEPART(hour, vertrektijd) AS varchar(2)), ':',
+        CAST(DATEPART(minute, vertrektijd) AS varchar(2)), ' ', ' '
+    ) AS Vertrektijd,
   v.gatecode,
   m.naam,
   m.maatschappijcode,
