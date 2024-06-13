@@ -1,4 +1,4 @@
-<?php require_once "../Components/includes.php" ?>
+<?php require_once "../includes.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
