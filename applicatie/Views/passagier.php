@@ -25,7 +25,7 @@ include '../Controllers/passagier.php';
         // ToDo; check in
         $vluchtnummer = $_POST['vluchtnummer'];
         $gewichten = $_POST['gewicht'];
-        $passagiernummer = $_SESSION['gebruikersID'];
+        $passagiernummer = $_SESSION['gebruikersnaam'];
 
         foreach ($gewichten as $key => $gewicht) {
             $gewichten[$key] = floatval($gewicht);
