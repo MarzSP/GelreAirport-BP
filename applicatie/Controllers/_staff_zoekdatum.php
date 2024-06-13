@@ -1,6 +1,6 @@
 <?php
 /* Code is veilig gemaakt tegen SQL-Injection en XSS door middel van: Prepared statements, Sanitized input, htmlspecialchars, error handling en validatie. */
-
+$db = maakVerbinding();
 $vluchtnummer = ""; 
 $vlucht_data = array(); 
 $error_message = ""; 

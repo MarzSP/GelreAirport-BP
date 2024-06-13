@@ -53,5 +53,5 @@
  <?php
 include '../Components/General/footer.php';
 ?>
-</main>
-  </html>
+</html>
+<!-- </main> removed -->
