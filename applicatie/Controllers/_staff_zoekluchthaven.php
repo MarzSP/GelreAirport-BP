@@ -1,5 +1,5 @@
 <?php
-require_once '../DB/staff_zoektabel.php'; // Include the common functions
+require_once '../DB/staff_zoektabel.php'; 
 
 $db = maakVerbinding();
 $luchthaven = "";
@@ -7,7 +7,7 @@ $vlucht_data = array();
 $error_message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['luchthaven'])) {
-    $luchthaven = filter_var($_POST['luchthaven'], FILTER_SANITIZE_STRING);
+    $luchthaven = htmlspecialchars($_POST['luchthaven'], ENT_QUOTES, 'UTF-8');
 
     if (empty($luchthaven)) {
         $error_message = "Luchthaven is ongeldig.";

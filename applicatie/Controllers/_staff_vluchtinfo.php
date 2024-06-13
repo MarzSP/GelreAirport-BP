@@ -1,9 +1,9 @@
 <?php
-require_once '../DB/staff_zoektabel.php'; // Include the common functions
+require_once '../DB/staff_zoektabel.php'; 
 
 $db = maakVerbinding();
 $vluchtnummer = "";
-$vlucht_data = array();
+$flight_data = array();
 $error_message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vluchtnummer'])) {
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vluchtnummer'])) {
         $error_message = "Ongeldig vluchtnummer.";
     } else {
         $vlucht_data = fetchFlightDataVluchtnummer($db, $vluchtnummer);
-        if (empty($vlucht_data)) {
+        if (empty($flight_data)) {
             $error_message = "Geen vlucht gevonden met nummer: " . htmlspecialchars($vluchtnummer, ENT_QUOTES, 'UTF-8');
         }
     }
@@ -23,5 +23,5 @@ if (!empty($error_message)) {
     echo "<span class='error-message'>$error_message</span>";
 }
 
-renderStaffZoekTabel($vlucht_data);
+renderStaffZoekTabel($flight_data);
 
