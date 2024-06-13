@@ -1,4 +1,4 @@
-<?php require_once "../includes.php" ?>
+<?php require_once "../Components/includes.php" ?>
 <?php redirectIfNotLoggedin() ?>
 
 <!DOCTYPE html>
@@ -16,56 +16,64 @@
 <?php include '../Components/General/nav.php'; ?>
 
 <main>
+    <!-- Pagina Passagier: Als er boekingen zijn worden deze displayed, als niet, dan staat er alleen dat er geen boekingen zijn. -->
+<?php include '../Components/General/header.php';
 
-    <!-- Pagina General/(column1), en welkomst text(column2) -->
-
-    <?php include '../Components/General/header.php';
-    include '../Controllers/passagier.php';
+include '../Controllers/passagier.php';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // ToDo; check in
+        $vluchtnummer = $_POST['vluchtnummer'];
         $gewichten = $_POST['gewicht'];
+        $passagiernummer = $_SESSION['id'];
 
         foreach ($gewichten as $key => $gewicht) {
             $gewicht[$key] = floatval($gewicht);
         }
+        $data = getBaggageInfo($vluchtnummer);
+        $maxObjecten = $data['objecten'];
+        $maxGewicht = $data['pp'];
 
         // ToDo; check max weight
-        $totalWeigth = array_sum($gewicht);
-
+        $totaalGewicht = array_sum($gewicht);
+         if ($totaalGewicht > $maxGewicht) {
+                    echo "<p>Het totale gewicht overschrijdt het limiet van {$maxGewicht} kg.</p>";
+                } elseif (count($gewichten) > $maxObjecten) {
+                    echo "<p>Het aantal objecten overschrijdt het limiet van {$maxObjecten}.</p>";
+                } else {
         // ToDo; check if count of gewichten is allowed
         foreach ($gewichten as $key => $gewicht) {
-            addBaggage($_SESSION['id'], $key, $gewicht);
-        }
+            if ($gewicht >= 0) {
+                addBaggage($_SESSION['id'], $key, $gewicht);
+            }
 
+        } echo "<p> U bent ingechecked!</p>";
 
+}
     } else if (isset($_GET['vluchtnummer'])) {
     ?>
         <div class="container4">
             <h2>Inchecken</h2>
-            <p>Check hier online in en bekijk uw bagage-informatie.</p>
+            <p>Check hier online in en voeg uw bagage gegevens toe.</p>
             <form id="inchecken-form" action="" method="post">
                 <!-- <input type="hidden" name="csrf_token" value="<?php //echo htmlspecialchars($_SESSION['csrf_token']); ?>"> -->
                 <label for="vluchtnummer">Vluchtnummer:</label>
                 <input id="vluchtnummer" name="vluchtnummer"
                        readonly required value="<?= $_GET['vluchtnummer']?>">
-                <span class="message">Voer de cijfers van het vluchtnummer in.</span>
                 <br>
-
-                <label for="gewicht">Gewicht bagage (max 30 kg):</label>
+                <br>
+                <label for="gewicht">Gewicht bagage:</label>
                 <?php
-                $data = getBaggageInformation($_GET['vluchtnummer']);
+                $data = getBaggageInfo($_GET['vluchtnummer']);
                 for($i = 0; $i<$data['objecten']; $i++){
                     ?>
-                    <input type="number" id="gewicht" name="gewicht[]" step="0.1" min="0" max="30"><br>
+                    <input type="number" id="gewicht" name="gewicht[]" step="0.1" min="0" max="35"><br>
                     <?php
                 }
-                ?>
-                <br>
+                ?><br>
 
                 <button type="submit">Inchecken</button>
                 <br>
-
             </form>
 
             <div id="inchecken-resultaat">
@@ -77,6 +85,7 @@
             include '../Components/General/vluchtinformatie.php';
             ?>
             <h2>Mijn Boekingen</h2>
+            <p> Bekijk hier uw aankomended boekingen. Klik op het vluchtnummer om in te checken!</p>
             <?php
             $data = getPassengierBoeking();
             if (count($data)) {
@@ -86,11 +95,10 @@
             <?php } ?>
         </div>
 
-    <!-- Footer onderaan pagina -->
     <?php
     }
     include '../Components/General/footer.php'; ?>
-</main> <!-- moet onder General/ zodat achtergrond afbeelding meestrekt tot onderkant -->
+</main>
 </body>
 
 </html>

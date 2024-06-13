@@ -30,7 +30,7 @@ AND vertrektijd > GETDATE()";
     return $data;
 }
 
-function getBaggageInformation($vluchtnummer) {
+function getBaggageInfo($vluchtnummer) {
     $db = maakVerbinding();
 
     $sql = 'SELECT TOP (1) max_objecten_pp as objecten, max_gewicht_pp as pp
@@ -48,4 +48,14 @@ function getBaggageInformation($vluchtnummer) {
 
 function addBaggage($passagiernummer, $key, $gewicht) {
     // ToDo insert into BagageObject
+    $db = maakVerbinding();
+
+    $sql = 'INSERT INTO BagageObject (passagiernummer, vluchtnummer, gewicht) VALUES (?, ?, ?)';
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(1, $passagiernummer, PDO::PARAM_INT);
+    $stmt->bindValue(2, $vluchtnummer, PDO::PARAM_STR);
+    $stmt->bindValue(3, $gewicht, PDO::PARAM_STR);
+
+    return $stmt->execute();
 }

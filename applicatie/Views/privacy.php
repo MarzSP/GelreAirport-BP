@@ -1,4 +1,4 @@
-<?php require_once "../includes.php" ?>
+<?php require_once "../Components/includes.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +20,7 @@
 <!-- Pagina header(column1), en welkomst text(column2) -->
     <div class="leftcontainer">
   
-<h3>Privacyverklaring Beroepsproduct (Leerproject en Onderzoek)</h1>
+<h3>Privacyverklaring Beroepsproduct (Leerproject en Onderzoek)</h3>
 <article>
 
   <p>Ik, M.S.Peterson (S2136361) Hogeschool Arnhem Nijmegen, ("School", "ik", "mij", "we"), ben verantwoordelijk voor de verwerking van jouw persoonsgegevens in het kader van mijn leerproject en onderzoek met betrekking tot mijn website(s), applicatie(s) en andere online diensten (gezamenlijk "Diensten").</p>
@@ -54,5 +54,4 @@
 include '../Components/General/footer.php';
 ?>
 </main>
-</body>
   </html>
