@@ -46,15 +46,15 @@ function getBaggageInfo($vluchtnummer) {
     return $result->fetch(PDO::FETCH_ASSOC);
 }
 
-function addBaggage($passagiernummer, $vluchtnummer, $gewicht) {
+function addBaggage($passagiernummer, $key, $gewicht) {
     // ToDo insert into BagageObject
     $db = maakVerbinding();
 
-    $sql = 'INSERT INTO BagageObject (passagiernummer, vluchtnummer, gewicht) VALUES (?, ?, ?)';
+    $sql = 'INSERT INTO BagageObject (passagiernummer, objectvolgnummer, gewicht) VALUES (?, ?, ?)';
 
     $stmt = $db->prepare($sql);
     $stmt->bindValue(1, $passagiernummer, PDO::PARAM_INT);
-    $stmt->bindValue(2, $vluchtnummer, PDO::PARAM_STR);
+    $stmt->bindValue(2, $key, PDO::PARAM_STR);
     $stmt->bindValue(3, $gewicht, PDO::PARAM_STR);
 
     return $stmt->execute();
