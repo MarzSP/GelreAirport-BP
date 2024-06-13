@@ -32,10 +32,13 @@
 
             <!-- Zoekformulier -->
             <form method="GET" action="">
-                <input type="text" name="zoekVluchtnummer" placeholder="Zoek vluchtnummer"
-                       value="<?php echo htmlspecialchars($_GET['zoekVluchtnummer'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                <label>
+                    <input type="text" name="zoekVluchtnummer" placeholder="Zoek vluchtnummer"
+                           value="<?php echo htmlspecialchars($_GET['zoekVluchtnummer'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+                </label>
                 <button type="submit">Zoek op vluchtnummer</button>
             </form>
+
             <?php
             include 'Controllers/vluchtinfo.php';
             include 'Components/General/vluchtinformatie.php';

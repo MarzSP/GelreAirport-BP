@@ -43375,12 +43375,11 @@ SELECT
   v.gatecode,
   m.naam,
   m.maatschappijcode,
-  l.naam,
+  l.naam AS Lnaam,
   l.luchthavencode
 FROM Vlucht v
 JOIN Maatschappij m ON v.maatschappijcode = m.maatschappijcode
-JOIN Luchthaven l ON v.bestemming = l.luchthavencode
-WHERE v.vluchtnummer = ['vluchtnummer'];
+JOIN Luchthaven l ON v.bestemming = l.luchthavencode;
 
 
 -- view boeking_info voor passagier.php
