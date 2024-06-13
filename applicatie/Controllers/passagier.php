@@ -46,7 +46,7 @@ function getBaggageInfo($vluchtnummer) {
     return $result->fetch(PDO::FETCH_ASSOC);
 }
 
-function addBaggage($passagiernummer, $key, $gewicht) {
+function addBaggage($passagiernummer, $vluchtnummer, $gewicht) {
     // ToDo insert into BagageObject
     $db = maakVerbinding();
 
@@ -59,3 +59,4 @@ function addBaggage($passagiernummer, $key, $gewicht) {
 
     return $stmt->execute();
 }
+

@@ -44,7 +44,7 @@ include '../Controllers/passagier.php';
         // ToDo; check if count of gewichten is allowed
         foreach ($gewichten as $key => $gewicht) {
             if ($gewicht >= 0) {
-                addBaggage($_SESSION['gebruikersID'], $key, $gewicht);
+                addBaggage($_SESSION['gebruikersnaam'], $key, $gewicht);
             }
 
         } echo "<p> U bent ingechecked!</p>";
