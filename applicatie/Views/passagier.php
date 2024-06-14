@@ -37,9 +37,9 @@ include '../Controllers/passagier.php';
         // ToDo; check max weight
         $totaalGewicht = array_sum($gewichten);
          if ($totaalGewicht > $maxGewicht) {
-                    echo "<p>Het totale gewicht overschrijdt het limiet van {$maxGewicht} kg.</p>";
+                    echo "<p>Het totale gewicht overschrijdt het limiet van $maxGewicht kg.</p>";
                 } elseif (count($gewichten) > $maxObjecten) {
-                    echo "<p>Het aantal objecten overschrijdt het limiet van {$maxObjecten}.</p>";
+                    echo "<p>Het aantal objecten overschrijdt het limiet van $maxObjecten.</p>";
                 } else {
         // ToDo; check if count of gewichten is allowed
         foreach ($gewichten as $key => $gewicht) {
