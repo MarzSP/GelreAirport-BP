@@ -36,6 +36,7 @@ td {
   border: 0.1rem solid #ccc;
   /* Rand om iedere cell heen */
   margin: 0rem;
+  padding: 0.25rem;
 }
 
 

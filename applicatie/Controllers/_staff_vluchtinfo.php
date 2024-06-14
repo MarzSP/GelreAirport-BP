@@ -7,7 +7,7 @@ $flight_data = array();
 $error_message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vluchtnummer'])) {
-    $vluchtnummer = filter_var($_POST['vluchtnummer'], FILTER_SANITIZE_NUMBER_INT);
+    $vluchtnummer = htmlspecialchars($_POST['vluchtnummer'], ENT_QUOTES, 'UTF-8');
 
     if (!$vluchtnummer || strlen($vluchtnummer) != 5 || !is_numeric($vluchtnummer)) {
         $error_message = "Ongeldig vluchtnummer.";

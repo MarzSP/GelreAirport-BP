@@ -1,9 +1,9 @@
-CREATE VIEW vluchtinfo_met_balienummer AS
+CREATE VIEW vluchtinfo AS
 SELECT
     CONCAT(
         CONVERT(VARCHAR(10), vertrektijd, 120), ' ',
-        CAST(DATEPART(hour, vertrektijd) AS varchar(2)), ':',
-        CAST(DATEPART(minute, vertrektijd) AS varchar(2)), ' ', ' '
+        RIGHT('0' + CAST(DATEPART(hour, vertrektijd) AS VARCHAR), 2), ':',
+        RIGHT('0' + CAST(DATEPART(minute, vertrektijd) AS VARCHAR), 2)
     ) AS Vertrektijd,
     Vlucht.vluchtnummer,
     Luchthaven.naam AS luchthaven_naam,
