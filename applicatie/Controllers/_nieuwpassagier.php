@@ -4,14 +4,12 @@ include '../DB/db_connectie.php';
 include '../Controllers/passagiernummer.php';
 
 
-
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $passagiernummer = filter_input(INPUT_POST, 'passagiernummer', FILTER_SANITIZE_NUMBER_INT);
-    $naam = filter_input(INPUT_POST, 'naam', FILTER_SANITIZE_STRING);
-    $vluchtnummer = filter_input(INPUT_POST, 'vluchtnummer', FILTER_SANITIZE_NUMBER_INT);
-    $geslacht = filter_input(INPUT_POST, 'geslacht', FILTER_SANITIZE_STRING);
+    $passagiernummer = htmlspecialchars($_POST['passagiernummer'], ENT_QUOTES, 'UTF-8');
+    $naam = htmlspecialchars($_POST['naam'], ENT_QUOTES, 'UTF-8');
+    $vluchtnummer = htmlspecialchars($_POST['vluchtnummer'], ENT_QUOTES, 'UTF-8');
+    $geslacht = htmlspecialchars($_POST['geslacht'], ENT_QUOTES, 'UTF-8');
     $wachtwoord = password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT); // Hash password for security
-
     try {
       echo "Passagier succesvol toegevoegd met nummer: " . $passagiernummer;
     } catch (Exception $e) {
