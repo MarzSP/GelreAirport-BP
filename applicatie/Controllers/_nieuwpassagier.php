@@ -3,23 +3,6 @@
 include '../DB/db_connectie.php';
 include '../Controllers/passagiernummer.php';
 
-$db = maakVerbinding();
-$passagiernummer = getNextPassagiernummer($db);
-
-  $sql = "INSERT INTO Passagier (passagiernummer, naam, vluchtnummer, geslacht, wachtwoord)
-          VALUES (:passagiernummer, :naam, :vluchtnummer, :geslacht, :wachtwoord)";
-  $stmt = $db->prepare($sql);
-
-  // Bind parameters met formulier data
-  $stmt->bindParam(':passagiernummer', $passagiernummer, PDO::PARAM_INT);
-  $stmt->bindParam(':naam', $naam, PDO::PARAM_STR);
-  $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
-  $stmt->bindParam(':geslacht', $geslacht, PDO::PARAM_STR);
-  $stmt->bindParam(':wachtwoord', $wachtwoord, PDO::PARAM_STR);
-if($stmt->execute()) { return $passagiernummer; }
-else {
-  echo("Fout bij het toevoegen van passagier");
-}
 
 
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -35,4 +18,21 @@ else {
       echo "Fout bij het toevoegen van passagier: " . $e->getMessage();
     }
   }
-
+  $db = maakVerbinding();
+  $passagiernummer = getNextPassagiernummer($db);
+  
+    $sql = "INSERT INTO Passagier (passagiernummer, naam, vluchtnummer, geslacht, wachtwoord)
+            VALUES (:passagiernummer, :naam, :vluchtnummer, :geslacht, :wachtwoord)";
+    $stmt = $db->prepare($sql);
+  
+    // Bind parameters met formulier data
+    $stmt->bindParam(':passagiernummer', $passagiernummer, PDO::PARAM_INT);
+    $stmt->bindParam(':naam', $naam, PDO::PARAM_STR);
+    $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
+    $stmt->bindParam(':geslacht', $geslacht, PDO::PARAM_STR);
+    $stmt->bindParam(':wachtwoord', $wachtwoord, PDO::PARAM_STR);
+  if($stmt->execute()) { return $passagiernummer; }
+  else {
+    echo("Fout bij het toevoegen van passagier");
+  }
+  
