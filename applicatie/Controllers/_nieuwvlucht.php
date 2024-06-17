@@ -8,10 +8,12 @@ if (isset($_POST['submit'])) {
     $max_aantal = htmlspecialchars($_POST['max_aantal'], ENT_QUOTES, 'UTF-8');
     $max_gewicht_pp = htmlspecialchars($_POST['max_gewicht_pp'], ENT_QUOTES, 'UTF-8');
     $max_totaalgewicht = htmlspecialchars($_POST['max_totaalgewicht'], ENT_QUOTES, 'UTF-8');
-    $vertrektijd = htmlspecialchars($_POST['vertrektijd'], ENT_QUOTES, 'UTF-8');
+    $vertrektijd = $_POST['vertrektijd'];
     $maatschappijcode = htmlspecialchars($_POST['maatschappijcode'], ENT_QUOTES, 'UTF-8');
-   
-   
+
+    $vertrektijd = $_POST['vertrektijd'];
+    $format = "Y-M-D H:i:s.u"; // Expected format from your database schema
+    $dateTimeObject = DateTime::createFromFormat($format, $vertrektijd);
 
     // Convert numeric fields to correct format
     $vluchtnummer = intval($vluchtnummer);
@@ -36,7 +38,7 @@ if (isset($_POST['submit'])) {
         $stmt->bindParam(':max_aantal', $max_aantal, PDO::PARAM_INT);
         $stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp, PDO::PARAM_STR);  
         $stmt->bindParam(':max_totaalgewicht', $max_totaalgewicht, PDO::PARAM_STR);  
-        $stmt->bindParam(':vertrektijd', $vertrektijd, PDO::PARAM_STR);
+        $stmt->bindParam(':vertrektijd', $dateTimeObject, PDO::PARAM_STR);
         $stmt->bindParam(':maatschappijcode', $maatschappijcode, PDO::PARAM_STR);
 
         // Execute the query and check for success
