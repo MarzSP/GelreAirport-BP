@@ -1,5 +1,5 @@
 <?php require_once "../includes.php" ?>
-<?php include "../db/passagiernummer.php" ?>
+<?php include "../Controllers/passagiernummer.php" ?>
 
 
 <!DOCTYPE html>
