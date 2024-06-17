@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $vertrektijd = $_POST['vertrektijd'];
     $maatschappijcode = htmlspecialchars($_POST['maatschappijcode'], ENT_QUOTES, 'UTF-8');
 
-    $vertrektijd = $_POST['vertrektijd'];
+
     $format = "Y-M-D H:i:s.u"; // Expected format from your database schema
     $dateTimeObject = DateTime::createFromFormat($format, $vertrektijd);
 
@@ -34,12 +34,12 @@ if (isset($_POST['submit'])) {
 
         // Bind parameters with correct types
         $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
-        $stmt->bindParam(':bestemming', $bestemming, PDO::PARAM_STR);
+        $stmt->bindParam(':bestemming', $bestemming);
         $stmt->bindParam(':max_aantal', $max_aantal, PDO::PARAM_INT);
-        $stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp, PDO::PARAM_STR);  
-        $stmt->bindParam(':max_totaalgewicht', $max_totaalgewicht, PDO::PARAM_STR);  
-        $stmt->bindParam(':vertrektijd', $dateTimeObject, PDO::PARAM_STR);
-        $stmt->bindParam(':maatschappijcode', $maatschappijcode, PDO::PARAM_STR);
+        $stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp);
+        $stmt->bindParam(':max_totaalgewicht', $max_totaalgewicht);
+        $stmt->bindParam(':vertrektijd', $dateTimeObject);
+        $stmt->bindParam(':maatschappijcode', $maatschappijcode);
 
         // Execute the query and check for success
         if ($stmt->execute()) {
