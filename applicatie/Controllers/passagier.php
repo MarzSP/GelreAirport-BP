@@ -60,3 +60,11 @@ function addBaggage($passagiernummer, $key, $gewicht) {
     return $stmt->execute();
 }
 
+function passagierInchecktijdstip($passagiernummer, $inchecktijdstip) {
+    $db = maakVerbinding();
+    $sql = 'UPDATE Passagier SET Inchecktijdstip = ? WHERE passagiernummer = ?';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(1, $inchecktijdstip, PDO::PARAM_STR);
+    $stmt->bindValue(2, $passagiernummer, PDO::PARAM_STR);
+    return $stmt->execute();
+}

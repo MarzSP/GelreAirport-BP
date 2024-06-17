@@ -1,4 +1,5 @@
 <?php
+global $verbinding, $verbinding;
 require_once '../DB/db_connectie.php';
 
 if (isset($_POST['submit'])) {
@@ -13,10 +14,9 @@ if (isset($_POST['submit'])) {
 
     // Validate and format $vertrektijd
     try {
-      // Use DateTime::createFromFormat to explicitly parse the input
-      $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $vertrektijd);
+        $vertrektijd = ':00';
+      $dateTime = DateTime::createFromFormat('Y-m-d\TH:i:s', $vertrektijd);
       if (!$dateTime) {
-          // Handle different formats or add more error handling if necessary
           echo "Voer een geldige datum en tijd in (expected format: Y-m-d H:i:s).";
           exit();
       }
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
 
 
 try {
-    $data = $verbinding; 
+    $data = maakVerbinding();
     $data->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
 

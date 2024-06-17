@@ -1,6 +1,5 @@
 <?php require_once "../includes.php" ?>
-
-<? include '../Controllers/passagier.php'; ?>
+<?php redirectIfNotLoggedin() ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,25 +34,7 @@
       <span class="message">Voer de cijfers van het vluchtnummer in.</span>
     <br>
 
-    <label for="inchecktijdstip">Inchecktijdstip:</label>
-      <select id="hours" name="hour">
-      <option value="">Uur</option>
-        <?php for ($i = 1; $i <= 12; $i++) : ?>
-      <option value="<?= $i ?>"><?= $i ?></option>
-        <?php endfor; ?>
-      </select>
-      <select id="minutes" name="minute">
-      <option value="">Minuten</option>
-      <?php for ($i = 0; $i <= 59; $i += 5): ?>
-        <option value="<?= str_pad($i, 2, '0', STR_PAD_LEFT) ?>"><?= str_pad($i, 2, '0', STR_PAD_LEFT) ?></option>
-      <?php endfor; ?>
-      </select>
-      <select id="ampm" name="ampm">
-      <option value="">AM/PM</option>
-      <option value="AM">AM</option>
-      <option value="PM">PM</option>
-      </select>
-    <br>
+
       <h3>Bagage Informatie</h3>
       <label for="gewicht">Gewicht bagage:</label>
                 <?php
@@ -65,8 +46,8 @@
                     ?>
                     <input type="number" id="gewicht" name="gewicht[]" step="0.1" min="0" max="35"><br>
                     <?php
-                }}
-               
+                }
+                }
                 ?><br>
  <button type="submit">Inchecken</button>
     </form> </section>
