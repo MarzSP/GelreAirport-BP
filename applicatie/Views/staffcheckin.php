@@ -1,5 +1,7 @@
 <?php require_once "../includes.php" ?>
 
+<? include '../Controllers/passagier.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +21,12 @@
 
 
 <section class="leftcontainer">
-  <form action="process_baggage.php" method="post"> <h3>Passagier inchecken</h3>
+  <form action="../Controllers/checkin.php" method="post"> <h3>Passagier inchecken</h3>
       <label for="naam">Naam:</label><input type="text" id="naam" name="naam" pattern=" [a-zA-Z\-'\s]+" maxlength="50" required>
       <span class="message">Voer een naam in met letters.</span>
     <br>
 
-      <label for="passagiernummer">Passagiernummer:</label><input type="text" id="passagiernummer" name="passagiernummer" pattern="[a-zA-Z0-9]" maxlength="50" required>
+      <label for="passagiernummer">Passagiernummer:</label><input type="text" id="passagiernummer" name="passagiernummer" pattern="[0-9]" maxlength="50" required>
       <span class="message">Voer de cijfers van het passagiersnummer in.</span>
     <br>
 
@@ -53,17 +55,20 @@
       </select>
     <br>
       <h3>Bagage Informatie</h3>
-      <label for="num_bags">Aantal baggage:</label>
-      <input type="number" id="num_bags" name="num_bags" min="0" max="7" required>
-      <span class="message">Voer in cijfers het aantal stuks baggage in.</span>
-      <br>
-        
-      <label for="num_bags">Gewicht baggage:</label>
-      <input type="number" id="gewicht" name="gewicht" min="0" max="70" required>
-      <span class="message">Voer in cijfers het aantal kilo baggage in.</span>
-      <br>
-        <div id="bag_details"> </div>
-        <button type="submit">Inchecken</button>
+      <label for="gewicht">Gewicht bagage:</label>
+                <?php
+                include '../Controllers/passagier.php';
+                $vluchtnummer = $_POST['vluchtnummer'] ?? '';
+                if($vluchtnummer){
+                $data = getBaggageInfo($_GET['vluchtnummer']);
+                for($i = 0; $i<$data['objecten']; $i++){
+                    ?>
+                    <input type="number" id="gewicht" name="gewicht[]" step="0.1" min="0" max="35"><br>
+                    <?php
+                }}
+               
+                ?><br>
+ <button type="submit">Inchecken</button>
     </form> </section>
       
 <!-- Footer onderaan pagina -->

@@ -2,13 +2,14 @@
 require_once '../DB/db_connectie.php';
 
 if (isset($_POST['submit'])) {
-    $vluchtnummer = filter_input(INPUT_POST, 'vluchtnummer', FILTER_VALIDATE_INT);
-    $bestemming = filter_input(INPUT_POST, 'bestemming', FILTER_SANITIZE_STRING);
-    $max_aantal = filter_input(INPUT_POST, 'max_aantal', FILTER_VALIDATE_INT);
-    $max_gewicht_pp = filter_input(INPUT_POST, 'max_gewicht_pp', FILTER_VALIDATE_FLOAT);
-    $max_totaalgewicht = filter_input(INPUT_POST, 'max_totaalgewicht', FILTER_VALIDATE_FLOAT);
-    $vertrektijd = filter_input(INPUT_POST, 'vertrektijd', FILTER_SANITIZE_STRING);
-    $maatschappijcode = filter_input(INPUT_POST, 'maatschappijcode', FILTER_SANITIZE_STRING);
+    $vluchtnummer = htmlspecialchars($_POST['vluchtnummer'], ENT_QUOTES, 'UTF-8');
+    $bestemming = htmlspecialchars($_POST['bestemming'], ENT_QUOTES, 'UTF-8');
+    $max_aantal = htmlspecialchars($_POST['max_aantal'], ENT_QUOTES, 'UTF-8');
+    $max_gewicht_pp = htmlspecialchars($_POST['max_gewicht_pp'], ENT_QUOTES, 'UTF-8');
+    $max_totaalgewicht = htmlspecialchars($_POST['max_totaalgewicht'], ENT_QUOTES, 'UTF-8');
+    $vertrektijd = htmlspecialchars($_POST['vertrektijd'], ENT_QUOTES, 'UTF-8');
+    $maatschappijcode = htmlspecialchars($_POST['maatschappijcode'], ENT_QUOTES, 'UTF-8');
+   
 
     // Validate and format $vertrektijd
     try {
