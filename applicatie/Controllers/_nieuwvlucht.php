@@ -11,20 +11,7 @@ if (isset($_POST['submit'])) {
     $vertrektijd = htmlspecialchars($_POST['vertrektijd'], ENT_QUOTES, 'UTF-8');
     $maatschappijcode = htmlspecialchars($_POST['maatschappijcode'], ENT_QUOTES, 'UTF-8');
    
-
-    // Validate and format $vertrektijd
-    try {
-        $vertrektijd = ':00';
-      $dateTime = DateTime::createFromFormat('Y-m-d\TH:i:s', $vertrektijd);
-      if (!$dateTime) {
-          echo "Voer een geldige datum en tijd in (expected format: Y-m-d H:i:s).";
-          exit();
-      }
-      $vertrektijdFormatted = $dateTime->format('Y-m-d H:i:s');
-  } catch (Exception $e) {
-      echo "Voer een geldige datum en tijd in.";
-      exit();
-  }
+   
 
     // Convert numeric fields to correct format
     $vluchtnummer = intval($vluchtnummer);
@@ -32,7 +19,8 @@ if (isset($_POST['submit'])) {
     $max_gewicht_pp = floatval($max_gewicht_pp);
     $max_totaalgewicht = floatval($max_totaalgewicht);
 
-    try {
+
+
         $db = maakVerbinding();
 
         // Prepare SQL statement
@@ -40,12 +28,7 @@ if (isset($_POST['submit'])) {
                 VALUES (:vluchtnummer, :bestemming, :max_aantal, :max_gewicht_pp, :max_totaalgewicht, :vertrektijd, :maatschappijcode)";
         $stmt = $db->prepare($sql);
         
-    // Convert numeric fields to correct format
-    $vluchtnummer = intval($vluchtnummer);
-    $max_aantal = intval($max_aantal);
-    $max_gewicht_pp = floatval($max_gewicht_pp);
-    $max_totaalgewicht = floatval($max_totaalgewicht);
-
+  
 
         // Bind parameters with correct types
         $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
@@ -53,7 +36,7 @@ if (isset($_POST['submit'])) {
         $stmt->bindParam(':max_aantal', $max_aantal, PDO::PARAM_INT);
         $stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp, PDO::PARAM_STR);  
         $stmt->bindParam(':max_totaalgewicht', $max_totaalgewicht, PDO::PARAM_STR);  
-        $stmt->bindParam(':vertrektijd', $vertrektijdFormatted, PDO::PARAM_STR);
+        $stmt->bindParam(':vertrektijd', $vertrektijd, PDO::PARAM_STR);
         $stmt->bindParam(':maatschappijcode', $maatschappijcode, PDO::PARAM_STR);
 
         // Execute the query and check for success
@@ -62,12 +45,7 @@ if (isset($_POST['submit'])) {
         } else {
             echo "Error: Vlucht niet toegevoegd.";
         }
-    } catch (PDOException $e) {
-        // Log error internally
-        error_log("Database error: " . $e->getMessage());
-        echo "Er is een fout opgetreden bij het toevoegen van de vlucht. Probeer het later opnieuw.";
-    }
-} else {
+    } else {
     echo "Gebruik het formulier om een vlucht toe te voegen.";
 }
 
