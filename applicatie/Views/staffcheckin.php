@@ -20,6 +20,7 @@
 
 
 <section class="leftcontainer">
+
   <form action="../Controllers/checkin.php" method="post"> <h3>Passagier inchecken</h3>
       <label for="naam">Naam:</label><input type="text" id="naam" name="naam" pattern=" [a-zA-Z\-'\s]+" maxlength="50" required>
       <span class="message">Voer een naam in met letters.</span>
@@ -36,22 +37,32 @@
 
 
       <h3>Bagage Informatie</h3>
+      <?php
+      $vluchtnummer = $_GET['vluchtnummer'] ?? ''; // Check if vluchtnummer exists in GET
+      ?>
       <label for="gewicht">Gewicht bagage:</label>
                 <?php
-                include '../Controllers/passagier.php';
-                $vluchtnummer = $_POST['vluchtnummer'] ?? '';
-                if($vluchtnummer){
+                $vluchtnummer = $_GET['vluchtnummer'] ?? '';
+                if($vluchtnummer) {
                 $data = getBaggageInfo($_GET['vluchtnummer']);
                 for($i = 0; $i<$data['objecten']; $i++){
                     ?>
-                    <input type="number" id="gewicht" name="gewicht[]" step="0.1" min="0" max="35"><br>
+                    <input type="number" id="gewicht" name="gewicht[]" step="0.1" min="0" max="35">
                     <?php
                 }
-                }
                 ?><br>
- <button type="submit">Inchecken</button>
-    </form> </section>
-      
+
+      <button type="submit">Inchecken</button>
+      <br>
+  </form>
+
+    <div id="inchecken-resultaat">
+    </div>
+
+    <?php }  ?>
+</section>
+
+
 <!-- Footer onderaan pagina -->
 <?php include '../Components/General/footer.php';?>
 </body>

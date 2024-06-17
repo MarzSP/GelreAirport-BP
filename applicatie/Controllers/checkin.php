@@ -1,9 +1,11 @@
 <?php
+include '../Controllers/passagier.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){ 
         // ToDo; check in
     $naam = $_POST['naam'];
     $vluchtnummer = $_POST['vluchtnummer'];
-    $passagiernummer = $_SESSION['gebruikersnaam'];
+    $passagiernummer = $_POST['passagiernummer'];
     $gewichten = $_POST['gewicht'];
     $inchecktijdstip = date('Y-m-d H:i:s');
 
@@ -24,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         // ToDo; check if count of gewichten is allowed
         foreach ($gewichten as $key => $gewicht) {
             if ($gewicht >= 0) {
-                addBaggage($_SESSION['gebruikersnaam'], $key, $gewicht);
+                addBaggage($_POST['passagiernummer'], $key, $gewicht);
             }
 
         }
