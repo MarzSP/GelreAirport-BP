@@ -56,8 +56,8 @@ function updateInchecktijdstip($passagiernummer, $inchecktijdstip) {
 
     $sql = 'UPDATE Passagier SET Inchecktijdstip = ? WHERE passagiernummer = ?';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(1, $inchecktijdstip, PDO::PARAM_STR);
-    $stmt->bindValue(2, $passagiernummer, PDO::PARAM_STR);
+    $stmt->bindValue(1, $inchecktijdstip);
+    $stmt->bindValue(2, $passagiernummer);
 
     return $stmt->execute();
 }

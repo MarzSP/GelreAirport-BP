@@ -1,12 +1,12 @@
 <?php
-//ToDo: Marz: CSS Success bericht + error berichten kleuren
+//ToDo: Marz: CSS Success bericht + error bericht kleuren
 
 //ToDo: (!)Fix error messages nieuwpassagier.php
 //ToDo: (!)nieuwpassagier.php: als passagier successvol toegevoegd dan terug naar view met success melding
 //ToDo: (!)staffcheckin.php: Passagier inchecken met baggage + inchecktijdstip + stoel
 //ToDo: (!)passagier.php: Stoel bij inchecken + inchecktijdstip
 
-//ToDo: (!)User-Story OG-01: Ik wil dat er niet meer passagiers in eht vliegtuig worden ingechecked dan dat er plaats is
+//ToDo: (!)User-Story OG-01: Ik wil dat er niet meer passagiers in het vliegtuig worden ingechecked dan dat er plaats is
 //ToDo: (!)User-Story OG-02: Ik wil dat het totale gewicht aan baggage niet het maximum van de vlucht overtreft
 
 ?>
