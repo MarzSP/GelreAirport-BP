@@ -75,11 +75,15 @@ function checkin($vluchtnummer, $passagiernummer, $gewichten)
 
     $totaalGewicht = array_sum($gewichten);
 
-    if ($totaalGewicht > $maxGewicht) {
+     if ($totaalGewicht > $maxGewicht) {
         $_SESSION['foutmelding'] = "Het totale gewicht overschrijdt het limiet van $maxGewicht kg.";
     } elseif (count($gewichten) > $maxObjecten) {
         $_SESSION['foutmelding'] = "Het aantal objecten overschrijdt het limiet van $maxObjecten.";
-    } else {
+    } else if (checkIfVolleVlucht($vluchtnummer)) {
+         $_SESSION['foutmelding'] = 'vlucht is al volgeboekt';
+     } else if (checkIfGewichtVlucht($vluchtnummer)) {
+         $_SESSION['foutmelding'] = 'vlucht is te zwaar';
+     } else  {
         foreach ($gewichten as $key => $gewicht) {
             if ($gewicht >= 0) {
                 try {
@@ -100,4 +104,56 @@ function checkin($vluchtnummer, $passagiernummer, $gewichten)
     }
 
 
+}
+
+function checkIfVolleVlucht($vluchtnummer) {
+    $sql = <<<SQL
+SELECT
+    p.vluchtnummer,
+    COUNT(stoel) AS aantal_stoelen,
+    v.max_aantal
+FROM Passagier p
+         JOIN Vlucht V on V.vluchtnummer = p.vluchtnummer
+where p.vluchtnummer = ?
+GROUP BY
+    p.vluchtnummer,
+    V.max_aantal
+SQL;
+    $db = maakVerbinding();
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(1, $vluchtnummer, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+
+    $aantal_stoelen = $result[0]['aantal_stoelen'];
+    $max_aantal = $result[0]['max_aantal'];
+    if ($aantal_stoelen > $max_aantal) {
+        return true;
+    }
+    return false;
+}
+function checkIfGewichtVlucht($vluchtnummer) {
+    $sql = <<<SQL
+select sum(bo.gewicht) as huidiggewicht, v.vluchtnummer, v.max_totaalgewicht
+from Vlucht v
+	join Passagier p on p.vluchtnummer = v.vluchtnummer
+	join BagageObject bo on p.passagiernummer = bo.passagiernummer
+where v.vluchtnummer = ?
+group by v.vluchtnummer,v.max_totaalgewicht
+
+SQL;
+    $db = maakVerbinding();
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(1, $vluchtnummer, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+
+    $huidigGewicht = $result[0]['huidiggewicht'];
+    $maxGewicht = $result[0]['max_totaalgewicht'];
+    if ($huidigGewicht > $maxGewicht) {
+        return true;
+    }
+    return false;
 }

@@ -3,6 +3,7 @@
 require_once '../includes.php';
 include '../DB/nieuw_passagier.php';
 include '../DB/passagiernummer.php';
+include '../DB/checkin.php';
 
 redirectIfNotLoggedin();
 
@@ -15,10 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $wachtwoord = password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT);
     $stoel = htmlspecialchars($_POST['stoel'], ENT_QUOTES, 'UTF-8');
 
-
     if (valideerPassagierInvoer($passagiernummer, $naam, $vluchtnummer, $geslacht, $wachtwoord, $stoel)) {
         if (checkIfStoelBestaat($vluchtnummer, $stoel)) {
             $_SESSION['foutmelding'] = 'stoel '.$stoel.'  al weg gegeven';
+            header('Location: ../Views/nieuwpassagier.php');
+        } else if (checkIfVolleVlucht($vluchtnummer)) {
+            $_SESSION['foutmelding'] = 'vlucht is al volgeboekt';
+            header('Location: ../Views/nieuwpassagier.php');
+        } else if (checkIfGewichtVlucht($vluchtnummer)) {
+            $_SESSION['foutmelding'] = 'vlucht is te zwaar';
             header('Location: ../Views/nieuwpassagier.php');
         } else if (slaPassagierOp($passagiernummer, $naam, $vluchtnummer, $geslacht, $wachtwoord, $stoel)) {
             $succesBericht = "Passagier succesvol toegevoegd met nummer: " . $passagiernummer;
