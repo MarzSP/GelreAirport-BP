@@ -1,3 +1,5 @@
+
+
 <?php require_once "../includes.php" ?>
 <?php include "../db/passagiernummer.php" ?>
 
@@ -24,6 +26,16 @@
     <!-- Formulier: Nieuwe Passagier toevoegen -->
     <h2>Nieuwe Passagier toevoegen</h2>
     <form action="../Controllers/_nieuwpassagier.php" method="post">
+        <p id="passagier-toegevoegd-bericht">
+            <?php if (isset($_SESSION['passagierToegevoegdBericht'])) {
+                echo '<p class="successmelding">' .  $_SESSION['passagierToegevoegdBericht'] . '</p>';
+            }
+            if (isset($_SESSION['foutmelding'])) {
+                echo '<p class="foutmelding">' . $_SESSION['foutmelding'] . '</p>';
+                unset($_SESSION['foutmelding']);
+            } ?>
+        </p>
+
         <label for="passagiernummer">Passagiernummer:</label>
         <?php
         try {

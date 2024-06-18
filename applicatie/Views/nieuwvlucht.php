@@ -22,9 +22,22 @@
 <?php require '../Controllers/_nieuwvlucht.php'; ?>
     <!-- Formulier: Nieuwe Vlucht toevoegen-->
     <h2>Nieuwe Vlucht Toevoegen</h2>
+
+    <?php if (isset($_GET['succesmelding'])) { ?>
+        <p class="successmelding">
+            <?php echo htmlspecialchars(urldecode($_GET['succesmelding'])); ?>
+        </p>
+    <?php } ?>
+
+    <?php if (isset($_GET['foutmelding'])) {  ?>
+        <p class="foutmelding">
+            <?php echo htmlspecialchars(urldecode($_GET['foutmelding'])); ?>
+        </p>
+    <?php } ?>
+
     <form method="POST" action="../Controllers/_nieuwvlucht.php" >
         <label for="vluchtnummer">Vluchtnummer:</label>
-        <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="9" required><br>
+        <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="5" required><br>
 
 <!-- Dropdown lijst van Bestemmingen -->
         <label for="Bestemming">Bestemming:</label>
@@ -38,13 +51,13 @@
         </select>
 
         <label for="max_aantal">Maximaal aantal passagiers:</label>
-        <input type="number" id="max_aantal" name="max_aantal" pattern="[0-9]{1,15}" maxlength="5000" required><br>
+        <input type="number" id="max_aantal" name="max_aantal" pattern="[0-9]{1,15}" maxlength="999" required><br>
 
         <label for="max_gewicht_pp">Maximaal gewicht per persoon (kg):</label>
-        <input type="number" step="0.1" id="max_gewicht_pp" name="max_gewicht_pp" required><br>
+        <input type="number" step="0.1" id="max_gewicht_pp" name="max_gewicht_pp" pattern="[0-9]\.{1,15}" required><br>
 
         <label for="max_totaalgewicht">Maximaal totaalgewicht (kg):</label>
-        <input type="number" step="0.1" id="max_totaalgewicht" name="max_totaalgewicht" required><br>
+        <input type="number" step="0.1" id="max_totaalgewicht" name="max_totaalgewicht" pattern="[0-9]\.{1,15}" required><br>
 
         <label for="vertrektijd">Vertrektijd:</label>
         <input type="datetime-local" id="vertrektijd" name="vertrektijd" required><br>

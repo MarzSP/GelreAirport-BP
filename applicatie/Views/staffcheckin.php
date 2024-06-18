@@ -21,7 +21,7 @@
 
 <section class="leftcontainer">
 
-  <form action="../Controllers/checkin.php" method="post"> <h3>Passagier inchecken</h3>
+  <form action="../Controllers/passagier.php" method="post"> <h3>Passagier inchecken</h3>
       <label for="naam">Naam:</label><input type="text" id="naam" name="naam" pattern=" [a-zA-Z\-'\s]+" maxlength="50" required>
       <span class="message">Voer een naam in met letters.</span>
     <br>

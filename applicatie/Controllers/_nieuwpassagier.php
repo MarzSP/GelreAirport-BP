@@ -11,16 +11,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $geslacht = htmlspecialchars($_POST['geslacht'], ENT_QUOTES, 'UTF-8');
     $wachtwoord = password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT);
 
+
     if (valideerPassagierInvoer($passagiernummer, $naam, $vluchtnummer, $geslacht, $wachtwoord)) {
         if (slaPassagierOp($passagiernummer, $naam, $vluchtnummer, $geslacht, $wachtwoord)) {
-            echo "Passagier succesvol toegevoegd met nummer: " . $passagiernummer;
+            $succesBericht = "Passagier succesvol toegevoegd met nummer: " . $passagiernummer;
+            $_SESSION['passagierToegevoegdBericht'] = $succesBericht;
+            header('Location: ../Views/nieuwpassagier.php');
+            exit;
         } else {
-            echo "Fout bij het opslaan van passagiergegevens";
+            $foutmelding = $e->getMessage();
+            header('Location: ../Views/nieuwpassagier.php?foutmelding=' . urlencode($foutmelding));
+            exit;
         }
     } else {
-        echo "<ul>";
+        echo "<p class='foutmelding'> <ul>";
         foreach ($foutmeldingen as $foutmelding) {
-            echo "<li>" . $foutmelding . "</li>";
+            echo "<li>" . $foutmelding . "</li></p>";
         }
         echo "</ul>";
     }
