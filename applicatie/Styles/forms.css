@@ -38,7 +38,7 @@
     color: rgb(0, 0, 0);
     padding: 0.75rem 1.25rem;
     border-radius: 0.2rem;
-    text-emphasis: strong;
+    font-weight: bold;
 
   }
   
@@ -54,6 +54,18 @@
     font-style: italic;
     font-size: 0.8em;
   }
+
+.successmelding {
+  color: green;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.foutmelding {
+  color: red;
+  font-weight: bold;
+  padding: 10px;
+}
 
 
   

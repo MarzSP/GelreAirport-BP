@@ -12,16 +12,18 @@ if (isset($_POST['submit'])) {
     $maatschappijcode = htmlspecialchars($_POST['maatschappijcode'], ENT_QUOTES, 'UTF-8');
 
 
-    $format = "Y-M-D H:i:s.u"; // Expected format from your database schema
+    $format = "Y-M-D H:i:s.u"; // Format in DB
     $dateTimeObject = DateTime::createFromFormat($format, $vertrektijd);
 
-    // Convert numeric fields to correct format
     $vluchtnummer = intval($vluchtnummer);
     $max_aantal = intval($max_aantal);
     $max_gewicht_pp = floatval($max_gewicht_pp);
     $max_totaalgewicht = floatval($max_totaalgewicht);
 
-
+    if ($max_aantal < 0 || $max_aantal > 999) {
+        header('Location: ../Views/nieuwvlucht.php?foutmelding=Maximaal aantal passagiers moet tussen 0 en 999 liggen.');
+        exit;
+    }
 
         $db = maakVerbinding();
 
@@ -43,9 +45,11 @@ if (isset($_POST['submit'])) {
 
         // Execute the query and check for success
         if ($stmt->execute()) {
-            echo "Vlucht succesvol toegevoegd.";
+            header('Location: ../Views/nieuwvlucht.php?succesmelding=Vlucht+succesvol+toegevoegd.');
+            exit;
         } else {
-            echo "Error: Vlucht niet toegevoegd.";
+            header('Location: ../Views/nieuwvlucht.php?foutmelding=Vlucht+niet+toegevoegd.');
+            exit;
         }
     } else {
     echo "Gebruik het formulier om een vlucht toe te voegen.";

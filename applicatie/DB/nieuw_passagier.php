@@ -14,7 +14,7 @@ function valideerPassagierInvoer($passagiernummer, $naam, $vluchtnummer, $geslac
 
     if (empty($naam)) {
         $geldig = false;
-        $foutmeldingen[] = "Naam mag niet leeg zijn";
+        $foutmeldingen[] = "Naamveld mag niet leeg zijn";
     }
     if (empty($vluchtnummer)) {
         $geldig = false;
