@@ -54,14 +54,14 @@ function addBaggage($passagiernummer, $key, $gewicht)
     return $stmt->execute();
 }
 
-function updateInchecktijdstip($passagiernummer, $inchecktijdstip)
+function updateInchecktijdstip($passagiernummer)
 {
     $db = maakVerbinding();
 
-    $sql = 'UPDATE Passagier SET Inchecktijdstip = ? WHERE passagiernummer = ?';
+
+    $sql = 'UPDATE Passagier SET Inchecktijdstip = GETDATE() WHERE passagiernummer = ?';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(1, $inchecktijdstip);
-    $stmt->bindValue(2, $passagiernummer);
+    $stmt->bindValue(1, $passagiernummer);
 
     return $stmt->execute();
 }
@@ -93,6 +93,8 @@ function checkin($vluchtnummer, $passagiernummer, $gewichten)
                 }
             }
         }
+
+        updateInchecktijdstip($passagiernummer);
 
         $_SESSION['succesmelding'] = "U bent ingecheckt!";
     }
