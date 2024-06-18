@@ -1,7 +1,8 @@
 <?php
 require_once '../includes.php';
 
-function getPassagierBoekingen($login) {
+function getPassagierBoekingen($login)
+{
     $db = maakVerbinding();
 
     $sql = "SELECT
@@ -23,7 +24,8 @@ function getPassagierBoekingen($login) {
     return $result->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getBaggageInfo($vluchtnummer) {
+function getBaggageInfo($vluchtnummer)
+{
     $db = maakVerbinding();
 
     $sql = 'SELECT TOP (1) max_objecten_pp as objecten, max_gewicht_pp as pp
@@ -38,7 +40,8 @@ function getBaggageInfo($vluchtnummer) {
     return $result->fetch(PDO::FETCH_ASSOC);
 }
 
-function addBaggage($passagiernummer, $key, $gewicht) {
+function addBaggage($passagiernummer, $key, $gewicht)
+{
     $db = maakVerbinding();
 
     $sql = 'INSERT INTO BagageObject (passagiernummer, objectvolgnummer, gewicht) VALUES (?, ?, ?)';
@@ -51,7 +54,8 @@ function addBaggage($passagiernummer, $key, $gewicht) {
     return $stmt->execute();
 }
 
-function updateInchecktijdstip($passagiernummer, $inchecktijdstip) {
+function updateInchecktijdstip($passagiernummer, $inchecktijdstip)
+{
     $db = maakVerbinding();
 
     $sql = 'UPDATE Passagier SET Inchecktijdstip = ? WHERE passagiernummer = ?';
@@ -61,4 +65,37 @@ function updateInchecktijdstip($passagiernummer, $inchecktijdstip) {
 
     return $stmt->execute();
 }
-?>
+
+
+function checkin($vluchtnummer, $passagiernummer, $gewichten)
+{
+    $data = getBaggageInfo($vluchtnummer);
+    $maxObjecten = $data['objecten'];
+    $maxGewicht = $data['pp'];
+
+    $totaalGewicht = array_sum($gewichten);
+
+    if ($totaalGewicht > $maxGewicht) {
+        $_SESSION['foutmelding'] = "Het totale gewicht overschrijdt het limiet van $maxGewicht kg.";
+    } elseif (count($gewichten) > $maxObjecten) {
+        $_SESSION['foutmelding'] = "Het aantal objecten overschrijdt het limiet van $maxObjecten.";
+    } else {
+        foreach ($gewichten as $key => $gewicht) {
+            if ($gewicht >= 0) {
+                try {
+                    addBaggage($passagiernummer, $key, $gewicht);
+                } catch (PDOException $e) {
+                    if ($e->getCode() == 23000) {
+                        $_SESSION['foutmelding'] = "Passagier $passagiernummer is reeds ingecheckt voor vluchtnummer: $vluchtnummer.";
+                    } else {
+                        throw $e;
+                    }
+                }
+            }
+        }
+
+        $_SESSION['succesmelding'] = "U bent ingecheckt!";
+    }
+
+
+}

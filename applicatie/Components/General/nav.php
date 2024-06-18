@@ -12,7 +12,6 @@ $rol = $_SESSION['rol'] ?? '';
             <li><a href="../Views/medewerker.php">Zoeken</a></li>
             <li><a href="../Views/nieuwvlucht.php">Vlucht+</a></li>
             <li><a href="../Views/nieuwpassagier.php">Passagier+</a></li>
-            <li><a href="../Views/staffcheckin.php">CheckIn</a></li>
         <?php } elseif ($isLoggedin && $rol === 'passagier') { ?>
             <li><a href="../Views/passagier.php">Checkin</a></li>
         <?php } ?>

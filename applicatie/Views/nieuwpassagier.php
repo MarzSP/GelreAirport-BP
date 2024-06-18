@@ -61,6 +61,9 @@
             <option value="O">Anders</option>
         </select><br>
 
+        <label for="stoel">Stoel:</label>
+        <input type="text" id="stoel" name="stoel" required maxlength="3"><br>
+
         <label for="wachtwoord">Wachtwoord:</label>
         <input type="password" id="wachtwoord" name="wachtwoord" required><br>
         
