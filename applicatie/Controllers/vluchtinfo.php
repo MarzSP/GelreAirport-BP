@@ -1,4 +1,5 @@
 <?php
+require_once '../includes.php';
 
 function getVluchtInformatie($zoekVluchtNummer) {
     $db = maakVerbinding();

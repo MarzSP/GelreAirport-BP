@@ -1,7 +1,7 @@
 <?php
 require_once '../includes.php';
 include '../DB/nieuw_vlucht.php';
-require_once '../DB/db_connectie.php';
+
 
 
 if (isset($_POST['submit'])) {

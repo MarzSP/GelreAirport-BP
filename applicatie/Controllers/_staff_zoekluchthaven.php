@@ -1,4 +1,5 @@
 <?php
+require_once '../includes.php';
 require_once '../DB/staff_zoektabel.php'; 
 
 $db = maakVerbinding();
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['luchthaven'])) {
 }
 
 if (!empty($error_message)) {
-    echo "<span class='error-message'>$error_message</span>";
+    echo "<span class='foutmelding'>$error_message</span>";
 }
 
 renderStaffZoekTabel($flight_data);
