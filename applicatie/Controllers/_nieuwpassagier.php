@@ -18,13 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (valideerPassagierInvoer($passagiernummer, $naam, $vluchtnummer, $geslacht, $wachtwoord, $stoel)) {
         if (checkIfStoelBestaat($vluchtnummer, $stoel)) {
-            $_SESSION['foutmelding'] = 'stoel '.$stoel.'  al weg gegeven';
+            $_SESSION['foutmelding'] = 'stoel '.$stoel.' Deze stoel is an bezet. n';
             header('Location: ../Views/nieuwpassagier.php');
         } else if (checkIfVolleVlucht($vluchtnummer)) {
-            $_SESSION['foutmelding'] = 'vlucht is al volgeboekt';
+            $_SESSION['foutmelding'] = 'Deze vlucht is al volgeboekt';
             header('Location: ../Views/nieuwpassagier.php');
         } else if (checkIfGewichtVlucht($vluchtnummer)) {
-            $_SESSION['foutmelding'] = 'vlucht is te zwaar';
+            $_SESSION['foutmelding'] = 'Deze vlucht is te zwaar als dit bagageobject wordt ingechecked.';
             header('Location: ../Views/nieuwpassagier.php');
         } else if (slaPassagierOp($passagiernummer, $naam, $vluchtnummer, $geslacht, $wachtwoord, $stoel)) {
             $succesBericht = "Passagier succesvol toegevoegd met nummer: " . $passagiernummer;

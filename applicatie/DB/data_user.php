@@ -63,6 +63,7 @@ if (isset($_POST['submit'])) {
     $gebruiker = new Passagier($naam, $wachtwoord);
 
     // Gebruik prepared statements om SQL-injectie te voorkomen
+    // Gebruik password hashing om Broken User Access te voorkomen
     $query = $verbinding->prepare("INSERT INTO Passagier (naam, vluchtnummer, geslacht, balienummer, inchecktijdstip, wachtwoord) VALUES (?, ?, ?, ?, ?, ?)");
     $hash = password_hash($gebruiker->wachtwoord, PASSWORD_DEFAULT);
 

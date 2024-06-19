@@ -19,7 +19,7 @@ function renderFormInCheck($typeOfForm)
             <?php } ?>
             <label for="gewicht">Gewicht bagage:</label>
             <?php
-            require_once '../../DB/checkin.php';
+            require_once '../DB/checkin.php';
             $data = getBaggageInfo($_GET['vluchtnummer']);
             for ($i = 0; $i < $data['objecten']; $i++) {
                 ?>

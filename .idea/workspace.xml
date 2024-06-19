@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fd14f161-8bf3-45aa-b7ff-58655ad2cc05" name="Changes" comment="refactor codecleanup" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MarzSP&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MarzSP/GelreAirport-master.git&quot;,
+    &quot;accountId&quot;: &quot;7cc225f0-5256-47b6-a8d2-61756c7db08c&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;MarzSP&quot;,
+    &quot;repository&quot;: &quot;GelreAirport-master&quot;
+  }
+}</component>
+  <component name="PhpServers">
+    <servers>
+      <server host="0.0.0.0" id="6eb3be77-8e94-44c7-b35e-621bcadeb56c" name="0.0.0.0" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/applicatie/Views" remote-root="/applicatie/Views" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2i0t6c36v9fNSRPvvQgaxVeMhza" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "#5 on refactor-controller/data",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\maria\OneDrive\Documents\ICT\GelreAirport-master\GelreAirport-master\applicatie\Views" />
+      <recent name="C:\Users\maria\OneDrive\Documents\ICT\GelreAirport-master\GelreAirport-master\applicatie" />
+      <recent name="C:\Users\maria\OneDrive\Documents\ICT\GelreAirport-master\GelreAirport-master\applicatie\DB" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.17890.8" />
+        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.17890.8" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fd14f161-8bf3-45aa-b7ff-58655ad2cc05" name="Changes" comment="" />
+      <created>1718639148418</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718639148418</updated>
+      <workItem from="1718639150055" duration="2086000" />
+      <workItem from="1718641262463" duration="13000" />
+      <workItem from="1718641337484" duration="999000" />
+      <workItem from="1718642361846" duration="5682000" />
+      <workItem from="1718709036068" duration="6630000" />
+      <workItem from="1718715765538" duration="213000" />
+      <workItem from="1718716508715" duration="87000" />
+      <workItem from="1718792423964" duration="1473000" />
+      <workItem from="1718795157224" duration="342000" />
+      <workItem from="1718795583440" duration="3651000" />
+      <workItem from="1718803025190" duration="2947000" />
+    </task>
+    <task id="LOCAL-00001" summary="Code scheiden: Nieuw passagier toevoegen.">
+      <option name="closed" value="true" />
+      <created>1718640144267</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718640144267</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Code scheiden: Nieuw passagier toevoegen.">
+      <option name="closed" value="true" />
+      <created>1718648092375</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718648092375</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Code Scheiden, code layering. Error msgs CSS">
+      <option name="closed" value="true" />
+      <created>1718715641193</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718715641193</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Code refactor">
+      <option name="closed" value="true" />
+      <created>1718715972728</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718715972728</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Code refactor">
+      <option name="closed" value="true" />
+      <created>1718716541235</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718716541235</updated>
+    </task>
+    <task id="LOCAL-00006" summary="HTML validatie W3.org">
+      <option name="closed" value="true" />
+      <created>1718793907369</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718793907369</updated>
+    </task>
+    <task id="LOCAL-00007" summary="HTML validatie W3.org">
+      <option name="closed" value="true" />
+      <created>1718795498160</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718795498160</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Foutmelding voor foutief vluchtnummer">
+      <option name="closed" value="true" />
+      <created>1718798529698</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718798529698</updated>
+    </task>
+    <task id="LOCAL-00009" summary="nieuwvlucht refactor">
+      <option name="closed" value="true" />
+      <created>1718804200687</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718804200687</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Includes/requires controle">
+      <option name="closed" value="true" />
+      <created>1718804473663</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718804473663</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactor codecleanup">
+      <option name="closed" value="true" />
+      <created>1718805321000</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718805321000</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Code scheiden: Nieuw passagier toevoegen." />
+    <MESSAGE value="Code Scheiden, code layering. Error msgs CSS" />
+    <MESSAGE value="Code refactor" />
+    <MESSAGE value="HTML validatie W3.org" />
+    <MESSAGE value="Foutmelding voor foutief vluchtnummer" />
+    <MESSAGE value="nieuwvlucht refactor" />
+    <MESSAGE value="Includes/requires controle" />
+    <MESSAGE value="refactor codecleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor codecleanup" />
+  </component>
+</project>

@@ -44,7 +44,7 @@ function valideerPassagierInvoer($passagiernummer, $naam, $vluchtnummer, $geslac
     }
 }
 
-// Passagiersgegevens opslaan
+// Passagiersgegevens opslaan met gebruik van prepared SQL statements tegen SQL-injection (A03:2021)
 function slaPassagierOp($passagiernummer, $naam, $vluchtnummer, $geslacht, $wachtwoord, $stoel) {
     $db = maakVerbinding();
 
