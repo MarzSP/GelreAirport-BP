@@ -1,8 +1,11 @@
 <?php
-global $verbinding, $verbinding;
-require_once '../DB/db_connectie.php';
+require_once '../includes.php';
+include '../DB/nieuw_vlucht.php';
+
+
 
 if (isset($_POST['submit'])) {
+    $db=maakVerbinding();
     $vluchtnummer = htmlspecialchars($_POST['vluchtnummer'], ENT_QUOTES, 'UTF-8');
     $bestemming = htmlspecialchars($_POST['bestemming'], ENT_QUOTES, 'UTF-8');
     $max_aantal = htmlspecialchars($_POST['max_aantal'], ENT_QUOTES, 'UTF-8');
@@ -24,37 +27,8 @@ if (isset($_POST['submit'])) {
         header('Location: ../Views/nieuwvlucht.php?foutmelding=Maximaal aantal passagiers moet tussen 0 en 999 liggen.');
         exit;
     }
-
-        $db = maakVerbinding();
-
-        // Prepare SQL statement
-        $sql = "INSERT INTO Vlucht (vluchtnummer, bestemming, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, maatschappijcode)
-                VALUES (:vluchtnummer, :bestemming, :max_aantal, :max_gewicht_pp, :max_totaalgewicht, :vertrektijd, :maatschappijcode)";
-        $stmt = $db->prepare($sql);
-        
-  
-
-        // Bind parameters with correct types
-        $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
-        $stmt->bindParam(':bestemming', $bestemming);
-        $stmt->bindParam(':max_aantal', $max_aantal, PDO::PARAM_INT);
-        $stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp);
-        $stmt->bindParam(':max_totaalgewicht', $max_totaalgewicht);
-        $stmt->bindParam(':vertrektijd', $dateTimeObject);
-        $stmt->bindParam(':maatschappijcode', $maatschappijcode);
-
-        // Execute the query and check for success
-        if ($stmt->execute()) {
-            header('Location: ../Views/nieuwvlucht.php?succesmelding=Vlucht+succesvol+toegevoegd.');
-            exit;
-        } else {
-            header('Location: ../Views/nieuwvlucht.php?foutmelding=Vlucht+niet+toegevoegd.');
-            exit;
-        }
-    } else {
-    echo "Gebruik het formulier om een vlucht toe te voegen.";
+    insertVlucht($vluchtnummer, $bestemming, $max_aantal, $max_gewicht_pp, $max_totaalgewicht, $dateTimeObject, $maatschappijcode);
 }
-
 
 
 
@@ -63,7 +37,7 @@ try {
     $data = maakVerbinding();
     $data->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
-
+// Functie voor dropdownlijst bestemmingen
     function getDestinations($db) {
       $sql = "SELECT bestemming FROM Vlucht";
       $stmt = $db->prepare($sql);
@@ -71,7 +45,7 @@ try {
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
   
-
+// Functie voor dropdownlijst voor maatschappijcoed
     function getMaatschappijCodes($db) {
       $sql = "SELECT maatschappijcode FROM Maatschappij";
       $stmt = $db->prepare($sql);

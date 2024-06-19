@@ -1,7 +1,6 @@
 <?php
+require_once '../includes.php';
 require_once '../DB/data_user.php';
-require_once '../DB/sessionCheck.php';
-
 
 
 $error = '';
