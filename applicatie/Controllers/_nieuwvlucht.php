@@ -25,38 +25,38 @@ if (isset($_POST['submit'])) {
         exit;
     }
 
-        $db = maakVerbinding();
+    $db = maakVerbinding();
 
-        // Prepare SQL statement
-        $sql = "INSERT INTO Vlucht (vluchtnummer, bestemming, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, maatschappijcode)
+    // Prepare SQL statement
+    $sql = "INSERT INTO Vlucht (vluchtnummer, bestemming, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, maatschappijcode)
                 VALUES (:vluchtnummer, :bestemming, :max_aantal, :max_gewicht_pp, :max_totaalgewicht, :vertrektijd, :maatschappijcode)";
-        $stmt = $db->prepare($sql);
-        
-  
+    $stmt = $db->prepare($sql);
 
-        // Bind parameters with correct types
-        $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
-        $stmt->bindParam(':bestemming', $bestemming);
-        $stmt->bindParam(':max_aantal', $max_aantal, PDO::PARAM_INT);
-        $stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp);
-        $stmt->bindParam(':max_totaalgewicht', $max_totaalgewicht);
-        $stmt->bindParam(':vertrektijd', $dateTimeObject);
-        $stmt->bindParam(':maatschappijcode', $maatschappijcode);
 
-        // Execute the query and check for success
-        if ($stmt->execute()) {
-            header('Location: ../Views/nieuwvlucht.php?succesmelding=Vlucht+succesvol+toegevoegd.');
-            exit;
+    // Bind parameters with correct types
+    $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
+    $stmt->bindParam(':bestemming', $bestemming);
+    $stmt->bindParam(':max_aantal', $max_aantal, PDO::PARAM_INT);
+    $stmt->bindParam(':max_gewicht_pp', $max_gewicht_pp);
+    $stmt->bindParam(':max_totaalgewicht', $max_totaalgewicht);
+    $stmt->bindParam(':vertrektijd', $dateTimeObject);
+    $stmt->bindParam(':maatschappijcode', $maatschappijcode);
+
+    // Execute the query and check for success
+    try {
+        $stmt->execute();
+        header('Location: ../Views/nieuwvlucht.php?succesmelding=Vlucht+succesvol+toegevoegd.');
+        exit;
+    } catch (PDOException $e) {
+        if ($e->getCode() == 23000) {
+            header('Location: ../Views/nieuwvlucht.php?foutmelding=Vluchtnummer al in gebruik. Kies een ander vluchtnummer.');
+            $_SESSION['foutmelding'] = "Vlucht met vluchtnummer $vluchtnummer kan niet worden toegevoegd omdat dit vluchtnummer al in gebruik is. Kies een andere.";
         } else {
-            header('Location: ../Views/nieuwvlucht.php?foutmelding=Vlucht+niet+toegevoegd.');
-            exit;
+            header('Location: ../Views/nieuwvlucht.php?foutmelding=Vlucht+kon+niet+worden+toegevoegd.');
+            throw $e;
         }
-    } else {
-    echo "Gebruik het formulier om een vlucht toe te voegen.";
+    }
 }
-
-
-
 
 
 try {
