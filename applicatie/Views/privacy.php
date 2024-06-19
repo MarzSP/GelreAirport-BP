@@ -46,12 +46,13 @@
 
   <h4>Vragen en Contact</h4>
   <p>Mocht je vragen hebben over deze privacyverklaring of het gebruik van gegevens in dit leerproject en onderzoek, aarzel dan niet om contact met me op te nemen via ms.peterson@student.han.nl</p>
-</article>
+</article></div>
+</main>
 </body>
+
 
  <!-- Footer onderaan pagina -->
  <?php
 include '../Components/General/footer.php';
 ?>
 </html>
-<!-- </main> removed -->

@@ -37,10 +37,10 @@
 
     <form method="POST" action="../Controllers/_nieuwvlucht.php" >
         <label for="vluchtnummer">Vluchtnummer:</label>
-        <input type="number" id="vluchtnummer" name="vluchtnummer" pattern="[0-9]{1,15}" maxlength="5" required><br>
+        <input type="number" id="vluchtnummer" name="vluchtnummer" minlength="5" maxlength="5" required><br>
 
 <!-- Dropdown lijst van Bestemmingen -->
-        <label for="Bestemming">Bestemming:</label>
+        <label for="bestemming">Bestemming:</label>
         <select id="bestemming" name="bestemming" required>
         <option value="">Selecteer bestemming</option>
         <?php foreach ($bestemmingen as $bestemming): ?>
@@ -51,13 +51,13 @@
         </select>
 
         <label for="max_aantal">Maximaal aantal passagiers:</label>
-        <input type="number" id="max_aantal" name="max_aantal" pattern="[0-9]{1,15}" maxlength="999" required><br>
+        <input type="number" id="max_aantal" name="max_aantal" minlength="0" maxlength="999" required><br>
 
         <label for="max_gewicht_pp">Maximaal gewicht per persoon (kg):</label>
-        <input type="number" step="0.1" id="max_gewicht_pp" name="max_gewicht_pp" pattern="[0-9]\.{1,15}" required><br>
+        <input type="number" step="0.1" id="max_gewicht_pp" name="max_gewicht_pp" minlength="0" maxlength="9999" required><br>
 
         <label for="max_totaalgewicht">Maximaal totaalgewicht (kg):</label>
-        <input type="number" step="0.1" id="max_totaalgewicht" name="max_totaalgewicht" pattern="[0-9]\.{1,15}" required><br>
+        <input type="number" step="0.1" id="max_totaalgewicht" name="max_totaalgewicht" minlength="0" maxlength="99999" required><br>
 
         <label for="vertrektijd">Vertrektijd:</label>
         <input type="datetime-local" id="vertrektijd" name="vertrektijd" required><br>

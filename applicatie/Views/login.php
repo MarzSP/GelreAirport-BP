@@ -24,12 +24,12 @@
   <div class="inlog-formulier">
     <h2>Login</h2>
 
-    <form method="post" action="">
+    <form method="post">
       <label for="gebruikersnaam">Gebruikersnaam:</label>
       <input type="text" id="gebruikersnaam" pattern="[a-zA-Z0-9]+" name="gebruikersnaam" required>
       <label for="wachtwoord">Wachtwoord:</label>
       <input type="password" id="wachtwoord" name="wachtwoord" required>
-      <input class="button" type="submit" value="Inloggen" />
+      <input class="button" type="submit" value="Inloggen" >
     </form>
   </div>
   <?php echo($html) ?>

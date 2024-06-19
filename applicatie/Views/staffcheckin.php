@@ -23,5 +23,6 @@ include '../Components/General/formIncheck.php';
 
 <!-- Footer onderaan pagina -->
 <?php include '../Components/General/footer.php';?>
+</main>
 </body>
 </html>

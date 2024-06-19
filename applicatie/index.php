@@ -1,10 +1,5 @@
 <?php
 //ToDo: Marz: CSS Success bericht + error bericht kleuren
-
-
-//ToDo: (!)User-Story OG-01: Ik wil dat er niet meer passagiers in het vliegtuig worden ingechecked dan dat er plaats is
-//ToDo: (!)User-Story OG-02: Ik wil dat het totale gewicht aan baggage niet het maximum van de vlucht overtreft
-
 ?>
 
 <?php require_once "includes.php" ?>
@@ -40,7 +35,7 @@
             <h1> Vertrekkende vluchten: </h1>
 
             <!-- Zoekformulier -->
-            <form method="GET" action="">
+            <form method="GET" >
                 <label>
                     <input type="text" name="zoekVluchtnummer" placeholder="Zoek vluchtnummer"
                            value="<?php echo htmlspecialchars($_GET['zoekVluchtnummer'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">

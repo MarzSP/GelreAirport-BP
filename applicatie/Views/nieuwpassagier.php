@@ -1,8 +1,5 @@
-
-
 <?php require_once "../includes.php" ?>
 <?php include "../db/passagiernummer.php" ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

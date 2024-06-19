@@ -11,12 +11,11 @@
     <title>GelreAirport</title>
 </head>
 
-  
-<body>
+
+<body><main>
 <!-- Navigatie balk -->
 <?php include '../Components/General/nav.php';?>
 
-<main>
 <!-- Pagina header(column1), en welkomst text(column2) -->
 
 <?php include '../Components/General/header.php';?>
@@ -26,7 +25,7 @@
   <!-- Vlucht gegevens ophalen op vluchtnummer formulier -->
   <section class="container4">
         <h3>Vluchtgegevens Ophalen: Vluchtnummer</h3>
-        <form action="" method="post" id="vluchtnummer">
+        <form method="post">
             <label for="vluchtnummer">Vluchtnummer:</label>
             <input type="text" id="vluchtnummer" name="vluchtnummer" required>
             <span class="error-message"></span>
@@ -39,7 +38,7 @@
 <!-- Vlucht gegevens ophalen op Luchthaven formulier -->
       <section class="container4">
     <h3>Vluchtgegevens Ophalen: Luchthaven</h3>
-    <form action=" " method="post" id="luchthaven">
+    <form method="post" >
         <label for="luchthaven">Luchthavennaam:</label>
         <input type="text" id="luchthaven" name="luchthaven" required>
         <span class="error-message"></span>
@@ -53,7 +52,7 @@
 <!-- Vlucht gegevens ophalen op Vertrektijd formulier -->
     <section class="container4">
     <h3>Vluchtgegevens Ophalen: Datum & Tijd</h3>
-    <form action="" method="post">
+    <form method="post">
         <label for="datum">Datum:</label>
         <input type="date" id="datum" name="datum">
 
@@ -66,7 +65,7 @@
 </section>
 
 
-
+</main>
 </body>
 <!-- Footer onderaan pagina -->
 <?php include '../Components/General/footer.php';?>
