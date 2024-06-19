@@ -19,6 +19,10 @@ function valideerPassagierInvoer($passagiernummer, $naam, $vluchtnummer, $geslac
         $foutmeldingen[] = "Vluchtnummer mag niet leeg zijn";
     }
 
+    if (empty($geslacht)) {
+        $geldig = false;
+        $foutmeldingen[] = "Vul een geslacht in.";
+    }
     if (empty($wachtwoord)) {
         $geldig = false;
         $foutmeldingen[] = "Wachtwoord mag niet leeg zijn";
@@ -49,11 +53,11 @@ function slaPassagierOp($passagiernummer, $naam, $vluchtnummer, $geslacht, $wach
     $stmt = $db->prepare($sql);
 
     $stmt->bindParam(':passagiernummer', $passagiernummer, PDO::PARAM_INT);
-    $stmt->bindParam(':naam', $naam, PDO::PARAM_STR);
+    $stmt->bindParam(':naam', $naam,PDO::PARAM_STR);
     $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
     $stmt->bindParam(':geslacht', $geslacht, PDO::PARAM_STR);
     $stmt->bindParam(':wachtwoord', $wachtwoord, PDO::PARAM_STR);
-    $stmt->bindParam(':stoel', $stoel, PDO::PARAM_STR);
+    $stmt->bindParam(':stoel', $stoel);
 
     try {
         return $stmt->execute();
@@ -74,7 +78,7 @@ function checkIfStoelBestaat($vluchtnummer, $stoel) {
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':stoel', $stoel, PDO::PARAM_STR);
     $stmt->bindParam(':vluchtnummer', $vluchtnummer, PDO::PARAM_INT);
-    $stmt->execute();;
+    $stmt->execute();
     $result = $stmt->fetchAll();
     return count($result) > 0;
 }

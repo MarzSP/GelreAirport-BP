@@ -21,7 +21,6 @@ function insertVlucht($vluchtnummer, $bestemming, $max_aantal, $max_gewicht_pp, 
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) {
             header('Location: ../Views/nieuwvlucht.php?foutmelding=Vluchtnummer al in gebruik. Kies een ander vluchtnummer.');
-            $_SESSION['foutmelding'] = "Vlucht met vluchtnummer $vluchtnummer kan niet worden toegevoegd omdat dit vluchtnummer al in gebruik is. Kies een andere.";
         } else {
             header('Location: ../Views/nieuwvlucht.php?foutmelding=Vlucht+kon+niet+worden+toegevoegd.');
             throw $e;
