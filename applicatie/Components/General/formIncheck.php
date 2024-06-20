@@ -1,5 +1,6 @@
 <?php
-
+// Deze functie genereert (renders) een formulier voor het inchecken van een passagier en baggage gegevens. Deze kan zowel door passagiers gebruikt worden als medewerkers.
+// Door $typeOfForm te gebruiken, wordt het formulier aangepas voor een medewerker of passagier.
 function renderFormInCheck($typeOfForm)
 {
     ?>

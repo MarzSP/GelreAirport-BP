@@ -1,5 +1,5 @@
 <?php
-
+// Dit is een functie die een zoektabel genereerd (renders). Deze wordt 3x keer gebruikt, voor zoeken op vertrektijd, luchthaven en vluchtnummer.
 function renderStaffZoekTabel($flight_data)
 {
     if (count($flight_data) > 0) {
