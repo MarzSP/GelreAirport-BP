@@ -5,8 +5,8 @@
 /* Alle CSS bestanden in de directory Styles zijn gevalideerd in de W3 CSS Validation Service. Deze bevatten geen errors.
 /* Main body CSS styles */
 main {
-
   background-size: cover;
+  scroll-behavior: smooth;
 }
 
 body {
