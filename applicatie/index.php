@@ -42,7 +42,7 @@
             </form>
 
             <?php
-            include 'Controllers/vluchtinfo.php';
+            include 'DB/vluchtinfo.php';
             include 'Components/General/vluchtinformatie.php';
             $data = getVluchtInformatie($_GET['zoekVluchtnummer'] ?? '');
 
