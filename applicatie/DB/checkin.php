@@ -107,7 +107,7 @@ function checkin($vluchtnummer, $passagiernummer, $gewichten)
 }
 
 function checkIfVolleVlucht($vluchtnummer) {
-    $sql = <<<SQL
+    $sql = "
 SELECT
     p.vluchtnummer,
     COUNT(stoel) AS aantal_stoelen,
@@ -118,7 +118,7 @@ where p.vluchtnummer = ?
 GROUP BY
     p.vluchtnummer,
     V.max_aantal
-SQL;
+";
     $db = maakVerbinding();
 
     $stmt = $db->prepare($sql);
