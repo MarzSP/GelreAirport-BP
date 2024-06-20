@@ -1,6 +1,4 @@
-<?php
-//ToDo: Marz: CSS Success bericht + error bericht kleuren
-?>
+<!-- Alle Views zijn gevalideert in de W3 HTML Validator -->
 
 <?php require_once "includes.php" ?>
 <!DOCTYPE html>
@@ -44,7 +42,7 @@
             </form>
 
             <?php
-            include 'Controllers/vluchtinfo.php';
+            include 'DB/vluchtinfo.php';
             include 'Components/General/vluchtinformatie.php';
             $data = getVluchtInformatie($_GET['zoekVluchtnummer'] ?? '');
 

@@ -1,5 +1,5 @@
 <?php
-
+// Deze functie wordt gebruikt voor de controller _nieuwvlucht.php die wordt aangeroepen vanuit de view nieuwvlucht.php - voor een medewerker die een vlucht toevoegd.
 function insertVlucht($vluchtnummer, $bestemming, $max_aantal, $max_gewicht_pp, $max_totaalgewicht, $dateTimeObject, $maatschappijcode) {
     $db = maakVerbinding();
         $sql = "INSERT INTO Vlucht (vluchtnummer, bestemming, max_aantal, max_gewicht_pp, max_totaalgewicht, vertrektijd, maatschappijcode)

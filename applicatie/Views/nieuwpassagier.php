@@ -38,7 +38,7 @@
         try {
             $db = maakVerbinding();
             $passagiernummer = getNextPassagiernummer($db);
-            echo '<input type="number" id="passagiernummer" name="passagiernummer" value="' . htmlspecialchars($passagiernummer) . '" readonly><br>';
+            echo '<input type="number" id="passagiernummer" name="passagiernummer" value="' . htmlspecialchars($passagiernummer, ENT_QUOTES, 'UTF-8') . '" readonly><br>';
         } catch (Exception $e) {
             echo '<input type="number" id="passagiernummer" name="passagiernummer" value="Error" readonly><br>';
             error_log("Fout bij het ophalen van passagiernummer: " . $e->getMessage());

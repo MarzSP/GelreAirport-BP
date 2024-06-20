@@ -34,7 +34,7 @@ function getBaggageInfo($vluchtnummer)
         where v.vluchtnummer = ?';
 
     $result = $db->prepare($sql);
-    $result->bindValue(1, $vluchtnummer);
+    $result->bindValue(1, $vluchtnummer, PDO::PARAM_INT);
     $result->execute();
 
     return $result->fetch(PDO::FETCH_ASSOC);
@@ -80,9 +80,9 @@ function checkin($vluchtnummer, $passagiernummer, $gewichten)
     } elseif (count($gewichten) > $maxObjecten) {
         $_SESSION['foutmelding'] = "Het aantal objecten overschrijdt het limiet van $maxObjecten.";
     } else if (checkIfVolleVlucht($vluchtnummer)) {
-         $_SESSION['foutmelding'] = 'vlucht is al volgeboekt';
+         $_SESSION['foutmelding'] = 'Vlucht is al volgeboekt';
      } else if (checkIfGewichtVlucht($vluchtnummer)) {
-         $_SESSION['foutmelding'] = 'vlucht is te zwaar';
+         $_SESSION['foutmelding'] = 'Vlucht is te zwaar';
      } else  {
         foreach ($gewichten as $key => $gewicht) {
             if ($gewicht >= 0) {
@@ -134,15 +134,13 @@ SQL;
     return false;
 }
 function checkIfGewichtVlucht($vluchtnummer) {
-    $sql = <<<SQL
+    $sql = "
 select sum(bo.gewicht) as huidiggewicht, v.vluchtnummer, v.max_totaalgewicht
 from Vlucht v
 	join Passagier p on p.vluchtnummer = v.vluchtnummer
 	join BagageObject bo on p.passagiernummer = bo.passagiernummer
 where v.vluchtnummer = ?
-group by v.vluchtnummer,v.max_totaalgewicht
-
-SQL;
+group by v.vluchtnummer,v.max_totaalgewicht ";
     $db = maakVerbinding();
 
     $stmt = $db->prepare($sql);
