@@ -9,6 +9,7 @@ $rol = $_SESSION['rol'] ?? '';
     <ul>
         <li><a href="../index.php">Home</a></li>
         <?php if ($isLoggedin && $rol === 'medewerker') { ?>
+            <li><a href="../index.php">CheckIn</a></li>
             <li><a href="../Views/medewerker.php">Zoeken</a></li>
             <li><a href="../Views/nieuwvlucht.php">Vlucht+</a></li>
             <li><a href="../Views/nieuwpassagier.php">Passagier+</a></li>

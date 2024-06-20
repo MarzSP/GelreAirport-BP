@@ -18,7 +18,6 @@ include '../Components/General/formIncheck.php';
 <main>
 <!-- Pagina header(column1), en welkomst text(column2) -->
 <?php include '../Components/General/header.php';?>
-
 <?php renderFormInCheck("medewerker") ?>
 
 <!-- Footer onderaan pagina -->
