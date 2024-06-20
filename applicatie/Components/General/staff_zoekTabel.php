@@ -32,7 +32,7 @@ function renderStaffZoekTabel($flight_data)
                 <td>' . htmlspecialchars($flight['max_aantal'], ENT_QUOTES, 'UTF-8') . '</td>
                 <td>' . htmlspecialchars($flight['max_gewicht_pp'], ENT_QUOTES, 'UTF-8') . '</td>
                 <td>' . htmlspecialchars($flight['max_totaalgewicht'], ENT_QUOTES, 'UTF-8') . '</td>
-                <td>' . htmlspecialchars($flight['gatecode'], ENT_QUOTES, 'UTF-8') . '</td>
+                <td>' . $flight['gatecode'] . '</td>
             </tr>';
         }
         echo '</tbody></table></div>';
