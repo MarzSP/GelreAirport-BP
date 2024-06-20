@@ -24,25 +24,27 @@ include '../Components/General/vluchtinformatie.php';
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Controller doet deze
+        // Controller voert de GET uit. Hierna wordt deze ook gesanitized om te voorkomen dat er schadelijke script/code op kan worden uitgevoerd.
     } else if (isset($_GET['vluchtnummer'])) {
+        $vluchtnummer = htmlspecialchars($_GET['vluchtnummer'], ENT_QUOTES, 'UTF-8');
         renderFormInCheck("passagier");
     } else { ?>
         <div class="container4">
             <?php
             include '../DB/checkin.php';
-            $data = getPassagierBoekingen($_SESSION['gebruikersnaam']);
+            $data = getPassagierBoekingen(htmlspecialchars($_SESSION['gebruikersnaam'], ENT_QUOTES, 'UTF-8'));
             ?>
             <h2>Mijn Boekingen</h2>
             <p>Bekijk hier uw aankomende boekingen. Klik op het vluchtnummer om in te checken!</p>
             <?php
             if (count($data)) {
-                renderVluchtInformatieTabel($data, '/Views/passagier.php?vluchtnummer='); // Deze zit in Components/vluchtinformatie.php om herbruikbare code te maken.
+                renderVluchtInformatieTabel($data, '/Views/passagier.php?vluchtnummer='); // In Components/vluchtinformatie.php -> modulair herbruikbare html
             } else { ?>
                 <p>U heeft momenteel geen aankomende vluchten.</p>
             <?php } ?>
         </div>
     <?php } ?>
+
     <?php include '../Components/General/footer.php'; ?>
 </main>
 </body>
