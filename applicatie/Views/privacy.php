@@ -18,7 +18,7 @@
 
 <main>
 <!-- Pagina header(column1), en welkomst text(column2) -->
-    <div class="leftcontainer">
+    <div class="mainBoxLeft">
   
 <h3>Privacyverklaring Beroepsproduct (Leerproject en Onderzoek)</h3>
 <article>

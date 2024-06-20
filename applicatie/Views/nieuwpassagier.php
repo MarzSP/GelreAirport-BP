@@ -19,7 +19,7 @@
 <?php include '../Components/General/header.php';?>
 
 
-<section class="leftcontainer">
+<section class="mainBoxLeft">
     <!-- Formulier: Nieuwe Passagier toevoegen -->
     <h2>Nieuwe Passagier toevoegen</h2>
     <form action="../Controllers/_nieuwpassagier.php" method="post">

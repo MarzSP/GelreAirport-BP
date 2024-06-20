@@ -4,7 +4,7 @@
 function renderFormInCheck($typeOfForm)
 {
     ?>
-    <div class="container4">
+    <div class="extraBox">
         <h2>Inchecken</h2>
         <p>Check hier online in en voeg uw bagage gegevens toe.</p>
         <form id="inchecken-form" action="../Controllers/<?= $typeOfForm ?>.php" method="post">

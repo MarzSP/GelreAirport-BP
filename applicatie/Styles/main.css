@@ -26,9 +26,9 @@ body {
   }
 
   /* Main container links en rechts */
-  .leftcontainer,
-  .rightcontainer,
-  .container4 {
+  .mainBoxLeft,
+  .mainBoxRight,
+  .extraBox {
     background-color: #000;
     box-shadow: 0rem 0rem 0.5rem #02ff8d;
     padding: 0.5rem;
@@ -42,9 +42,9 @@ body {
 @media only screen and (max-width: 768px) {
 
   .container-wrapper,
-  .leftcontainer,
-  .rightcontainer,
-  .container4 {
+  .mainBoxLeft,
+  .mainBoxRight,
+  .extraBox {
     display: block;
     background-color: #000;
     box-shadow: 0rem 0rem 0.5rem #02ff8d;

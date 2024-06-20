@@ -29,7 +29,7 @@ include '../Components/General/vluchtinformatie.php';
         $vluchtnummer = htmlspecialchars($_GET['vluchtnummer'], ENT_QUOTES, 'UTF-8');
         renderFormInCheck("passagier");
     } else { ?>
-        <div class="container4">
+        <div class="extraBox">
             <?php
             include '../DB/checkin.php';
             $data = getPassagierBoekingen(htmlspecialchars($_SESSION['gebruikersnaam'], ENT_QUOTES, 'UTF-8'));

@@ -18,7 +18,7 @@
 <?php include '../Components/General/header.php';?>
 
 
-<section class="leftcontainer">
+<section class="mainBoxLeft">
 <?php require '../Controllers/_nieuwvlucht.php'; ?>
     <!-- Formulier: Nieuwe Vlucht toevoegen-->
     <h2>Nieuwe Vlucht Toevoegen</h2>

@@ -23,7 +23,7 @@
 
 
   <!-- Vlucht gegevens ophalen op vluchtnummer formulier -->
-  <section class="container4">
+  <section class="extraBox">
         <h3>Vluchtgegevens Ophalen: Vluchtnummer</h3>
         <form method="post">
             <label for="vluchtnummer">Vluchtnummer:</label>
@@ -36,7 +36,7 @@
       </section> 
 
 <!-- Vlucht gegevens ophalen op Luchthaven formulier -->
-      <section class="container4">
+      <section class="extraBox">
     <h3>Vluchtgegevens Ophalen: Luchthaven</h3>
     <form method="post" >
         <label for="luchthaven">Luchthavennaam:</label>
@@ -50,7 +50,7 @@
       </section>
 
 <!-- Vlucht gegevens ophalen op Vertrektijd formulier -->
-    <section class="container4">
+    <section class="extraBox">
     <h3>Vluchtgegevens Ophalen: Datum & Tijd</h3>
     <form method="post">
         <label for="datum">Datum:</label>

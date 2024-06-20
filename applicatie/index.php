@@ -27,7 +27,7 @@
     Container2 linker box met vluchtinformatie-->
 
     <section class="container-wrapper">
-        <div class="leftcontainer">
+        <div class="mainBoxLeft">
 
             <!-- Vluchtinfo hier -->
             <h1> Vertrekkende vluchten: </h1>
@@ -55,7 +55,7 @@
         </div>
 
         <!-- Right container box met Algemene informatie -->
-        <div class="rightcontainer">
+        <div class="mainBoxRight">
             <div class="Algemeneinfo">
                 <h1>Algemene Informatie</h1>
                 <!-- De onderdelen van Algemene informatie in een lijst -->
